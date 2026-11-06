@@ -1801,12 +1801,12 @@ html[data-theme="dark"] .theme-toggle__icon--moon {
 .popular-item a {
 	display: flex;
 	align-items: flex-start;
-	gap: 11px;
-	padding: 11px 0;
+	gap: 12px;
+	padding: 14px 0;
 }
 
 .popular-item:first-child a {
-	padding-top: 2px;
+	padding-top: 3px;
 }
 
 .popular-item:last-child a {
@@ -1831,15 +1831,13 @@ html[data-theme="dark"] .theme-toggle__icon--moon {
 }
 
 .popular-item__title {
-	display: -webkit-box;
-	overflow: hidden;
+	display: block;
 	color: var(--ink);
-	font-size: 0.81rem;
+	font-size: 0.84rem;
 	font-weight: 600;
-	line-height: 1.55;
+	line-height: 1.62;
+	text-wrap: pretty;
 	transition: color 0.2s var(--ease);
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 2;
 }
 
 .popular-item a:hover .popular-item__title {
@@ -1849,7 +1847,8 @@ html[data-theme="dark"] .theme-toggle__icon--moon {
 .popular-item__meta {
 	color: var(--muted);
 	font-family: var(--font-mono);
-	font-size: 0.61rem;
+	font-size: 0.63rem;
+	margin-top: 4px;
 }
 
 /* Tag cloud -------------------------------------------------------------- */
@@ -8943,5 +8942,59 @@ html[data-theme="dark"] .hero__edition--dark {
 
 	.home .post-list--home .post-card__excerpt {
 		max-width: 64ch;
+	}
+}
+
+/* Right rail breathing room */
+@media (min-width: 1181px) {
+	.home .home-side--right .widget {
+		padding: 22px;
+	}
+
+	.home .home-side--right .widget-heading {
+		margin-bottom: 20px;
+	}
+
+	.home .home-side--right .popular-item a {
+		gap: 14px;
+		padding: 16px 0;
+	}
+
+	.home .home-side--right .popular-item:first-child a {
+		padding-top: 5px;
+	}
+
+	.home .home-side--right .popular-item:last-child a {
+		padding-bottom: 3px;
+	}
+
+	.home .home-side--right .popular-item__rank {
+		min-width: 18px;
+		padding-top: 3px;
+		font-size: 0.72rem;
+	}
+
+	.home .home-side--right .popular-item__title {
+		font-size: 0.9rem;
+		line-height: 1.68;
+	}
+
+	.home .home-side--right .popular-item__meta {
+		margin-top: 6px;
+		font-size: 0.66rem;
+	}
+}
+
+@media (min-width: 1500px) {
+	.home .content-shell--home {
+		grid-template-columns: 236px minmax(0, 1fr) 300px;
+	}
+
+	.home .home-side--right .widget {
+		padding: 24px;
+	}
+
+	.home .home-side--right .popular-item a {
+		padding: 18px 0;
 	}
 }
