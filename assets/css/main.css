@@ -8240,7 +8240,8 @@ html[data-theme="dark"] .hero__edition--dark {
 	gap: clamp(22px, 4vh, 42px);
 }
 
-.is-home-hero .site-header .container {
+/* One masthead rail across every template, so the nav never jumps between pages. */
+.site-header .container {
 	width: min(1600px, calc(100% - 64px));
 }
 
@@ -8698,9 +8699,12 @@ html[data-theme="dark"] .hero__edition--dark {
 }
 
 @media (max-width: 1180px) {
-	.hero--cover .hero__inner,
-	.is-home-hero .site-header .container {
+	.hero--cover .hero__inner {
 		width: min(1440px, calc(100% - 48px));
+	}
+
+	.site-header .container {
+		width: calc(100% - 48px);
 	}
 
 	.hero__grid {
@@ -8796,7 +8800,7 @@ html[data-theme="dark"] .hero__edition--dark {
 		gap: 20px;
 	}
 
-	.is-home-hero .site-header .container {
+	.site-header .container {
 		width: calc(100% - 40px);
 	}
 
