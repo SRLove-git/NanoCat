@@ -30,21 +30,54 @@
     <span class="hero__scrim"></span><span class="hero__scanlines"></span>
   </div>
   <div class="container hero__inner">
-    <div class="hero__copy">
-      <p class="hero__eyebrow"><span class="status-dot"></span><span class="hero__prompt">cat@nanocat:~$ whoami</span><span class="hero__eyebrow-rule"></span><span class="hero__edition hero__edition--light">MORNING SHIFT / 2026</span><span class="hero__edition hero__edition--dark">NIGHT SHIFT / 2026</span></p>
-      <h1 class="hero__title">写代码，也写<br><span class="hero-mark">猫与生活</span>。</h1>
-      <p class="hero__lead">你好，我是 NanoCat。一名在像素与代码之间反复横跳的前端开发者，偶尔画画，经常吸猫。这里收集技术笔记、二次元碎片和认真生活的证据。</p>
-      <div class="hero__actions"><a class="button button--primary" href="#latest-posts"><span>开始阅读</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="button button--ghost" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5" fill="currentColor" stroke="none"/></svg><span>订阅 RSS</span></a></div>
-      <p class="hero__micro"><span class="hero__micro-line"></span>已经写下 <strong>20</strong> 篇笔记，仍在持续更新</p>
+    <div class="hero__masthead">
+      <span class="hero__issue">ISSUE <strong>01</strong></span>
+      <span class="hero__masthead-rule" aria-hidden="true"></span>
+      <span class="hero__masthead-label">PERSONAL LOG / 2026</span>
+      <span class="hero__masthead-status"><span class="status-dot"></span> ONLINE</span>
     </div>
-    <aside class="hero__panel">
-      <div class="hero__panel-head"><span class="terminal__dots"><i></i><i></i><i></i></span><span>~/profile.json</span><span class="hero__panel-branch">main</span></div>
-      <dl class="hero__panel-list"><div><dt>role</dt><dd>Front-end developer / 猫奴</dd></div><div><dt>stack</dt><dd>CSS / PHP / vanilla JS</dd></div><div><dt>status</dt><dd><span class="status-dot"></span>building in public</dd></div></dl>
-      <p class="hero__panel-note">// 代码、猫，以及把日子过成喜欢的样子。</p>
-      <a class="hero__panel-link" href="#latest-posts"><span>跳到最新文章</span><span>→</span></a>
-    </aside>
+
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <p class="hero__eyebrow"><span class="status-dot"></span><span class="hero__prompt">cat@nanocat:~$ whoami</span><span class="hero__eyebrow-rule"></span><span class="hero__edition hero__edition--light">MORNING SHIFT / 2026</span><span class="hero__edition hero__edition--dark">NIGHT SHIFT / 2026</span></p>
+        <h1 class="hero__title">写代码，也写<br><span class="hero-mark">猫与生活</span>。</h1>
+        <p class="hero__lead">你好，我是 NanoCat。一名在像素与代码之间反复横跳的前端开发者，偶尔画画，经常吸猫。这里收集技术笔记、二次元碎片和认真生活的证据。</p>
+        <div class="hero__actions"><a class="button button--primary" href="#latest-posts"><span>开始阅读</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="button button--ghost" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5" fill="currentColor" stroke="none"/></svg><span>订阅 RSS</span></a></div>
+        <ul class="hero__facts" aria-label="站点数据">
+          <li><strong>20</strong><span>篇笔记</span></li>
+          <li><strong>4</strong><span>个分类</span></li>
+          <li><strong>∞</strong><span>杯咖啡</span></li>
+        </ul>
+      </div>
+
+      <aside class="hero__stack" aria-label="站点速览">
+        <article class="hero-card hero-card--profile">
+          <div class="hero-card__head"><span class="terminal__dots"><i></i><i></i><i></i></span><span>~/profile.json</span><span class="hero-card__branch">main</span></div>
+          <div class="hero-card__identity">
+            <span class="hero-card__avatar"><img src="../assets/images/mascot.svg" alt="" width="64" height="64"></span>
+            <div class="hero-card__who"><strong>NanoCat</strong><span>Front-end developer / 猫奴</span></div>
+            <span class="hero-card__live"><i aria-hidden="true"></i>ONLINE</span>
+          </div>
+          <div class="hero-card__rows"><span><b>stack</b>CSS / PHP / JS</span><span><b>mode</b>building in public</span></div>
+          <a class="hero-card__link" href="#latest-posts"><span>打开最新一篇</span><span>→</span></a>
+        </article>
+        <article class="hero-card hero-card--code">
+          <div class="hero-card__head"><span class="terminal__dots"><i></i><i></i><i></i></span><span>~/hello.sh</span><span class="hero-card__branch">zsh</span></div>
+          <pre class="hero-card__code"><code><span class="hero-card__prompt">$</span> whoami
+<span class="hero-card__out">NanoCat</span>
+<span class="hero-card__prompt">$</span> echo "keep building"
+<span class="hero-card__out">keep building<span class="terminal__cursor"></span></span></code></pre>
+        </article>
+        <span class="hero__sticker"><span>NYA~</span><img src="../assets/images/mascot.svg" alt="" width="76" height="76"></span>
+      </aside>
+    </div>
+
+    <div class="hero__footer">
+      <a class="hero__scroll" href="#latest-posts"><span>SCROLL TO READ</span><i></i></a>
+      <span class="hero__footer-meta">WORDPRESS · AZURE · MADE WITH 猫毛</span>
+      <a class="hero__footer-link" href="#latest-posts">20 NOTES <span>→</span></a>
+    </div>
   </div>
-  <a class="hero__scroll" href="#latest-posts"><span>SCROLL TO READ</span><i></i></a>
 </section>
 
 <main id="primary" class="site-main">

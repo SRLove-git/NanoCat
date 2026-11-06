@@ -3,7 +3,7 @@ Contributors: nanocat
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.2.5
+Stable tag: 1.2.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -78,6 +78,10 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、晨雾的城
 
 == Changelog ==
 
+= 1.2.6 =
+* 重做首页 Hero 布局：杂志式刊头、数据栏、叠层资料 / 终端卡片与底部状态栏。
+* Hero 舞台扩展至 1600px，宽屏更舒展；移动端重新安排标题、数据与按钮的顺序。
+* 保留明暗双版插画、三栏首页与全部内容功能，更新官方截图与静态预览。
 = 1.2.5 =
 * 修复浅色首页顶部导航出现深色矩形背景的问题；移动端下拉菜单仍保留深色玻璃背景。
 
