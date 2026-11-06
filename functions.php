@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'NANOCAT_VERSION' ) ) {
-	define( 'NANOCAT_VERSION', '2.0.0' );
+	define( 'NANOCAT_VERSION', '2.0.1' );
 }
 
 /**

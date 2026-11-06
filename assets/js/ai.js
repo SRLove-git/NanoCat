@@ -765,6 +765,40 @@
 		});
 	}
 
+	function initHero() {
+		var form = document.querySelector('[data-ai-hero-form]');
+		if (!form || form.dataset.aiReady === '1') {
+			return;
+		}
+		form.dataset.aiReady = '1';
+
+		var input = form.querySelector('[data-ai-hero-input]');
+		if (!input) {
+			return;
+		}
+
+		function ask(question) {
+			var text = String(question || '').trim();
+			if (!text) {
+				input.focus();
+				return;
+			}
+			openDialog(text, true);
+			input.value = '';
+		}
+
+		form.addEventListener('submit', function (event) {
+			event.preventDefault();
+			ask(input.value);
+		});
+
+		document.querySelectorAll('[data-ai-hero-prompt]').forEach(function (button) {
+			button.addEventListener('click', function () {
+				ask(button.getAttribute('data-ai-hero-prompt') || '');
+			});
+		});
+	}
+
 	function initSummary() {
 		var companion = document.querySelector('[data-ai-companion]');
 		if (!companion) {
@@ -931,6 +965,7 @@
 	function init() {
 		initConsoles();
 		initDialog();
+		initHero();
 		initSummary();
 		initSelection();
 		renderHistory();

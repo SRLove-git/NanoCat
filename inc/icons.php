@@ -25,6 +25,7 @@ function nanocat_get_icon( $name, $size = 18, $class = '' ) {
 		'arrow-right' => '<path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>',
 		'arrow-left'  => '<path d="M19 12H5"></path><path d="m11 6-6 6 6 6"></path>',
 		'arrow-up'    => '<path d="M12 19V5"></path><path d="m6 11 6-6 6 6"></path>',
+		'arrow-up-right' => '<path d="M7 17 17 7"></path><path d="M8 7h9v9"></path>',
 		'menu'        => '<path d="M4 7h16M4 12h16M4 17h10"></path>',
 		'close'       => '<path d="m6 6 12 12M18 6 6 18"></path>',
 		'clock'       => '<circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5l3 2"></path>',

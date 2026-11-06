@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 function nanocat_get_defaults() {
 	$defaults = array(
 		'hero_enabled'        => true,
-		'hero_eyebrow'        => 'cat@nanocat:~$ whoami',
-		'hero_title'          => '写代码，也写<br><span class="hero-mark">猫与生活</span>。',
-		'hero_text'           => '你好，我是 NanoCat。一名在像素与代码之间反复横跳的前端开发者，偶尔画画，经常吸猫。这里收集技术笔记、二次元碎片和认真生活的证据。',
+		'hero_eyebrow'        => 'NANOCAT INTELLIGENCE',
+		'hero_title'          => '别翻了，<br><span class="hero-mark">直接问</span>。',
+		'hero_text'           => '站内 AI 会翻专栏、Wiki 和每一篇文章，再带着来源回答你。',
 		'hero_primary_label'  => '开始阅读',
 		'hero_primary_url'    => '',
 		'hero_secondary_label' => '订阅 RSS',

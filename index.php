@@ -12,10 +12,6 @@ $nanocat_show_hero = is_home() && get_theme_mod( 'nanocat_hero_enabled', true );
 if ( $nanocat_show_hero ) {
 	get_template_part( 'template-parts/hero' );
 }
-
-if ( is_home() ) {
-	get_template_part( 'template-parts/ai-band' );
-}
 ?>
 
 <main id="primary" class="site-main">
