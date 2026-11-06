@@ -3,7 +3,7 @@ Contributors: nanocat
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -90,6 +90,9 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、海盐色的
 站内检索依赖具体关键词。试试“窗口服务是怎么实现的”“推荐一条从零写内核的路线”，比“介绍一下这个博客”更容易命中文章。
 
 == Changelog ==
+
+= 2.1.1 =
+* 深色模式从墨绿调整为石墨夜空 + 冰蓝灰，减弱绿色存在感；浅色海盐薄荷保持不变。
 
 = 2.1.0 =
 * 全新海盐薄荷配色：浅色纸张、青绿主色与柔和天空蓝，浅色首页改为明亮通透的编辑式 Hero。
@@ -186,3 +189,4 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、海盐色的
 * 图标：主题内置手绘线性 SVG，GPLv2 or later。
 * 字体：使用系统字体栈，不加载外部字体。
 * 测试环境：WordPress 7.1.4、PHP 8.4；主题最低要求 WordPress 6.2、PHP 7.4。
+

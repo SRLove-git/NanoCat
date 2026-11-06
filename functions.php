@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'NANOCAT_VERSION' ) ) {
-	define( 'NANOCAT_VERSION', '2.1.0' );
+	define( 'NANOCAT_VERSION', '2.1.1' );
 }
 
 /**
@@ -128,7 +128,7 @@ function nanocat_color_mode_script() {
 
 		var meta = document.getElementById('nanocat-theme-color');
 		if (meta) {
-			meta.setAttribute('content', mode === 'dark' ? '#071512' : '#f4fbf7');
+			meta.setAttribute('content', mode === 'dark' ? '#090d13' : '#f4fbf7');
 		}
 	}());
 	</script>
@@ -261,3 +261,5 @@ require get_template_directory() . '/inc/wiki.php';
 require get_template_directory() . '/inc/links.php';
 require get_template_directory() . '/inc/content-admin.php';
 require get_template_directory() . '/inc/customizer.php';
+
+

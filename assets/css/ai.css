@@ -78,7 +78,7 @@
 }
 
 .is-home-hero .ai-trigger:hover {
-	border-color: rgba(155, 227, 212, 0.58);
+	border-color: rgba(184, 212, 244, 0.58);
 	background: rgba(4, 10, 18, 0.55);
 }
 
@@ -120,8 +120,8 @@
 	position: absolute;
 	inset: 0;
 	background-image:
-		linear-gradient(rgba(155, 227, 212, 0.04) 1px, transparent 1px),
-		linear-gradient(90deg, rgba(155, 227, 212, 0.04) 1px, transparent 1px);
+		linear-gradient(rgba(184, 212, 244, 0.04) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(184, 212, 244, 0.04) 1px, transparent 1px);
 	background-size: 44px 44px;
 	mask-image: linear-gradient(90deg, transparent 0%, #000 32%, #000 100%);
 	content: "";
@@ -148,7 +148,7 @@
 
 .ai-band__kicker span {
 	color: #b9dcff;
-	text-shadow: 0 0 16px rgba(155, 227, 212, 0.7);
+	text-shadow: 0 0 16px rgba(184, 212, 244, 0.7);
 }
 
 .ai-band__title {
@@ -171,7 +171,7 @@
 	gap: 10px;
 	width: 100%;
 	padding: 11px 13px;
-	border: 1px solid rgba(155, 227, 212, 0.28);
+	border: 1px solid rgba(184, 212, 244, 0.28);
 	border-radius: 12px;
 	background: rgba(255, 255, 255, 0.07);
 	color: #eef7ff;
@@ -185,7 +185,7 @@
 }
 
 .ai-band__ask:hover {
-	border-color: rgba(155, 227, 212, 0.62);
+	border-color: rgba(184, 212, 244, 0.62);
 	background: rgba(255, 255, 255, 0.11);
 }
 
@@ -246,7 +246,7 @@
 	align-items: center;
 	gap: 10px;
 	padding: 10px 0 10px 20px;
-	border-left: 1px solid rgba(155, 227, 212, 0.18);
+	border-left: 1px solid rgba(184, 212, 244, 0.18);
 	color: #d8ebff;
 	font-family: var(--font-mono);
 	font-size: 0.64rem;
@@ -295,7 +295,7 @@
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	border: 1px solid rgba(155, 227, 212, 0.24);
+	border: 1px solid rgba(184, 212, 244, 0.24);
 	border-radius: 24px;
 	background: var(--surface);
 	box-shadow:
@@ -650,7 +650,7 @@ body.is-ai-open {
 .ai-msg__body pre {
 	margin: 1em 0;
 	padding: 14px 16px;
-	border: 1px solid rgba(155, 227, 212, 0.12);
+	border: 1px solid rgba(184, 212, 244, 0.12);
 	border-radius: 10px;
 	background: #071321;
 	color: #dcecff;
@@ -889,7 +889,7 @@ html[data-theme="dark"] .ai-msg__error {
 	border: 1px solid rgba(47, 158, 138, 0.2);
 	border-radius: 18px;
 	background:
-		radial-gradient(520px 160px at 100% 0%, rgba(47, 158, 138, 0.11), transparent 72%),
+		radial-gradient(520px 160px at 100% 0%, rgba(47, 158, 138, 0.05), transparent 72%),
 		var(--surface);
 	overflow: hidden;
 }
@@ -1046,7 +1046,7 @@ html[data-theme="dark"] .ai-msg__error {
 	align-items: center;
 	gap: 7px;
 	padding: 8px 11px;
-	border: 1px solid rgba(155, 227, 212, 0.3);
+	border: 1px solid rgba(184, 212, 244, 0.3);
 	border-radius: 8px;
 	background: #081624;
 	color: #eef7ff;
@@ -1204,11 +1204,11 @@ html[data-theme="dark"] .ai-msg__error {
 	place-items: center;
 	width: 37%;
 	aspect-ratio: 1;
-	border: 1px solid rgba(155, 227, 212, 0.28);
+	border: 1px solid rgba(184, 212, 244, 0.28);
 	border-radius: 50%;
 	background:
 		radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.32), transparent 38%),
-		linear-gradient(145deg, #69d4c0, #2f9e8a 52%, #0d3a32 78%, #071512);
+		linear-gradient(145deg, #69d4c0, #2f9e8a 52%, #0d3a32 78%, #080c12);
 	color: #fff;
 	font-size: clamp(2.4rem, 5vw, 4.4rem);
 	box-shadow:
@@ -1926,11 +1926,11 @@ html[data-theme="dark"] .ai-msg__error {
 	width: 38px;
 	height: 1px;
 	margin: 0 4px;
-	background: rgba(155, 227, 212, 0.35);
+	background: rgba(184, 212, 244, 0.35);
 }
 
 .hero-ai__eyebrow-note {
-	color: rgba(155, 227, 212, 0.62);
+	color: rgba(184, 212, 244, 0.62);
 }
 
 .hero-ai__title {
@@ -1970,7 +1970,7 @@ html[data-theme="dark"] .ai-msg__error {
 	padding: 10px 10px 10px 20px;
 	overflow: hidden;
 	background: rgba(5, 15, 27, 0.8);
-	border: 1px solid rgba(155, 227, 212, 0.24);
+	border: 1px solid rgba(184, 212, 244, 0.24);
 	border-radius: 19px;
 	box-shadow:
 		0 28px 70px rgba(0, 0, 0, 0.35),
@@ -1992,7 +1992,7 @@ html[data-theme="dark"] .ai-msg__error {
 }
 
 .hero-ai__ask:focus-within {
-	border-color: rgba(155, 227, 212, 0.62);
+	border-color: rgba(184, 212, 244, 0.62);
 	box-shadow:
 		0 30px 80px rgba(0, 0, 0, 0.4),
 		0 0 0 4px rgba(47, 158, 138, 0.13),
@@ -2007,7 +2007,7 @@ html[data-theme="dark"] .ai-msg__error {
 	place-items: center;
 	color: #9be3d4;
 	background: rgba(47, 158, 138, 0.14);
-	border: 1px solid rgba(155, 227, 212, 0.22);
+	border: 1px solid rgba(184, 212, 244, 0.22);
 	border-radius: 10px;
 }
 
@@ -2075,7 +2075,7 @@ html[data-theme="dark"] .ai-msg__error {
 	padding: 9px 12px;
 	color: rgba(213, 232, 251, 0.72);
 	background: rgba(9, 24, 42, 0.48);
-	border: 1px solid rgba(155, 227, 212, 0.14);
+	border: 1px solid rgba(184, 212, 244, 0.14);
 	border-radius: 999px;
 	font-family: var(--font-sans);
 	font-size: 0.72rem;
@@ -2092,7 +2092,7 @@ html[data-theme="dark"] .ai-msg__error {
 .hero-ai__suggestion:hover {
 	color: #f2f8ff;
 	background: rgba(47, 158, 138, 0.14);
-	border-color: rgba(155, 227, 212, 0.4);
+	border-color: rgba(184, 212, 244, 0.4);
 }
 
 .hero-ai__meta {
@@ -2129,7 +2129,7 @@ html[data-theme="dark"] .ai-msg__error {
 
 .hero-ai__count {
 	flex: 0 0 auto;
-	color: rgba(155, 227, 212, 0.58);
+	color: rgba(184, 212, 244, 0.58);
 	font-family: var(--font-mono);
 	font-size: 0.64rem;
 	letter-spacing: 0.05em;
@@ -2431,8 +2431,8 @@ html[data-theme="light"] .hero__scroll i {
 
 /* clean, solid ask surface */
 .hero-ai__ask {
-	background: rgba(7, 24, 20, 0.82);
-	border-color: rgba(155, 227, 212, 0.24);
+	background: rgba(7, 11, 17, 0.86);
+	border-color: rgba(184, 212, 244, 0.24);
 	border-radius: 18px;
 }
 
@@ -2441,7 +2441,7 @@ html[data-theme="light"] .hero__scroll i {
 }
 
 .hero-ai__ask:focus-within {
-	border-color: rgba(155, 227, 212, 0.68);
+	border-color: rgba(184, 212, 244, 0.68);
 	box-shadow:
 		0 24px 60px rgba(0, 0, 0, 0.32),
 		0 0 0 4px rgba(47, 158, 138, 0.16);
@@ -2580,3 +2580,106 @@ html[data-theme="light"] .hero-ai__deck .hero-card--profile .hero-card__live {
 }
 
 
+
+
+
+/* --------------------------------------------------------------------------
+ * 28. Graphite night: keep the dark theme quiet, icy and never green-cast
+ * ----------------------------------------------------------------------- */
+html[data-theme="dark"] .hero-ai__ask {
+	background: rgba(7, 11, 17, 0.86);
+	border-color: rgba(184, 212, 244, 0.24);
+}
+
+html[data-theme="dark"] .hero-ai__ask:focus-within {
+	border-color: rgba(184, 212, 244, 0.6);
+	box-shadow:
+		0 24px 60px rgba(0, 0, 0, 0.42),
+		0 0 0 4px rgba(140, 180, 216, 0.12);
+}
+
+html[data-theme="dark"] .hero-ai__ask-icon {
+	color: #c7dcf0;
+	background: rgba(140, 180, 216, 0.14);
+}
+
+html[data-theme="dark"] .hero-ai__ask input {
+	color: var(--ink);
+}
+
+html[data-theme="dark"] .hero-ai__ask input::placeholder {
+	color: var(--muted);
+}
+
+html[data-theme="dark"] .hero-ai__submit {
+	color: #07111c;
+	background: #8cb4d8;
+}
+
+html[data-theme="dark"] .hero-ai__submit:hover {
+	background: #c7dcf0;
+}
+
+html[data-theme="dark"] .hero-ai__suggestion {
+	border-color: rgba(184, 212, 244, 0.16);
+	background: rgba(17, 25, 35, 0.72);
+}
+
+html[data-theme="dark"] .hero-ai__suggestion:hover {
+	border-color: rgba(184, 212, 244, 0.36);
+	background: rgba(23, 33, 45, 0.9);
+}
+
+html[data-theme="dark"] .hero-ai__ask::before {
+	background: radial-gradient(ellipse, rgba(140, 180, 216, 0.16), transparent 70%);
+}
+
+html[data-theme="dark"] .ai-orbit__core {
+	background:
+		radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.24), transparent 38%),
+		linear-gradient(145deg, #b8d4f4, #5a83ab 46%, #1a2a3b 78%, #090d13);
+	box-shadow:
+		0 0 80px rgba(140, 180, 216, 0.24),
+		inset 0 0 40px rgba(7, 17, 28, 0.6);
+}
+
+html[data-theme="dark"] .ai-msg--user {
+	border-color: rgba(184, 212, 244, 0.18);
+	background: rgba(140, 180, 216, 0.11);
+}
+
+html[data-theme="dark"] .ai-trigger {
+	border-color: rgba(184, 212, 244, 0.18);
+	background: rgba(9, 14, 21, 0.48);
+}
+
+
+html[data-theme="dark"] .ai-dialog::backdrop {
+	background:
+		radial-gradient(900px 500px at 50% 0%, rgba(140, 180, 216, 0.14), transparent 65%),
+		rgba(3, 8, 16, 0.78);
+}
+
+html[data-theme="dark"] .ai-dialog__head {
+	background:
+		linear-gradient(115deg, rgba(140, 180, 216, 0.1), transparent 48%),
+		var(--surface);
+}
+
+html[data-theme="dark"] .ai-page-view {
+	background:
+		radial-gradient(760px 420px at 82% -4%, rgba(140, 180, 216, 0.12), transparent 70%),
+		radial-gradient(680px 440px at 0% 18%, rgba(124, 196, 210, 0.06), transparent 70%),
+		var(--paper);
+}
+
+html[data-theme="dark"] .ai-companion {
+	border-color: rgba(184, 212, 244, 0.16);
+	background:
+		radial-gradient(520px 160px at 100% 0%, rgba(140, 180, 216, 0.1), transparent 72%),
+		var(--surface);
+}
+
+html[data-theme="dark"] .ai-companion__mark {
+	border-color: rgba(184, 212, 244, 0.24);
+}
