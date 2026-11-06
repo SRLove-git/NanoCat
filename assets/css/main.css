@@ -9004,3 +9004,29 @@ html[data-theme="dark"] .hero__edition--dark {
 		padding: 18px 0;
 	}
 }
+
+/* Wide article layout: use the same 1600px rail as the homepage and let the
+   reading column grow while keeping a fixed right-hand TOC rail. */
+@media (min-width: 1201px) {
+	.single .entry-hero__inner,
+	.single .entry-cover-wrap,
+	.single .entry-shell {
+		width: min(1600px, calc(100% - 64px));
+	}
+
+	.single .entry-shell {
+		width: min(1600px, calc(100% - 64px));
+		grid-template-columns: minmax(0, 1fr) 300px;
+		gap: clamp(40px, 4vw, 72px);
+	}
+
+	.single .entry-main {
+		max-width: 1100px;
+	}
+
+	.single .entry-title,
+	.single .entry-deck,
+	.single .entry-meta {
+		max-width: 1100px;
+	}
+}
