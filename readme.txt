@@ -3,7 +3,7 @@ Contributors: nanocat
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -18,7 +18,7 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、晨雾的城
 
 * 响应式布局，桌面、平板和手机都有单独调整。
 * 浅色 / 深色模式，支持跟随系统，也会记住访客的选择。
-* 首页 Hero：全屏明暗双版插画上方直接放置一个大号 AI 输入框；提问后在全局对话中流式回答，并可继续追问。
+* 首页 Hero：全屏明暗双版插画上方直接放置一个大号 AI 输入框，并保留个人资料与终端两张信息卡；提问后在全局对话中流式回答，并可继续追问。
 * AI 原生体验：页头“问 AI”或 `⌘/Ctrl K` 打开全局对话；回答以 SSE 流式呈现并附带站内来源，支持会话历史与随时停止。
 * 文章 AI 伴读：自动生成摘要，可一键“三句话总结 / 列出要点 / 讲人话 / 考考我”，选中正文可直接追问。
 * AI 工作台：独立的 `/ai/` 页面，包含大对话区、知识地图、最近提问和最新文章；首次启用自动创建。
@@ -90,6 +90,10 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、晨雾的城
 站内检索依赖具体关键词。试试“窗口服务是怎么实现的”“推荐一条从零写内核的路线”，比“介绍一下这个博客”更容易命中文章。
 
 == Changelog ==
+
+= 2.0.2 =
+* 首页 AI Hero 恢复个人资料与终端两张信息卡；标题改为“让整座博客，回答你。”。
+* 保留大提问框、建议问题与首屏状态栏，并压缩卡片间距，让提问框稳定出现在首屏。
 
 = 2.0.1 =
 * 首页 Hero 改为 AI 主入口：移除独立的 AI 信息带，把大号提问框、建议问题与知识库状态放进首屏。
