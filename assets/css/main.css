@@ -3701,7 +3701,7 @@ html[data-theme="dark"] .theme-toggle__icon--moon {
 	border: 1px solid var(--ink);
 	border-radius: 10px;
 	color: var(--paper);
-	font-size: 0.76rem;
+	font-size: 0.82rem;
 	font-weight: 600;
 	transition: all 0.2s var(--ease);
 }
@@ -5121,7 +5121,7 @@ html[data-theme="dark"] .site-footer {
 
 .topic-entry__title {
 	margin-top: 6px;
-	font-size: 1.34rem;
+	font-size: 1.42rem;
 	letter-spacing: -0.03em;
 }
 
@@ -5546,7 +5546,7 @@ html[data-theme="dark"] .site-footer {
 	gap: 10px;
 	padding: 7px 0;
 	color: var(--muted);
-	font-size: 0.76rem;
+	font-size: 0.82rem;
 }
 
 .wiki-sidebar__other a span {
@@ -5709,7 +5709,7 @@ html[data-theme="dark"] .site-footer {
 .links-admin p:last-child {
 	margin-top: 2px;
 	color: var(--muted);
-	font-size: 0.76rem;
+	font-size: 0.82rem;
 }
 
 .friend-feed {
@@ -7067,7 +7067,7 @@ html[data-theme="dark"] .site-footer {
 	}
 
 	.entry-content h2 {
-		font-size: 1.34rem;
+		font-size: 1.42rem;
 	}
 
 	.entry-content h3 {
@@ -9329,4 +9329,84 @@ html[data-theme="dark"] .entry-hero {
 	.entry-hero .entry-meta__item {
 		white-space: normal;
 	}
+}
+
+/* Readable hero dossier cards */
+.hero-card {
+	font-size: 0.86rem;
+}
+
+.hero-card--profile {
+	padding: 20px 21px 18px;
+}
+
+.hero-card__head {
+	padding-bottom: 14px;
+	font-size: 0.74rem;
+}
+
+.hero-card__branch {
+	font-size: 0.66rem;
+}
+
+.hero-card__identity {
+	gap: 14px;
+	padding-top: 18px;
+}
+
+.hero-card__avatar {
+	width: 58px;
+	height: 58px;
+}
+
+.hero-card__who strong {
+	font-size: 1.42rem;
+}
+
+.hero-card__who span {
+	color: rgba(217, 234, 246, 0.7);
+	font-size: 0.78rem;
+}
+
+.hero-card__live {
+	padding: 6px 9px;
+	font-size: 0.66rem;
+}
+
+.hero-card__rows {
+	gap: 9px;
+	margin-top: 18px;
+	padding-top: 15px;
+	font-size: 0.82rem;
+}
+
+.hero-card__rows span {
+	gap: 14px;
+}
+
+.hero-card__rows b {
+	width: 48px;
+	color: rgba(153, 201, 255, 0.68);
+	font-size: 0.74rem;
+}
+
+.hero-card__link {
+	margin-top: 16px;
+	padding-top: 14px;
+	font-size: 0.78rem;
+}
+
+.hero-card--code {
+	padding: 16px 18px 17px;
+}
+
+.hero-card__code {
+	margin-top: 12px;
+	font-size: 0.84rem;
+	line-height: 1.85;
+}
+
+.hero-card__code .terminal__cursor {
+	width: 6px;
+	height: 12px;
 }
