@@ -8919,3 +8919,29 @@ html[data-theme="dark"] .hero__edition--dark {
 		backdrop-filter: blur(12px) saturate(120%);
 	}
 }
+
+/* Wide home stage: use the same 1600px rail as the masthead, and keep the
+   side rails in view while the article stream scrolls. */
+@media (min-width: 1201px) {
+	.home .site-main > .container {
+		width: min(1600px, calc(100% - 64px));
+	}
+}
+
+@media (min-width: 1500px) and (min-height: 1100px) {
+	.home .home-side {
+		position: sticky;
+		top: calc(var(--header-h) + 24px);
+		align-self: start;
+	}
+}
+
+@media (min-width: 1600px) {
+	.home .post-list--home .post-card {
+		grid-template-columns: 240px minmax(0, 1fr);
+	}
+
+	.home .post-list--home .post-card__excerpt {
+		max-width: 64ch;
+	}
+}
