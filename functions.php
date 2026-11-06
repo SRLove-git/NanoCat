@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'NANOCAT_VERSION' ) ) {
-	define( 'NANOCAT_VERSION', '2.1.1' );
+	define( 'NANOCAT_VERSION', '3.0.0' );
 }
 
 /**
@@ -208,8 +208,8 @@ function nanocat_body_classes( $classes ) {
 		$classes[] = 'is-reader-view';
 	}
 
-	if ( is_home() && get_theme_mod( 'nanocat_hero_enabled', true ) ) {
-		$classes[] = 'is-home-hero';
+	if ( is_home() ) {
+		$classes[] = 'is-ai-home';
 	}
 
 	return $classes;

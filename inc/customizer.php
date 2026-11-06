@@ -76,73 +76,16 @@ function nanocat_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'nanocat_hero_section',
 		array(
-			'title'       => __( '首页 Hero', 'nanocat' ),
-			'description' => __( '仅在默认博客首页且位于第一页时显示。', 'nanocat' ),
+			'title'       => __( '首页 AI', 'nanocat' ),
+			'description' => __( '首页第一屏的 AI 标题与提问区；文章索引紧随其后。', 'nanocat' ),
 			'panel'       => 'nanocat_options',
 			'priority'    => 10,
 		)
 	);
 
-	$wp_customize->add_setting(
-		'nanocat_hero_enabled',
-		array(
-			'default'           => true,
-			'sanitize_callback' => 'nanocat_sanitize_checkbox',
-		)
-	);
-
-	$wp_customize->add_control(
-		'nanocat_hero_enabled',
-		array(
-			'label'   => __( '显示首页 Hero', 'nanocat' ),
-			'section' => 'nanocat_hero_section',
-			'type'    => 'checkbox',
-		)
-	);
-
-	$wp_customize->add_setting(
-		'nanocat_hero_image',
-		array(
-			'default'           => get_template_directory_uri() . '/assets/images/hero-night.svg',
-			'sanitize_callback' => 'esc_url_raw',
-		)
-	);
-
-	$wp_customize->add_control(
-		new WP_Customize_Image_Control(
-			$wp_customize,
-			'nanocat_hero_image',
-			array(
-				'label'       => __( '深色模式头图', 'nanocat' ),
-				'description' => __( '深色主题下使用；建议 1920×1080 以上横向图片，左侧会叠加深色蒙版以承载标题。', 'nanocat' ),
-				'section'     => 'nanocat_hero_section',
-			)
-		)
-	);
-
-	$wp_customize->add_setting(
-		'nanocat_hero_image_light',
-		array(
-			'default'           => get_template_directory_uri() . '/assets/images/hero-light.svg',
-			'sanitize_callback' => 'esc_url_raw',
-		)
-	);
-
-	$wp_customize->add_control(
-		new WP_Customize_Image_Control(
-			$wp_customize,
-			'nanocat_hero_image_light',
-			array(
-				'label'       => __( '浅色模式头图', 'nanocat' ),
-				'description' => __( '浅色主题下使用；会随右上角主题按钮自动切换。建议与深色头图保持相近构图。', 'nanocat' ),
-				'section'     => 'nanocat_hero_section',
-			)
-		)
-	);
-
 	$text_controls = array(
 		'nanocat_hero_eyebrow' => array(
-			'label'   => __( '眉题 / 终端提示', 'nanocat' ),
+			'label'   => __( '眉题 / 状态小字', 'nanocat' ),
 			'default' => nanocat_get_default( 'hero_eyebrow' ),
 			'type'    => 'text',
 		),

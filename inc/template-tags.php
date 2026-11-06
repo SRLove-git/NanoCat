@@ -18,8 +18,8 @@ function nanocat_get_defaults() {
 	$defaults = array(
 		'hero_enabled'        => true,
 		'hero_eyebrow'        => 'NANOCAT INTELLIGENCE',
-		'hero_title'          => '让整座博客，<br><span class="hero-mark">回答你</span>。',
-		'hero_text'           => '站内 AI 会翻专栏、Wiki 和每一篇文章，再带着来源回答你。',
+		'hero_title'          => '不用翻页，<br><span class="hero-mark">直接问</span>。',
+		'hero_text'           => '这是一个可以被提问的博客。站内 AI 会检索每一篇笔记、专栏和 Wiki，再带着出处回答。',
 		'hero_primary_label'  => '开始阅读',
 		'hero_primary_url'    => '',
 		'hero_secondary_label' => '订阅 RSS',
