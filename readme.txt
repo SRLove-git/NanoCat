@@ -3,7 +3,7 @@ Contributors: nanocat
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -12,13 +12,13 @@ Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar,
 
 == Description ==
 
-NanoCat 是一套为个人博客准备的主题：有午夜的城、窗边的猫和蔚蓝 / 钢蓝的冷峻配色，也有程序员喜欢的等宽字体、代码块和清楚的层级。没有夸张的动效，没有外部字体和 CDN，打开就能用。
+NanoCat 是一套为个人博客准备的主题：有午夜的城、晨雾的城、窗边的猫和蔚蓝 / 钢蓝的冷峻配色，也有程序员喜欢的等宽字体、代码块和清楚的层级。没有夸张的动效，没有外部字体和 CDN，打开就能用。
 
 主要特性：
 
 * 响应式布局，桌面、平板和手机都有单独调整。
 * 浅色 / 深色模式，支持跟随系统，也会记住访客的选择。
-* 首页 Hero：全屏原创夜景插画、玻璃个人面板、可自定义大图、文案与按钮。
+* 首页 Hero：全屏原创明暗双版插画，随浅色 / 深色主题自动切换，也可在定制器中分别替换。
 * 首页三栏：左侧资料与分类、中间横版文章流、右侧热门与标签；两侧均可切换为小工具。
 * 侧边栏：个人资料、热门文章、标签云、引用卡片；也可以切换到小工具。
 * 文章页：阅读进度、自动目录（h2/h3）、代码一键复制、分享 / 复制链接、作者卡片、上下篇、相关文章。
@@ -48,6 +48,10 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、窗边的猫
 
 外观 → 自定义 → NanoCat 主题选项 → 首页 Hero。标题支持 `<br>`、`<span>`、`<em>`、`<strong>` 和 `<b>`。
 
+= 首页头图会随浅色 / 深色主题切换吗？ =
+
+会。浅色模式使用 `assets/images/hero-light.svg`，深色模式使用 `assets/images/hero-night.svg`；在“外观 → 自定义 → NanoCat 主题选项 → 首页 Hero”中可以分别上传“浅色模式头图”和“深色模式头图”。
+
 = 为什么侧边栏没有显示我添加的小工具？ =
 
 首页有“首页左栏”和“首页右栏”两个小工具区域，文章归档页使用“侧边栏”。不添加小工具时，主题会显示内置的个人资料、分类、专栏、热门文章、Wiki 与标签内容；添加任意小工具后自动切换。
@@ -73,6 +77,10 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、窗边的猫
 友链的 RSS 与健康状态使用缓存，首次启用或新增链接后需要到“外观 → NanoCat 内容”点击“立即刷新”，之后每 12 小时自动更新。
 
 == Changelog ==
+
+= 1.2.3 =
+* 首页头图新增明暗双版：浅色模式使用晨雾城市插画，深色模式保留夜景插画。
+* 新增“浅色模式头图”定制器设置；原有“首页大图”改为“深色模式头图”。
 
 = 1.2.2 =
 * 首页改为“左栏 / 文章 / 右栏”三栏结构，新增首页左栏、右栏两个小工具区域。

@@ -113,8 +113,28 @@ function nanocat_customize_register( $wp_customize ) {
 			$wp_customize,
 			'nanocat_hero_image',
 			array(
-				'label'       => __( '首页大图', 'nanocat' ),
-				'description' => __( '建议使用 1920×1080 以上的横向图片；左侧会叠加深色蒙版以承载标题。', 'nanocat' ),
+				'label'       => __( '深色模式头图', 'nanocat' ),
+				'description' => __( '深色主题下使用；建议 1920×1080 以上横向图片，左侧会叠加深色蒙版以承载标题。', 'nanocat' ),
+				'section'     => 'nanocat_hero_section',
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'nanocat_hero_image_light',
+		array(
+			'default'           => get_template_directory_uri() . '/assets/images/hero-light.svg',
+			'sanitize_callback' => 'esc_url_raw',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'nanocat_hero_image_light',
+			array(
+				'label'       => __( '浅色模式头图', 'nanocat' ),
+				'description' => __( '浅色主题下使用；会随右上角主题按钮自动切换。建议与深色头图保持相近构图。', 'nanocat' ),
 				'section'     => 'nanocat_hero_section',
 			)
 		)

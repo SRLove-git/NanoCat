@@ -12,8 +12,10 @@ $nanocat_primary_text = get_theme_mod( 'nanocat_hero_primary_label', nanocat_get
 $nanocat_primary_url  = get_theme_mod( 'nanocat_hero_primary_url', '' );
 $nanocat_second_text  = get_theme_mod( 'nanocat_hero_secondary_label', nanocat_get_default( 'hero_secondary_label' ) );
 $nanocat_second_url   = get_theme_mod( 'nanocat_hero_secondary_url', '' );
-$nanocat_hero_image   = get_theme_mod( 'nanocat_hero_image', get_template_directory_uri() . '/assets/images/hero-night.svg' );
-$nanocat_role         = get_theme_mod( 'nanocat_profile_role', nanocat_get_default( 'profile_role' ) );
+$nanocat_hero_image_dark  = get_theme_mod( 'nanocat_hero_image', get_template_directory_uri() . '/assets/images/hero-night.svg' );
+$nanocat_hero_image_light = get_theme_mod( 'nanocat_hero_image_light', get_template_directory_uri() . '/assets/images/hero-light.svg' );
+$nanocat_hero_image_light = $nanocat_hero_image_light ? $nanocat_hero_image_light : $nanocat_hero_image_dark;
+$nanocat_role             = get_theme_mod( 'nanocat_profile_role', nanocat_get_default( 'profile_role' ) );
 
 $nanocat_primary_url = $nanocat_primary_url ? $nanocat_primary_url : '#latest-posts';
 $nanocat_second_url  = $nanocat_second_url ? $nanocat_second_url : get_feed_link();
@@ -22,7 +24,8 @@ $nanocat_total_posts = isset( $nanocat_counts->publish ) ? (int) $nanocat_counts
 ?>
 <section class="hero hero--cover" aria-labelledby="hero-title">
 	<div class="hero__backdrop" aria-hidden="true">
-		<img class="hero__image" src="<?php echo esc_url( $nanocat_hero_image ); ?>" alt="" fetchpriority="high" decoding="async">
+		<img class="hero__image hero__image--light" src="<?php echo esc_url( $nanocat_hero_image_light ); ?>" alt="" fetchpriority="high" decoding="async">
+		<img class="hero__image hero__image--dark" src="<?php echo esc_url( $nanocat_hero_image_dark ); ?>" alt="" decoding="async">
 		<span class="hero__scrim"></span>
 		<span class="hero__scanlines"></span>
 	</div>
@@ -33,7 +36,8 @@ $nanocat_total_posts = isset( $nanocat_counts->publish ) ? (int) $nanocat_counts
 				<span class="status-dot" aria-hidden="true"></span>
 				<span class="hero__prompt"><?php echo esc_html( $nanocat_eyebrow ); ?></span>
 				<span class="hero__eyebrow-rule" aria-hidden="true"></span>
-				<span class="hero__edition"><?php esc_html_e( 'NIGHT SHIFT / 2026', 'nanocat' ); ?></span>
+				<span class="hero__edition hero__edition--light"><?php esc_html_e( 'MORNING SHIFT / 2026', 'nanocat' ); ?></span>
+				<span class="hero__edition hero__edition--dark"><?php esc_html_e( 'NIGHT SHIFT / 2026', 'nanocat' ); ?></span>
 			</p>
 
 			<h1 id="hero-title" class="hero__title">

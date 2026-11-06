@@ -7555,6 +7555,18 @@ body.is-home-hero {
 	animation: hero-drift 26s ease-in-out infinite alternate;
 }
 
+.hero__image--dark {
+	display: none;
+}
+
+html[data-theme="dark"] .hero__image--light {
+	display: none;
+}
+
+html[data-theme="dark"] .hero__image--dark {
+	display: block;
+}
+
 @keyframes hero-drift {
 	from {
 		transform: scale(1.02) translate3d(0, 0, 0);
@@ -7570,6 +7582,16 @@ body.is-home-hero {
 	background:
 		linear-gradient(90deg, rgba(4, 9, 14, 0.96) 0%, rgba(4, 9, 14, 0.84) 31%, rgba(4, 9, 14, 0.36) 60%, rgba(4, 9, 14, 0.06) 100%),
 		linear-gradient(180deg, rgba(4, 9, 14, 0.6) 0%, rgba(4, 9, 14, 0.02) 32%, rgba(4, 9, 14, 0.18) 62%, rgba(4, 9, 14, 0.94) 100%);
+}
+
+html[data-theme="light"] .hero__scrim {
+	background:
+		linear-gradient(90deg, rgba(4, 12, 22, 0.82) 0%, rgba(4, 12, 22, 0.62) 34%, rgba(4, 12, 22, 0.16) 64%, rgba(4, 12, 22, 0) 100%),
+		linear-gradient(180deg, rgba(4, 12, 22, 0.42) 0%, rgba(4, 12, 22, 0) 26%, rgba(4, 12, 22, 0.04) 58%, rgba(4, 12, 22, 0.76) 100%);
+}
+
+html[data-theme="light"] .hero__title {
+	text-shadow: 0 2px 30px rgba(4, 9, 14, 0.26);
 }
 
 .hero__scanlines {
@@ -7622,6 +7644,18 @@ body.is-home-hero {
 	color: rgba(47, 125, 246, 0.9);
 	font-size: 0.61rem;
 	letter-spacing: 0.14em;
+}
+
+.hero__edition--dark {
+	display: none;
+}
+
+html[data-theme="dark"] .hero__edition--light {
+	display: none;
+}
+
+html[data-theme="dark"] .hero__edition--dark {
+	display: inline;
 }
 
 .hero--cover .hero__title {
