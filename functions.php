@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'NANOCAT_VERSION' ) ) {
-	define( 'NANOCAT_VERSION', '2.0.2' );
+	define( 'NANOCAT_VERSION', '2.1.0' );
 }
 
 /**
@@ -88,7 +88,7 @@ function nanocat_scripts() {
 	wp_enqueue_style( 'nanocat-style', get_stylesheet_uri(), array(), $theme->get( 'Version' ) );
 	wp_enqueue_style( 'nanocat-main', get_template_directory_uri() . '/assets/css/main.css', array( 'nanocat-style' ), $css_ver );
 
-	$accent = sanitize_hex_color( get_theme_mod( 'nanocat_accent_color', '#2f7df6' ) );
+	$accent = sanitize_hex_color( get_theme_mod( 'nanocat_accent_color', '#2f9e8a' ) );
 	if ( $accent ) {
 		wp_add_inline_style( 'nanocat-main', ':root{--accent-base:' . $accent . ';}' );
 	}
@@ -128,7 +128,7 @@ function nanocat_color_mode_script() {
 
 		var meta = document.getElementById('nanocat-theme-color');
 		if (meta) {
-			meta.setAttribute('content', mode === 'dark' ? '#060e19' : '#f2f7fd');
+			meta.setAttribute('content', mode === 'dark' ? '#071512' : '#f4fbf7');
 		}
 	}());
 	</script>

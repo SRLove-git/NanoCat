@@ -21,7 +21,7 @@ $nanocat_logo    = $nanocat_logo_id ? wp_get_attachment_image(
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="theme-color" content="#f2f7fd" id="nanocat-theme-color">
+	<meta name="theme-color" content="#f4fbf7" id="nanocat-theme-color">
 	<?php wp_head(); ?>
 </head>
 

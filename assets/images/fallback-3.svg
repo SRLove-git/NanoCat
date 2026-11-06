@@ -45,7 +45,7 @@
 		<path d="M180 214h712" stroke="#2c2433" stroke-width="3"/>
 		<g transform="translate(214 187)">
 			<circle cx="0" cy="0" r="7" fill="#66b0ff"/>
-			<circle cx="24" cy="0" r="7" fill="#8fc2ff"/>
+			<circle cx="24" cy="0" r="7" fill="#9be3d4"/>
 			<circle cx="48" cy="0" r="7" fill="#7edbd1"/>
 		</g>
 		<rect x="310" y="172" width="360" height="28" rx="14" fill="#e7f2fb"/>
@@ -96,7 +96,7 @@
 	<g font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="16" font-weight="600">
 		<g transform="translate(90 218) rotate(-5)">
 			<rect width="122" height="42" rx="21" fill="#fffdf9" stroke="#2c2433" stroke-width="3"/>
-			<text x="20" y="27" fill="#2f7df6">&lt;html&gt;</text>
+			<text x="20" y="27" fill="#2f9e8a">&lt;html&gt;</text>
 		</g>
 		<g transform="translate(986 612) rotate(4)">
 			<rect width="112" height="42" rx="21" fill="#fffdf9" stroke="#2c2433" stroke-width="3"/>

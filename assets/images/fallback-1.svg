@@ -32,7 +32,7 @@
 		<path d="M288 204h620" stroke="#4b3d5d" stroke-width="2.5"/>
 		<g transform="translate(322 174)">
 			<circle cx="0" cy="0" r="8" fill="#66b0ff"/>
-			<circle cx="26" cy="0" r="8" fill="#8fc2ff"/>
+			<circle cx="26" cy="0" r="8" fill="#9be3d4"/>
 			<circle cx="52" cy="0" r="8" fill="#7edbd1"/>
 		</g>
 		<text x="430" y="183" fill="#a99bb8" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="17">cat@nanocat: ~/dreams</text>
@@ -45,18 +45,18 @@
 			<text x="558" y="278" fill="#6f9bbd" font-size="22">{</text>
 			<text x="342" y="326" fill="#8c7ca1" font-size="22">02</text>
 			<text x="390" y="326" fill="#eaf4ff" font-size="22">  name:</text>
-			<text x="488" y="326" fill="#8fc2ff" font-size="22">'NanoCat'</text>
+			<text x="488" y="326" fill="#9be3d4" font-size="22">'NanoCat'</text>
 			<text x="622" y="326" fill="#eaf4ff" font-size="22">,</text>
 			<text x="342" y="374" fill="#8c7ca1" font-size="22">03</text>
 			<text x="390" y="374" fill="#eaf4ff" font-size="22">  stack:</text>
 			<text x="486" y="374" fill="#6f9bbd" font-size="22">[</text>
-			<text x="504" y="374" fill="#8fc2ff" font-size="22">'code'</text>
+			<text x="504" y="374" fill="#9be3d4" font-size="22">'code'</text>
 			<text x="580" y="374" fill="#eaf4ff" font-size="22">,</text>
-			<text x="598" y="374" fill="#8fc2ff" font-size="22">'cats'</text>
+			<text x="598" y="374" fill="#9be3d4" font-size="22">'cats'</text>
 			<text x="676" y="374" fill="#6f9bbd" font-size="22">]</text>
 			<text x="342" y="422" fill="#8c7ca1" font-size="22">04</text>
 			<text x="390" y="422" fill="#eaf4ff" font-size="22">  mood:</text>
-			<text x="480" y="422" fill="#8fc2ff" font-size="22">'caffeinated'</text>
+			<text x="480" y="422" fill="#9be3d4" font-size="22">'caffeinated'</text>
 			<text x="342" y="470" fill="#8c7ca1" font-size="22">05</text>
 			<text x="390" y="470" fill="#6f9bbd" font-size="22">}</text>
 			<text x="342" y="532" fill="#7fbcf0" font-size="22">❯</text>

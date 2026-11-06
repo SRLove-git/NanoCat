@@ -5,13 +5,13 @@
  */
 
 :root {
-	--nanocat-editor-accent: #2f7df6;
-	--nanocat-editor-lilac: #5b8db8;
-	--nanocat-editor-cyan: #2ea8b8;
-	--nanocat-editor-paper: #f2f7fd;
+	--nanocat-editor-accent: #2f9e8a;
+	--nanocat-editor-lilac: #5a9b95;
+	--nanocat-editor-cyan: #3aa99f;
+	--nanocat-editor-paper: #f4fbf7;
 	--nanocat-editor-surface: #ffffff;
-	--nanocat-editor-ink: #0f1b2d;
-	--nanocat-editor-muted: #6e8199;
+	--nanocat-editor-ink: #173430;
+	--nanocat-editor-muted: #738c86;
 	--nanocat-editor-line: #d9e4ef;
 }
 

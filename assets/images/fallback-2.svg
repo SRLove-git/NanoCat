@@ -60,7 +60,7 @@
 		<ellipse cx="60" cy="124" rx="10" ry="5" fill="#86c3ff" opacity=".55"/>
 		<ellipse cx="140" cy="124" rx="10" ry="5" fill="#86c3ff" opacity=".55"/>
 		<path d="M74 158c16 8 36 8 52 0" fill="none" stroke="#5fa8f5" stroke-width="7" stroke-linecap="round"/>
-		<circle cx="100" cy="176" r="7" fill="#8fc2ff"/>
+		<circle cx="100" cy="176" r="7" fill="#9be3d4"/>
 	</g>
 
 	<g fill="#9ccfff" opacity=".85">

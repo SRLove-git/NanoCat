@@ -210,7 +210,7 @@ function nanocat_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'nanocat_accent_color',
 		array(
-			'default'           => '#2f7df6',
+			'default'           => '#2f9e8a',
 			'sanitize_callback' => 'sanitize_hex_color',
 		)
 	);

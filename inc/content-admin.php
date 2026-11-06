@@ -228,9 +228,9 @@ function nanocat_render_content_admin() {
 		.nanocat-admin__lead{max-width:760px;color:#646970;font-size:15px;line-height:1.7}
 		.nanocat-admin__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:24px 0}
 		.nanocat-admin__card,.nanocat-admin__panel{background:#fff;border:1px solid #dcdcde;border-radius:12px;padding:22px;box-sizing:border-box}
-		.nanocat-admin__kicker{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.08em;color:#5b8db8}
+		.nanocat-admin__kicker{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.08em;color:#5a9b95}
 		.nanocat-admin__card h2{margin:.35em 0 .2em;font-size:18px}
-		.nanocat-admin__number{font-size:34px;font-weight:800;line-height:1;margin:.4em 0;color:#2f7df6}
+		.nanocat-admin__number{font-size:34px;font-weight:800;line-height:1;margin:.4em 0;color:#2f9e8a}
 		.nanocat-admin__card p{color:#50575e;line-height:1.6}
 		.nanocat-admin__actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px!important}
 		.nanocat-admin__panel{display:flex;align-items:center;justify-content:space-between;gap:24px}

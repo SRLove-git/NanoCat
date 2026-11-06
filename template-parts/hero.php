@@ -176,7 +176,7 @@ $nanocat_suggestions = array(
 				<span><?php esc_html_e( 'SCROLL TO READ', 'nanocat' ); ?></span>
 				<i aria-hidden="true"></i>
 			</a>
-			<span class="hero__footer-meta"><?php esc_html_e( 'WORDPRESS · AZURE · RETRIEVAL AUGMENTED', 'nanocat' ); ?></span>
+			<span class="hero__footer-meta"><?php esc_html_e( 'WORDPRESS · SEA GLASS · RETRIEVAL AUGMENTED', 'nanocat' ); ?></span>
 			<a class="hero__footer-link" href="<?php echo esc_url( $nanocat_ai_url ); ?>">
 				<?php esc_html_e( 'OPEN NANOCAT AI', 'nanocat' ); ?>
 				<?php nanocat_icon( 'arrow-right', 14 ); ?>

@@ -3,7 +3,7 @@ Contributors: nanocat
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.0.2
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -12,7 +12,7 @@ Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar,
 
 == Description ==
 
-NanoCat 是一套为个人博客准备的主题：有午夜的城、晨雾的城、窗边的猫和蔚蓝 / 钢蓝的冷峻配色，也有程序员喜欢的等宽字体、代码块和清楚的层级。没有夸张的动效，没有外部字体和 CDN，打开就能用。
+NanoCat 是一套为个人博客准备的主题：有午夜的城、海盐色的晨光、窗边的猫和薄荷 / 青绿的清爽配色，也有程序员喜欢的等宽字体、代码块和清楚的层级。没有夸张的动效，没有外部字体和 CDN，打开就能用。
 
 主要特性：
 
@@ -90,6 +90,11 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、晨雾的城
 站内检索依赖具体关键词。试试“窗口服务是怎么实现的”“推荐一条从零写内核的路线”，比“介绍一下这个博客”更容易命中文章。
 
 == Changelog ==
+
+= 2.1.0 =
+* 全新海盐薄荷配色：浅色纸张、青绿主色与柔和天空蓝，浅色首页改为明亮通透的编辑式 Hero。
+* 重做首页 AI 提问框：纯白实体输入面板、薄荷图标、清晰边框与青色发送按钮，暗色模式同步收敛为干净的墨绿玻璃。
+* 个人资料卡在浅色模式改为白色纸卡，终端卡保留深色，两张卡继续保留在 Hero 右侧。
 
 = 2.0.2 =
 * 首页 AI Hero 恢复个人资料与终端两张信息卡；标题改为“让整座博客，回答你。”。
