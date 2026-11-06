@@ -16,98 +16,150 @@ while ( have_posts() ) :
 	$nanocat_comments   = (int) get_comments_number();
 	$nanocat_tags       = get_the_tags();
 	$nanocat_topics     = function_exists( 'nanocat_get_post_topics' ) ? nanocat_get_post_topics() : array();
+	$nanocat_issue      = str_pad( (string) get_the_ID(), 3, '0', STR_PAD_LEFT );
+	$nanocat_words      = nanocat_get_character_count();
 	?>
 	<main id="primary" class="site-main single-view">
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'single-post' ); ?>>
 			<header class="entry-hero">
 				<div class="container entry-hero__inner">
-					<?php nanocat_breadcrumbs(); ?>
-
-					<div class="entry-hero__kicker">
-						<?php if ( $nanocat_category ) : ?>
-							<a class="chip" href="<?php echo esc_url( get_category_link( $nanocat_category->term_id ) ); ?>">
-								<span class="chip__dot" aria-hidden="true"></span>
-								<?php echo esc_html( $nanocat_category->name ); ?>
-							</a>
-						<?php endif; ?>
-
-						<?php foreach ( $nanocat_topics as $nanocat_topic ) : ?>
-							<a class="chip chip--topic" href="<?php echo esc_url( get_term_link( $nanocat_topic ) ); ?>">
-								<?php nanocat_icon( 'folder', 14 ); ?>
-								<?php echo esc_html( $nanocat_topic->name ); ?>
-							</a>
-						<?php endforeach; ?>
-
-						<?php if ( is_sticky() ) : ?>
-							<span class="chip chip--muted"><?php esc_html_e( '置顶', 'nanocat' ); ?></span>
-						<?php endif; ?>
-
-						<?php
-						edit_post_link(
-							__( '编辑文章', 'nanocat' ),
-							'<span class="entry-edit">',
-							'</span>'
-						);
-						?>
+					<div class="entry-hero__masthead">
+						<?php nanocat_breadcrumbs(); ?>
+						<span class="entry-hero__issue">
+							<span class="entry-hero__issue-dot" aria-hidden="true"></span>
+							<?php esc_html_e( 'ARTICLE', 'nanocat' ); ?>
+							<b><?php echo esc_html( $nanocat_issue ); ?></b>
+							<span aria-hidden="true">/</span>
+							<?php echo esc_html( get_the_date( 'Y' ) ); ?>
+						</span>
 					</div>
 
-					<h1 class="entry-title"><?php the_title(); ?></h1>
+					<div class="entry-hero__grid">
+						<div class="entry-hero__copy">
+							<div class="entry-hero__kicker">
+								<?php if ( $nanocat_category ) : ?>
+									<a class="chip" href="<?php echo esc_url( get_category_link( $nanocat_category->term_id ) ); ?>">
+										<span class="chip__dot" aria-hidden="true"></span>
+										<?php echo esc_html( $nanocat_category->name ); ?>
+									</a>
+								<?php endif; ?>
 
-					<?php if ( has_excerpt() ) : ?>
-						<p class="entry-deck"><?php echo esc_html( get_the_excerpt() ); ?></p>
-					<?php endif; ?>
+								<?php foreach ( $nanocat_topics as $nanocat_topic ) : ?>
+									<a class="chip chip--topic" href="<?php echo esc_url( get_term_link( $nanocat_topic ) ); ?>">
+										<?php nanocat_icon( 'folder', 14 ); ?>
+										<?php echo esc_html( $nanocat_topic->name ); ?>
+									</a>
+								<?php endforeach; ?>
 
-					<div class="entry-meta">
-						<a class="entry-author" href="<?php echo esc_url( get_author_posts_url( $nanocat_author_id ) ); ?>">
-							<?php
-							echo get_avatar(
-								$nanocat_author_id,
-								44,
-								'',
-								get_the_author(),
-								array(
-									'class' => 'entry-author__avatar',
-								)
-							);
-							?>
-							<span class="entry-author__text">
-								<span class="entry-meta__label"><?php esc_html_e( 'WRITTEN BY', 'nanocat' ); ?></span>
-								<span class="entry-author__name"><?php the_author(); ?></span>
-							</span>
-						</a>
+								<?php if ( is_sticky() ) : ?>
+									<span class="chip chip--muted"><?php esc_html_e( '置顶', 'nanocat' ); ?></span>
+								<?php endif; ?>
 
-						<span class="entry-meta__sep" aria-hidden="true"></span>
-
-						<span class="entry-meta__item">
-							<?php nanocat_icon( 'calendar', 16 ); ?>
-							<time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
-						</span>
-
-						<span class="entry-meta__item">
-							<?php nanocat_icon( 'clock', 16 ); ?>
-							<?php
-							printf(
-								/* translators: %s: reading time in minutes. */
-								esc_html__( '%s 分钟阅读', 'nanocat' ),
-								esc_html( number_format_i18n( nanocat_get_reading_time() ) )
-							);
-							?>
-						</span>
-
-						<?php if ( comments_open() || $nanocat_comments > 0 ) : ?>
-							<a class="entry-meta__item entry-meta__item--link" href="#comments">
-								<?php nanocat_icon( 'comments', 16 ); ?>
 								<?php
-								printf(
-									/* translators: %s: comment count. */
-									esc_html( _n( '%s 条评论', '%s 条评论', $nanocat_comments, 'nanocat' ) ),
-									esc_html( number_format_i18n( $nanocat_comments ) )
+								edit_post_link(
+									__( '编辑文章', 'nanocat' ),
+									'<span class="entry-edit">',
+									'</span>'
 								);
 								?>
-							</a>
-						<?php endif; ?>
+							</div>
 
-						<span class="entry-meta__code" aria-hidden="true">// post_id: <?php echo esc_html( get_the_ID() ); ?></span>
+							<h1 class="entry-title"><?php the_title(); ?></h1>
+
+							<?php if ( has_excerpt() ) : ?>
+								<p class="entry-deck"><?php echo esc_html( get_the_excerpt() ); ?></p>
+							<?php endif; ?>
+
+							<div class="entry-meta">
+								<a class="entry-author" href="<?php echo esc_url( get_author_posts_url( $nanocat_author_id ) ); ?>">
+									<?php
+									echo get_avatar(
+										$nanocat_author_id,
+										44,
+										'',
+										get_the_author(),
+										array(
+											'class' => 'entry-author__avatar',
+										)
+									);
+									?>
+									<span class="entry-author__text">
+										<span class="entry-meta__label"><?php esc_html_e( 'WRITTEN BY', 'nanocat' ); ?></span>
+										<span class="entry-author__name"><?php the_author(); ?></span>
+									</span>
+								</a>
+
+								<span class="entry-meta__sep" aria-hidden="true"></span>
+
+								<span class="entry-meta__item">
+									<?php nanocat_icon( 'calendar', 16 ); ?>
+									<time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
+								</span>
+
+								<span class="entry-meta__item">
+									<?php nanocat_icon( 'clock', 16 ); ?>
+									<?php
+									printf(
+										/* translators: %s: reading time in minutes. */
+										esc_html__( '%s 分钟阅读', 'nanocat' ),
+										esc_html( number_format_i18n( nanocat_get_reading_time() ) )
+									);
+									?>
+								</span>
+
+								<?php if ( comments_open() || $nanocat_comments > 0 ) : ?>
+									<a class="entry-meta__item entry-meta__item--link" href="#comments">
+										<?php nanocat_icon( 'comments', 16 ); ?>
+										<?php
+										printf(
+											/* translators: %s: comment count. */
+											esc_html( _n( '%s 条评论', '%s 条评论', $nanocat_comments, 'nanocat' ) ),
+											esc_html( number_format_i18n( $nanocat_comments ) )
+										);
+										?>
+									</a>
+								<?php endif; ?>
+							</div>
+						</div>
+
+						<aside class="entry-brief" aria-label="<?php esc_attr_e( '文章档案', 'nanocat' ); ?>">
+							<span class="entry-brief__eyebrow">
+								<span class="status-dot" aria-hidden="true"></span>
+								<?php esc_html_e( 'ENTRY FILE', 'nanocat' ); ?>
+							</span>
+
+							<span class="entry-brief__number">#<?php echo esc_html( $nanocat_issue ); ?></span>
+							<span class="entry-brief__caption"><?php echo esc_html( $nanocat_category ? $nanocat_category->name : __( 'NOTES', 'nanocat' ) ); ?></span>
+
+							<dl class="entry-brief__rows">
+								<div>
+									<dt><?php esc_html_e( '发布', 'nanocat' ); ?></dt>
+									<dd><time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time></dd>
+								</div>
+								<div>
+									<dt><?php esc_html_e( '更新', 'nanocat' ); ?></dt>
+									<dd><time datetime="<?php echo esc_attr( get_the_modified_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_modified_date() ); ?></time></dd>
+								</div>
+								<div>
+									<dt><?php esc_html_e( '字数', 'nanocat' ); ?></dt>
+									<dd><?php echo esc_html( number_format_i18n( $nanocat_words ) ); ?></dd>
+								</div>
+								<div>
+									<dt><?php esc_html_e( '阅读', 'nanocat' ); ?></dt>
+									<dd><?php echo esc_html( sprintf( __( '%s 分钟', 'nanocat' ), number_format_i18n( nanocat_get_reading_time() ) ) ); ?></dd>
+								</div>
+							</dl>
+
+							<div class="entry-brief__foot">
+								<span><?php echo esc_html( get_the_date( 'Y' ) ); ?> · <?php esc_html_e( 'ARCHIVE', 'nanocat' ); ?></span>
+								<?php if ( comments_open() || $nanocat_comments > 0 ) : ?>
+									<a href="#comments">
+										<?php esc_html_e( '参与讨论', 'nanocat' ); ?>
+										<?php nanocat_icon( 'arrow-right', 14 ); ?>
+									</a>
+								<?php endif; ?>
+							</div>
+						</aside>
 					</div>
 				</div>
 			</header>
@@ -244,55 +296,6 @@ while ( have_posts() ) :
 								</ul>
 							</div>
 						<?php endif; ?>
-
-						<div class="post-info-card">
-							<p class="section-kicker"><?php esc_html_e( '// POST_INFO', 'nanocat' ); ?></p>
-							<h2 class="post-info-card__title"><?php esc_html_e( '文章信息', 'nanocat' ); ?></h2>
-
-							<dl class="post-info">
-								<div class="post-info__row">
-									<dt><?php esc_html_e( '发布', 'nanocat' ); ?></dt>
-									<dd><time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time></dd>
-								</div>
-
-								<?php if ( get_the_modified_time( 'Ymd' ) !== get_the_date( 'Ymd' ) ) : ?>
-									<div class="post-info__row">
-										<dt><?php esc_html_e( '更新', 'nanocat' ); ?></dt>
-										<dd><time datetime="<?php echo esc_attr( get_the_modified_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_modified_date() ); ?></time></dd>
-									</div>
-								<?php endif; ?>
-
-								<?php if ( $nanocat_category ) : ?>
-									<div class="post-info__row">
-										<dt><?php esc_html_e( '分类', 'nanocat' ); ?></dt>
-										<dd><a href="<?php echo esc_url( get_category_link( $nanocat_category->term_id ) ); ?>"><?php echo esc_html( $nanocat_category->name ); ?></a></dd>
-									</div>
-								<?php endif; ?>
-
-								<div class="post-info__row">
-									<dt><?php esc_html_e( '字数', 'nanocat' ); ?></dt>
-									<dd><?php echo esc_html( sprintf( _n( '约 %s 字', '约 %s 字', nanocat_get_character_count(), 'nanocat' ), number_format_i18n( nanocat_get_character_count() ) ) ); ?></dd>
-								</div>
-
-								<div class="post-info__row">
-									<dt><?php esc_html_e( '阅读', 'nanocat' ); ?></dt>
-									<dd><?php echo esc_html( sprintf( _n( '约 %s 分钟', '约 %s 分钟', nanocat_get_reading_time(), 'nanocat' ), number_format_i18n( nanocat_get_reading_time() ) ) ); ?></dd>
-								</div>
-							</dl>
-
-							<div class="post-info-card__actions">
-								<button class="button button--small button--outline" type="button" data-share-copy>
-									<?php nanocat_icon( 'copy', 16 ); ?>
-									<span data-share-label><?php esc_html_e( '复制链接', 'nanocat' ); ?></span>
-								</button>
-								<?php if ( comments_open() || $nanocat_comments > 0 ) : ?>
-									<a class="button button--small button--ghost" href="#comments">
-										<?php nanocat_icon( 'comments', 16 ); ?>
-										<?php esc_html_e( '评论', 'nanocat' ); ?>
-									</a>
-								<?php endif; ?>
-							</div>
-						</div>
 
 						<a class="aside-top-link" href="#primary">
 							<?php nanocat_icon( 'arrow-up', 15 ); ?>

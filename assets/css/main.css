@@ -9030,3 +9030,303 @@ html[data-theme="dark"] .hero__edition--dark {
 		max-width: 1100px;
 	}
 }
+
+/* --------------------------------------------------------------------------
+   25. Single article dossier hero
+   -------------------------------------------------------------------------- */
+.entry-hero {
+	position: relative;
+	overflow: hidden;
+	padding-block: clamp(28px, 3.4vw, 48px) clamp(46px, 5.2vw, 78px);
+	border-bottom: 1px solid var(--line);
+	background:
+		radial-gradient(58% 96% at 100% 0%, rgba(47, 125, 246, 0.12), transparent 68%),
+		linear-gradient(180deg, var(--paper) 0%, var(--paper-tint) 100%);
+}
+
+.entry-hero::before {
+	position: absolute;
+	inset: 0;
+	background-image:
+		linear-gradient(rgba(47, 125, 246, 0.05) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(47, 125, 246, 0.05) 1px, transparent 1px);
+	background-size: 34px 34px;
+	mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 72%);
+	content: "";
+	pointer-events: none;
+}
+
+.entry-hero__inner {
+	position: relative;
+	z-index: 1;
+}
+
+html[data-theme="dark"] .entry-hero {
+	background:
+		radial-gradient(58% 96% at 100% 0%, rgba(47, 125, 246, 0.17), transparent 68%),
+		linear-gradient(180deg, var(--paper) 0%, #091423 100%);
+}
+
+.entry-hero__masthead {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px 24px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid var(--line);
+}
+
+.entry-hero__masthead .breadcrumbs {
+	margin: 0;
+}
+
+.entry-hero__issue {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--muted);
+	font-family: var(--font-mono);
+	font-size: 0.63rem;
+	letter-spacing: 0.16em;
+	white-space: nowrap;
+}
+
+.entry-hero__issue b {
+	color: var(--accent-strong);
+	font-weight: 700;
+}
+
+.entry-hero__issue-dot {
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: var(--accent);
+	box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.entry-hero__grid {
+	display: block;
+	padding-top: clamp(30px, 4vw, 56px);
+}
+
+.entry-hero__copy {
+	min-width: 0;
+}
+
+.entry-hero__kicker {
+	margin-bottom: 24px;
+}
+
+.entry-hero .entry-title {
+	max-width: 1100px;
+	font-size: clamp(2.9rem, 5.1vw, 4.8rem);
+	font-weight: 850;
+	line-height: 1.06;
+	letter-spacing: -0.052em;
+	text-wrap: balance;
+}
+
+.entry-hero .entry-deck {
+	max-width: 760px;
+	margin-top: 24px;
+	color: var(--ink-soft);
+	font-size: clamp(1rem, 1.1vw, 1.12rem);
+	line-height: 1.9;
+}
+
+.entry-hero .entry-meta {
+	margin-top: 34px;
+	padding-top: 22px;
+	border-top: 1px solid var(--line);
+}
+
+.entry-brief {
+	display: none;
+}
+
+@media (min-width: 1400px) {
+	.entry-hero__grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1100px) 300px;
+		align-items: start;
+		justify-content: space-between;
+		gap: clamp(40px, 4vw, 72px);
+	}
+
+	.entry-brief {
+		position: relative;
+		display: block;
+		align-self: start;
+		margin-top: 4px;
+		padding: 22px 22px 18px;
+		overflow: hidden;
+		border: 1px solid rgba(47, 125, 246, 0.16);
+		border-radius: 24px;
+		background: linear-gradient(160deg, rgba(255, 255, 255, 0.92), rgba(231, 243, 255, 0.7));
+		box-shadow:
+			0 22px 55px rgba(15, 27, 45, 0.08),
+			inset 0 1px 0 rgba(255, 255, 255, 0.85);
+		backdrop-filter: blur(12px);
+	}
+
+	.entry-brief::before {
+		position: absolute;
+		top: -18px;
+		right: 14px;
+		color: rgba(47, 125, 246, 0.08);
+		font-family: var(--font-mono);
+		font-size: 8.5rem;
+		font-weight: 700;
+		line-height: 1;
+		content: "//";
+		pointer-events: none;
+	}
+
+	.entry-brief__eyebrow {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		gap: 7px;
+		color: var(--muted);
+		font-family: var(--font-mono);
+		font-size: 0.61rem;
+		letter-spacing: 0.16em;
+	}
+
+	.entry-brief__number {
+		position: relative;
+		display: block;
+		margin-top: 18px;
+		color: var(--accent-strong);
+		font-family: var(--font-mono);
+		font-size: 4.3rem;
+		font-weight: 700;
+		line-height: 0.9;
+		letter-spacing: -0.08em;
+	}
+
+	.entry-brief__caption {
+		display: block;
+		margin-top: 9px;
+		color: var(--ink);
+		font-size: 0.84rem;
+		font-weight: 650;
+	}
+
+	.entry-brief__rows {
+		position: relative;
+		margin-top: 22px;
+		padding-top: 6px;
+		border-top: 1px solid var(--line);
+	}
+
+	.entry-brief__rows > div {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 12px;
+		padding: 10px 0;
+		border-bottom: 1px dashed rgba(47, 125, 246, 0.14);
+	}
+
+	.entry-brief__rows dt {
+		color: var(--muted);
+		font-family: var(--font-mono);
+		font-size: 0.6rem;
+		letter-spacing: 0.08em;
+	}
+
+	.entry-brief__rows dd {
+		margin: 0;
+		color: var(--ink-soft);
+		font-size: 0.72rem;
+		text-align: right;
+	}
+
+	.entry-brief__foot {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		margin-top: 14px;
+		color: var(--muted);
+		font-family: var(--font-mono);
+		font-size: 0.58rem;
+		letter-spacing: 0.06em;
+	}
+
+	.entry-brief__foot a {
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		color: var(--accent-strong);
+		font-family: var(--font-sans);
+		font-size: 0.73rem;
+		font-weight: 650;
+		letter-spacing: 0;
+	}
+
+	html[data-theme="dark"] .entry-hero {
+		background:
+			radial-gradient(58% 96% at 100% 0%, rgba(47, 125, 246, 0.17), transparent 68%),
+			linear-gradient(180deg, var(--paper) 0%, #091423 100%);
+	}
+
+	html[data-theme="dark"] .entry-brief {
+		border-color: rgba(143, 194, 255, 0.16);
+		background: linear-gradient(160deg, rgba(20, 34, 53, 0.9), rgba(10, 22, 38, 0.78));
+		box-shadow:
+			0 22px 55px rgba(0, 0, 0, 0.32),
+			inset 0 1px 0 rgba(255, 255, 255, 0.04);
+	}
+}
+
+@media (max-width: 980px) {
+	.entry-hero {
+		padding-block: 26px 46px;
+	}
+
+	.entry-hero__issue {
+		font-size: 0.58rem;
+	}
+
+	.entry-hero .entry-title {
+		font-size: clamp(2.35rem, 8vw, 3.4rem);
+		line-height: 1.1;
+	}
+
+	.entry-hero .entry-deck {
+		margin-top: 18px;
+		font-size: 0.98rem;
+	}
+
+	.entry-hero .entry-meta {
+		margin-top: 26px;
+	}
+}
+
+@media (max-width: 560px) {
+	.entry-hero__masthead {
+		align-items: flex-start;
+	}
+
+	.entry-hero__issue {
+		margin-left: auto;
+		letter-spacing: 0.1em;
+	}
+
+	.entry-hero .entry-title {
+		font-size: clamp(2.05rem, 9.4vw, 2.8rem);
+		letter-spacing: -0.045em;
+	}
+
+	.entry-hero .entry-meta__sep {
+		display: none;
+	}
+
+	.entry-hero .entry-meta__item {
+		white-space: normal;
+	}
+}
