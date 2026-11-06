@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'NANOCAT_VERSION' ) ) {
-	define( 'NANOCAT_VERSION', '1.2.3' );
+	define( 'NANOCAT_VERSION', '1.2.4' );
 }
 
 /**
@@ -100,6 +100,22 @@ function nanocat_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'nanocat_scripts' );
+
+/**
+ * Keep the Feiyu AI assistant and its summary card on single posts only.
+ *
+ * The assistant script otherwise keeps its last post ID in sessionStorage,
+ * which made a summary card appear on the homepage, links and other pages.
+ */
+function nanocat_scope_feiyu_ai() {
+	if ( is_singular( 'post' ) ) {
+		return;
+	}
+
+	wp_dequeue_script( 'feiyu-ai' );
+	wp_deregister_script( 'feiyu-ai' );
+}
+add_action( 'wp_enqueue_scripts', 'nanocat_scope_feiyu_ai', 100 );
 
 /**
  * Avoid a flash of the wrong color scheme and mark that JavaScript is available.

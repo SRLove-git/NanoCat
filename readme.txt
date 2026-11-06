@@ -3,7 +3,7 @@ Contributors: nanocat
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -77,6 +77,9 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、晨雾的城
 友链的 RSS 与健康状态使用缓存，首次启用或新增链接后需要到“外观 → NanoCat 内容”点击“立即刷新”，之后每 12 小时自动更新。
 
 == Changelog ==
+
+= 1.2.4 =
+* 将 Feiyu AI 摘要与问答浮窗限制在单篇文章；首页、友链、归档等页面不再显示。
 
 = 1.2.3 =
 * 首页头图新增明暗双版：浅色模式使用晨雾城市插画，深色模式保留夜景插画。
