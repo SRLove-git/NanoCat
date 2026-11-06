@@ -174,11 +174,11 @@
 		<text x="473" y="690" fill="#2f7df6" font-size="18" letter-spacing="5">上</text>
 
 		<rect x="1266" y="500" width="26" height="146" rx="3" fill="#071019" stroke="#356f9a" opacity=".85"/>
-		<text x="1279" y="526" fill="#4f8bb2" font-size="14" letter-spacing="3">N</text>
-		<text x="1279" y="554" fill="#4f8bb2" font-size="14" letter-spacing="3">I</text>
-		<text x="1279" y="582" fill="#4f8bb2" font-size="14" letter-spacing="3">G</text>
-		<text x="1279" y="610" fill="#4f8bb2" font-size="14" letter-spacing="3">H</text>
-		<text x="1279" y="638" fill="#4f8bb2" font-size="14" letter-spacing="3">T</text>
+		<text x="1279" y="526" fill="#4f8bb2" font-size="14" letter-spacing="3">D</text>
+		<text x="1279" y="554" fill="#4f8bb2" font-size="14" letter-spacing="3">A</text>
+		<text x="1279" y="582" fill="#4f8bb2" font-size="14" letter-spacing="3">W</text>
+		<text x="1279" y="610" fill="#4f8bb2" font-size="14" letter-spacing="3">N</text>
+		<text x="1279" y="638" fill="#4f8bb2" font-size="14" letter-spacing="3">·</text>
 	</g>
 
 	<!-- overhead cables -->
@@ -264,7 +264,7 @@
 	<g font-family="ui-monospace, SFMono-Regular, Consolas, monospace" opacity=".3">
 		<text x="132" y="700" fill="#356f9a" font-size="17" letter-spacing="2">const future = await build();</text>
 		<text x="132" y="730" fill="#1f8f88" font-size="14" letter-spacing="3">// ship something that matters</text>
-		<text x="132" y="760" fill="#2f7df6" font-size="14" letter-spacing="5">NIGHT SHIFT / 02:14</text>
+		<text x="132" y="760" fill="#2f7df6" font-size="14" letter-spacing="5">MORNING SHIFT / 08:12</text>
 	</g>
 	<g fill="#3f8fd9" opacity=".5">
 		<path d="m116 812 3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
