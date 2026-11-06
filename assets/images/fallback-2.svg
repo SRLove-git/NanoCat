@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" preserveAspectRatio="xMidYMid slice">
+	<defs>
+		<linearGradient id="fb2-sky" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#f2f9ff"/>
+			<stop offset=".5" stop-color="#eaf5ff"/>
+			<stop offset="1" stop-color="#e3f5f0"/>
+		</linearGradient>
+		<linearGradient id="fb2-sun" x1="620" y1="80" x2="1040" y2="500" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#b9dcff"/>
+			<stop offset="1" stop-color="#5fa8f5"/>
+		</linearGradient>
+		<linearGradient id="fb2-hill" x1="0" y1="600" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#b7e4dc"/>
+			<stop offset="1" stop-color="#8fcfc6"/>
+		</linearGradient>
+	</defs>
+	<rect width="1200" height="800" fill="url(#fb2-sky)"/>
+	<circle cx="880" cy="280" r="235" fill="url(#fb2-sun)" opacity=".7"/>
+	<g fill="none" stroke="#fff" stroke-width="2" opacity=".55">
+		<circle cx="880" cy="280" r="285"/>
+		<circle cx="880" cy="280" r="335"/>
+	</g>
+	<text x="76" y="282" fill="#8f7898" opacity=".18" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="220" font-weight="700" letter-spacing="-12">&lt;/&gt;</text>
+	<path d="M0 640c160-54 292-24 410 10 168 48 270 20 390-30 138-57 286-34 400 20v160H0z" fill="url(#fb2-hill)"/>
+	<path d="M0 724c188-42 330 14 500 30 214 20 400-32 700-18v64H0z" fill="#6cbdb4" opacity=".45"/>
+
+	<g stroke="#6d5669" stroke-width="9" fill="none" stroke-linecap="round">
+		<path d="M-20 118c146 26 256 74 332 150 28 28 42 54 44 82"/>
+		<path d="M212 208c-56 4-102-8-138-36"/>
+		<path d="M316 268c-62 26-112 30-158 12"/>
+		<path d="M352 326c-48 34-92 48-134 44"/>
+	</g>
+	<g>
+		<g fill="#9ccfff" stroke="#4b90d6" stroke-width="2">
+			<circle cx="76" cy="158" r="15"/><circle cx="96" cy="142" r="11"/><circle cx="62" cy="139" r="10"/><circle cx="83" cy="171" r="9"/>
+			<circle cx="194" cy="188" r="13"/><circle cx="211" cy="172" r="9"/><circle cx="181" cy="205" r="8"/>
+			<circle cx="292" cy="262" r="14"/><circle cx="313" cy="250" r="10"/><circle cx="280" cy="246" r="8"/>
+			<circle cx="334" cy="346" r="11"/><circle cx="351" cy="332" r="8"/>
+		</g>
+		<g fill="#f2f9ff">
+			<circle cx="92" cy="148" r="4"/><circle cx="204" cy="178" r="3"/><circle cx="300" cy="254" r="4"/>
+		</g>
+	</g>
+
+	<g transform="translate(690 420)">
+		<ellipse cx="100" cy="272" rx="108" ry="16" fill="#3b2f45" opacity=".14"/>
+		<path d="M44 154c-6-52 14-88 56-88s62 36 56 88c-4 38-20 60-20 90H64c0-30-16-52-20-90z" fill="#2c2433"/>
+		<path d="M64 236c0 26-10 42-26 52m94-52c0 26 10 42 26 52" fill="none" stroke="#2c2433" stroke-width="18" stroke-linecap="round"/>
+		<path d="M142 220c46 4 70 28 66 54-3 20-22 28-40 22" fill="none" stroke="#2c2433" stroke-width="16" stroke-linecap="round"/>
+		<path d="M50 102C34 80 30 54 38 38c22 6 44 22 56 40z" fill="#2c2433"/>
+		<path d="M150 102c16-22 20-48 12-64-22 6-44 22-56 40z" fill="#2c2433"/>
+		<circle cx="100" cy="112" r="64" fill="#2c2433"/>
+		<ellipse cx="100" cy="126" rx="42" ry="34" fill="#edf6ff"/>
+		<ellipse cx="82" cy="106" rx="7" ry="9" fill="#33283b"/>
+		<ellipse cx="118" cy="106" rx="7" ry="9" fill="#33283b"/>
+		<circle cx="84" cy="103" r="2.6" fill="#fff"/>
+		<circle cx="120" cy="103" r="2.6" fill="#fff"/>
+		<path d="M94 126c2-3 10-3 12 0-1 3-3 5-6 5s-5-2-6-5z" fill="#3f83d1"/>
+		<path d="M100 131v2m0 0c-3 5-8 4-10 1m10-1c3 5 8 4 10 1" fill="none" stroke="#33283b" stroke-width="2.2" stroke-linecap="round"/>
+		<ellipse cx="60" cy="124" rx="10" ry="5" fill="#86c3ff" opacity=".55"/>
+		<ellipse cx="140" cy="124" rx="10" ry="5" fill="#86c3ff" opacity=".55"/>
+		<path d="M74 158c16 8 36 8 52 0" fill="none" stroke="#5fa8f5" stroke-width="7" stroke-linecap="round"/>
+		<circle cx="100" cy="176" r="7" fill="#8fc2ff"/>
+	</g>
+
+	<g fill="#9ccfff" opacity=".85">
+		<path d="M486 162c10 2 14 12 8 22-14-4-18-14-8-22z"/>
+		<path d="M560 310c8 4 9 14 1 21-11-7-12-17-1-21z"/>
+		<path d="M1040 452c10 2 13 13 6 22-13-5-16-16-6-22z"/>
+		<path d="M420 446c8 3 9 13 2 20-11-6-12-16-2-20z"/>
+		<circle cx="1110" cy="168" r="6"/><circle cx="384" cy="96" r="4"/><circle cx="966" cy="616" r="5"/>
+	</g>
+
+	<g font-family="ui-monospace, SFMono-Regular, Consolas, monospace">
+		<text x="86" y="674" fill="#3c3344" font-size="22" letter-spacing="5">// TAKE A BREAK</text>
+		<text x="88" y="708" fill="#5a4f62" font-size="17" opacity=".75">error: too much code, not enough sun</text>
+	</g>
+</svg>

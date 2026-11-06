@@ -1,0 +1,12 @@
+# Local test and deployment files
+.deploy/
+.wp/
+.tools/
+.preview/
+.research/
+dist/package/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" preserveAspectRatio="xMidYMid slice">
+	<defs>
+		<linearGradient id="fb1-bg" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#eaf5ff"/>
+			<stop offset=".55" stop-color="#f3e7ff"/>
+			<stop offset="1" stop-color="#dff4f6"/>
+		</linearGradient>
+		<linearGradient id="fb1-window" x1="340" y1="190" x2="900" y2="690" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#2d2639"/>
+			<stop offset="1" stop-color="#201b2b"/>
+		</linearGradient>
+		<linearGradient id="fb1-sun" x1="760" y1="70" x2="1040" y2="390" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#c3e4ff"/>
+			<stop offset="1" stop-color="#6db4ff"/>
+		</linearGradient>
+	</defs>
+	<rect width="1200" height="800" fill="url(#fb1-bg)"/>
+	<circle cx="910" cy="238" r="188" fill="url(#fb1-sun)" opacity=".72"/>
+	<g stroke="#9a87b5" stroke-width="1.5" opacity=".18">
+		<path d="M0 620h1200M0 680h1200M0 740h1200M120 800V560M240 800V560M360 800V560M480 800V560M600 800V560M720 800V560M840 800V560M960 800V560M1080 800V560"/>
+	</g>
+	<g fill="#fff" opacity=".8">
+		<circle cx="168" cy="142" r="5"/>
+		<circle cx="272" cy="86" r="3"/>
+		<circle cx="1062" cy="118" r="4"/>
+		<path d="m146 268 4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/>
+		<path d="m1040 500 3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+	</g>
+	<g transform="rotate(-2 600 420)">
+		<rect x="300" y="162" width="620" height="470" rx="30" fill="#3a2f49" opacity=".18"/>
+		<rect x="288" y="142" width="620" height="470" rx="30" fill="url(#fb1-window)" stroke="#5a4a6c" stroke-width="3"/>
+		<path d="M288 204h620" stroke="#4b3d5d" stroke-width="2.5"/>
+		<g transform="translate(322 174)">
+			<circle cx="0" cy="0" r="8" fill="#66b0ff"/>
+			<circle cx="26" cy="0" r="8" fill="#8fc2ff"/>
+			<circle cx="52" cy="0" r="8" fill="#7edbd1"/>
+		</g>
+		<text x="430" y="183" fill="#a99bb8" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="17">cat@nanocat: ~/dreams</text>
+		<text x="570" y="183" fill="#6f5f82" font-family="ui-monospace, monospace" font-size="15">— □ ×</text>
+		<g font-family="ui-monospace, SFMono-Regular, Consolas, monospace">
+			<text x="342" y="278" fill="#8c7ca1" font-size="22">01</text>
+			<text x="390" y="278" fill="#7fbcf0" font-size="22">const</text>
+			<text x="472" y="278" fill="#eaf4ff" font-size="22">cat</text>
+			<text x="526" y="278" fill="#7edbd1" font-size="22">=</text>
+			<text x="558" y="278" fill="#6f9bbd" font-size="22">{</text>
+			<text x="342" y="326" fill="#8c7ca1" font-size="22">02</text>
+			<text x="390" y="326" fill="#eaf4ff" font-size="22">  name:</text>
+			<text x="488" y="326" fill="#8fc2ff" font-size="22">'NanoCat'</text>
+			<text x="622" y="326" fill="#eaf4ff" font-size="22">,</text>
+			<text x="342" y="374" fill="#8c7ca1" font-size="22">03</text>
+			<text x="390" y="374" fill="#eaf4ff" font-size="22">  stack:</text>
+			<text x="486" y="374" fill="#6f9bbd" font-size="22">[</text>
+			<text x="504" y="374" fill="#8fc2ff" font-size="22">'code'</text>
+			<text x="580" y="374" fill="#eaf4ff" font-size="22">,</text>
+			<text x="598" y="374" fill="#8fc2ff" font-size="22">'cats'</text>
+			<text x="676" y="374" fill="#6f9bbd" font-size="22">]</text>
+			<text x="342" y="422" fill="#8c7ca1" font-size="22">04</text>
+			<text x="390" y="422" fill="#eaf4ff" font-size="22">  mood:</text>
+			<text x="480" y="422" fill="#8fc2ff" font-size="22">'caffeinated'</text>
+			<text x="342" y="470" fill="#8c7ca1" font-size="22">05</text>
+			<text x="390" y="470" fill="#6f9bbd" font-size="22">}</text>
+			<text x="342" y="532" fill="#7fbcf0" font-size="22">❯</text>
+			<text x="370" y="532" fill="#d9cfdf" font-size="22">npm run build</text>
+			<text x="370" y="566" fill="#7edbd1" font-size="19">✓ compiled with 0 errors, 3 cats</text>
+		</g>
+		<g transform="translate(836 534)">
+			<path d="M0 78C0 34 34 0 78 0s78 34 78 78v28H0z" fill="#edf6ff" stroke="#2c2433" stroke-width="5"/>
+			<path d="M20 20C8 2 4-18 10-28c20 6 38 18 48 32z" fill="#edf6ff" stroke="#2c2433" stroke-width="5" stroke-linejoin="round"/>
+			<path d="M136 20c12-18 16-38 10-48-20 6-38 18-48 32z" fill="#edf6ff" stroke="#2c2433" stroke-width="5" stroke-linejoin="round"/>
+			<circle cx="56" cy="58" r="8" fill="#33283b"/>
+			<circle cx="100" cy="58" r="8" fill="#33283b"/>
+			<path d="M70 74c5 6 12 6 17 0" fill="none" stroke="#33283b" stroke-width="4" stroke-linecap="round"/>
+			<circle cx="38" cy="72" r="8" fill="#9ccfff" opacity=".6"/>
+			<circle cx="118" cy="72" r="8" fill="#9ccfff" opacity=".6"/>
+		</g>
+	</g>
+	<path d="M108 590c40-18 84-8 104 24" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" opacity=".6"/>
+	<text x="96" y="708" fill="#8a7697" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="22" letter-spacing="4">// BUILD · NAP · REPEAT</text>
+</svg>
