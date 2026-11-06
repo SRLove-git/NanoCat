@@ -62,6 +62,7 @@ function nanocat_maybe_setup_content() {
 
 	nanocat_create_content_page( 'topics', __( '专栏', 'nanocat' ), 'page-topics.php' );
 	nanocat_create_content_page( 'links', __( '友链', 'nanocat' ), 'page-links.php' );
+	nanocat_create_content_page( 'ai', __( 'AI 工作台', 'nanocat' ), 'page-ai.php' );
 
 	update_option( 'nanocat_content_version', NANOCAT_VERSION, false );
 	nanocat_schedule_link_refresh();
@@ -133,12 +134,26 @@ function nanocat_render_content_admin() {
 	$last_refresh = (int) get_option( 'nanocat_links_refreshed', 0 );
 	$topics_page  = get_page_by_path( 'topics' );
 	$links_page   = get_page_by_path( 'links' );
+	$ai_page      = get_page_by_path( 'ai' );
 	?>
 	<div class="wrap nanocat-admin">
 		<h1><?php esc_html_e( 'NanoCat 内容', 'nanocat' ); ?></h1>
 		<p class="nanocat-admin__lead"><?php esc_html_e( '专栏、Wiki 和友链都使用 WordPress 原生内容结构。这里可以快速进入管理页面，并刷新友链的 RSS 缓存。', 'nanocat' ); ?></p>
 
 		<div class="nanocat-admin__grid">
+			<section class="nanocat-admin__card">
+				<span class="nanocat-admin__kicker">// AI WORKSPACE</span>
+				<h2><?php esc_html_e( 'AI 工作台', 'nanocat' ); ?></h2>
+				<p class="nanocat-admin__number"><?php echo esc_html( number_format_i18n( $topics + $wiki_count + $links_count ) ); ?></p>
+				<p><?php esc_html_e( '站内 AI 会检索专栏、Wiki 和文章后再回答。工作台页提供完整对话、知识地图和最近提问。', 'nanocat' ); ?></p>
+				<p class="nanocat-admin__actions">
+					<?php if ( $ai_page ) : ?>
+						<a class="button button-primary" href="<?php echo esc_url( get_permalink( $ai_page ) ); ?>"><?php esc_html_e( '打开 AI 工作台', 'nanocat' ); ?></a>
+					<?php endif; ?>
+					<a class="button" href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>"><?php esc_html_e( '外观设置', 'nanocat' ); ?></a>
+				</p>
+			</section>
+
 			<section class="nanocat-admin__card">
 				<span class="nanocat-admin__kicker">// TOPICS</span>
 				<h2><?php esc_html_e( '专栏', 'nanocat' ); ?></h2>
@@ -211,7 +226,7 @@ function nanocat_render_content_admin() {
 	<style>
 		.nanocat-admin{max-width:1080px}
 		.nanocat-admin__lead{max-width:760px;color:#646970;font-size:15px;line-height:1.7}
-		.nanocat-admin__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:24px 0}
+		.nanocat-admin__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:24px 0}
 		.nanocat-admin__card,.nanocat-admin__panel{background:#fff;border:1px solid #dcdcde;border-radius:12px;padding:22px;box-sizing:border-box}
 		.nanocat-admin__kicker{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.08em;color:#5b8db8}
 		.nanocat-admin__card h2{margin:.35em 0 .2em;font-size:18px}
@@ -222,6 +237,7 @@ function nanocat_render_content_admin() {
 		.nanocat-admin__panel h2{margin:0 0 .3em;font-size:18px}
 		.nanocat-admin__panel p{margin:0;color:#646970}
 		.nanocat-admin__foot{margin-top:20px;color:#646970}
+		@media (max-width:1180px){.nanocat-admin__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 		@media (max-width:960px){.nanocat-admin__grid{grid-template-columns:1fr}}
 		@media (max-width:600px){.nanocat-admin__panel{align-items:flex-start;flex-direction:column}}
 	</style>

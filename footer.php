@@ -78,6 +78,38 @@ $nanocat_footer_text        = get_theme_mod( 'nanocat_footer_text', nanocat_get_
 	<?php nanocat_icon( 'arrow-up', 18 ); ?>
 </button>
 
+<dialog id="nanocat-ai-dialog" class="ai-dialog" aria-labelledby="nanocat-ai-dialog-title">
+	<div class="ai-dialog__shell">
+		<header class="ai-dialog__head">
+			<div class="ai-dialog__brand">
+				<span class="ai-dialog__mark" aria-hidden="true">✦</span>
+				<span class="ai-dialog__brand-copy">
+					<span class="ai-dialog__kicker"><?php esc_html_e( 'NANOCAT / INTELLIGENCE', 'nanocat' ); ?></span>
+					<strong id="nanocat-ai-dialog-title"><?php esc_html_e( '问 NanoCat AI', 'nanocat' ); ?></strong>
+				</span>
+			</div>
+			<div class="ai-dialog__actions">
+				<a class="ai-dialog__workspace" href="<?php echo esc_url( nanocat_ai_page_url() ); ?>"><?php esc_html_e( '工作台', 'nanocat' ); ?> <?php nanocat_icon( 'arrow-right', 13 ); ?></a>
+				<button class="ai-dialog__close" type="button" data-ai-close aria-label="<?php esc_attr_e( '关闭 AI 对话', 'nanocat' ); ?>">
+					<?php nanocat_icon( 'close', 18 ); ?>
+				</button>
+			</div>
+		</header>
+
+		<?php
+		get_template_part(
+			'template-parts/ai-console',
+			null,
+			array(
+				'context' => 'dialog',
+				'title'   => __( '从站内笔记里，找一条线索。', 'nanocat' ),
+				'lead'    => __( '问具体一点：一个技术点、一条阅读路线，或者一篇文章。回答会带来源。', 'nanocat' ),
+			)
+		);
+		?>
+	</div>
+</dialog>
+
 <dialog id="nanocat-search-dialog" class="search-dialog" aria-labelledby="search-dialog-title">
 	<div class="search-dialog__inner">
 		<button class="search-dialog__close" type="button" data-search-close aria-label="<?php esc_attr_e( '关闭搜索', 'nanocat' ); ?>">

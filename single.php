@@ -195,6 +195,8 @@ while ( have_posts() ) :
 						<nav class="toc-nav" data-toc-nav-mobile aria-label="<?php esc_attr_e( '文章目录', 'nanocat' ); ?>"></nav>
 					</details>
 
+					<?php get_template_part( 'template-parts/ai-companion' ); ?>
+
 					<div class="entry-content" data-entry-content>
 						<?php
 						the_content();

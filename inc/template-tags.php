@@ -356,6 +356,15 @@ function nanocat_primary_menu_fallback() {
 		);
 	}
 
+	$ai_page = get_page_by_path( 'ai' );
+	if ( $ai_page instanceof WP_Post && 'publish' === $ai_page->post_status ) {
+		$links[] = array(
+			'label'   => __( 'AI', 'nanocat' ),
+			'url'     => get_permalink( $ai_page ),
+			'current' => is_page( $ai_page->ID ),
+		);
+	}
+
 	foreach ( array( 'about', 'about-me' ) as $slug ) {
 		$about = get_page_by_path( $slug );
 		if ( $about instanceof WP_Post && 'publish' === $about->post_status ) {
@@ -406,6 +415,11 @@ function nanocat_footer_menu_fallback() {
 	$links_page = get_page_by_path( 'links' );
 	if ( $links_page instanceof WP_Post && 'publish' === $links_page->post_status ) {
 		printf( '<li><a href="%s">%s</a></li>', esc_url( get_permalink( $links_page ) ), esc_html__( '友链', 'nanocat' ) );
+	}
+
+	$ai_page = get_page_by_path( 'ai' );
+	if ( $ai_page instanceof WP_Post && 'publish' === $ai_page->post_status ) {
+		printf( '<li><a href="%s">%s</a></li>', esc_url( get_permalink( $ai_page ) ), esc_html__( 'AI 工作台', 'nanocat' ) );
 	}
 
 	printf( '<li><a href="%s">%s</a></li>', esc_url( get_feed_link() ), esc_html__( 'RSS 订阅', 'nanocat' ) );

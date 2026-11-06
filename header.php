@@ -70,6 +70,12 @@ $nanocat_logo    = $nanocat_logo_id ? wp_get_attachment_image(
 		</nav>
 
 		<div class="header-actions">
+			<button class="ai-trigger" type="button" data-ai-open aria-haspopup="dialog" aria-controls="nanocat-ai-dialog" aria-expanded="false" aria-keyshortcuts="Control+K Meta+K" aria-label="<?php esc_attr_e( '打开 NanoCat AI', 'nanocat' ); ?>">
+				<span class="ai-trigger__spark" aria-hidden="true">✦</span>
+				<span class="ai-trigger__label"><?php esc_html_e( '问 AI', 'nanocat' ); ?></span>
+				<kbd class="ai-trigger__kbd">Ctrl K</kbd>
+			</button>
+
 			<button class="icon-button search-toggle" type="button" data-search-open aria-controls="nanocat-search-dialog" aria-haspopup="dialog">
 				<?php nanocat_icon( 'search', 19 ); ?>
 				<span class="screen-reader-text"><?php esc_html_e( '打开搜索', 'nanocat' ); ?></span>
