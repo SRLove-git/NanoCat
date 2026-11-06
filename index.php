@@ -7,7 +7,7 @@
 
 get_header();
 
-$nanocat_show_hero = is_home() && ! is_paged() && get_theme_mod( 'nanocat_hero_enabled', true );
+$nanocat_show_hero = is_home() && get_theme_mod( 'nanocat_hero_enabled', true );
 
 if ( $nanocat_show_hero ) {
 	get_template_part( 'template-parts/hero' );

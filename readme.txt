@@ -3,7 +3,7 @@ Contributors: nanocat
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.2.9
+Stable tag: 1.2.10
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -77,6 +77,9 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、晨雾的城
 友链的 RSS 与健康状态使用缓存，首次启用或新增链接后需要到“外观 → NanoCat 内容”点击“立即刷新”，之后每 12 小时自动更新。
 
 == Changelog ==
+
+= 1.2.10 =
+* 首页分页第 2 页起同样显示全屏头图与透明导航，不再只限第一页。
 
 = 1.2.9 =
 * 热门文章列表增加行距、字号与卡片内边距，标题改为完整显示，不再两行截断。
