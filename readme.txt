@@ -3,7 +3,7 @@ Contributors: nanocat
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.1.0
+Stable tag: 3.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -90,6 +90,10 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、蔚蓝的晨
 站内检索依赖具体关键词。试试“窗口服务是怎么实现的”“推荐一条从零写内核的路线”，比“介绍一下这个博客”更容易命中文章。
 
 == Changelog ==
+
+= 3.1.1 =
+* 重做文章代码块：等宽顶栏、语言标识、三色状态点、常驻复制按钮；浅色为淡蓝纸面，深色为石墨蓝。
+* 优化行内代码的蔚蓝底色与边框，长代码在块内横向滚动，不再撑破正文。
 
 = 3.1.0 =
 * 首页索引恢复左右侧栏：AI 第一屏下方回到“左栏 / 文章索引 / 右栏”的三栏结构。

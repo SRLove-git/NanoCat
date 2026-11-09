@@ -581,6 +581,11 @@
 				return;
 			}
 
+			var code = block.querySelector('code');
+			var className = (block.className || '') + ' ' + (code ? code.className : '');
+			var language = className.match(/language-([a-z0-9+#-]+)/i);
+			block.dataset.codeLang = language ? language[1].toUpperCase() : 'CODE';
+
 			var button = doc.createElement('button');
 			button.type = 'button';
 			button.className = 'code-copy';
