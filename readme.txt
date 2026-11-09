@@ -3,7 +3,7 @@ Contributors: nanocat
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.1.1
+Stable tag: 3.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -12,7 +12,7 @@ Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar,
 
 == Description ==
 
-NanoCat 是一套为个人博客准备的主题：有午夜的城、蔚蓝的晨光、窗边的猫和蔚蓝 / 青绿的清爽配色，也有程序员喜欢的等宽字体、代码块和清楚的层级。没有夸张的动效，没有外部字体和 CDN，打开就能用。
+NanoCat 是一套为个人博客准备的主题：有午夜的城、蔚蓝的晨光、窗边的猫和蔚蓝 / 钢蓝的清爽配色，也有程序员喜欢的等宽字体、代码块和清楚的层级。没有夸张的动效，没有外部字体和 CDN，打开就能用。
 
 主要特性：
 
@@ -90,6 +90,10 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、蔚蓝的晨
 站内检索依赖具体关键词。试试“窗口服务是怎么实现的”“推荐一条从零写内核的路线”，比“介绍一下这个博客”更容易命中文章。
 
 == Changelog ==
+
+= 3.2.0 =
+* 首页改成双栏编辑台：左侧标题与入口，右侧完整的 AI 提问面板；第一屏更紧凑，文章索引重新露出。
+* 调整标题尺度、留白、边框和深色玻璃层次；AI 回答在面板内滚动，不再把首页拉得过长。
 
 = 3.1.1 =
 * 重做文章代码块：等宽顶栏、语言标识、三色状态点、常驻复制按钮；浅色为淡蓝纸面，深色为石墨蓝。
