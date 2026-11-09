@@ -61,7 +61,7 @@ function nanocat_get_mark( $class = '' ) {
 
 	return '<svg class="' . esc_attr( $class ) . '" viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false">'
 		. '<defs><linearGradient id="' . esc_attr( $gradient_id ) . '" x1="4" y1="3" x2="45" y2="46" gradientUnits="userSpaceOnUse">'
-		. '<stop stop-color="#B9EEE5"></stop><stop offset=".52" stop-color="#2F9E8A"></stop><stop offset="1" stop-color="#4F8F88"></stop>'
+		. '<stop stop-color="#A9D7FF"></stop><stop offset=".52" stop-color="#2F7DF6"></stop><stop offset="1" stop-color="#4F7FA6"></stop>'
 		. '</linearGradient></defs>'
 		. '<rect x="1" y="1" width="46" height="46" rx="14" fill="url(#' . esc_attr( $gradient_id ) . ')"></rect>'
 		. '<path d="M13.4 21.2 10.3 10.8l10.2 4.4h7l10.2-4.4-3.1 10.4v8a7.8 7.8 0 0 1-7.8 7.8h-5.6a7.8 7.8 0 0 1-7.8-7.8v-8Z" fill="#F4F8FB"></path>'

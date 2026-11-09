@@ -17,7 +17,7 @@
 			"palette": [
 				{
 					"slug": "paper",
-					"color": "#f4fbf7",
+					"color": "#f2f7fd",
 					"name": "Paper"
 				},
 				{
@@ -27,40 +27,40 @@
 				},
 				{
 					"slug": "ink",
-					"color": "#173430",
+					"color": "#0f1b2d",
 					"name": "Ink"
 				},
 				{
 					"slug": "muted",
-					"color": "#738c86",
+					"color": "#6e8199",
 					"name": "Muted"
 				},
 				{
 					"slug": "accent",
-					"color": "#2f9e8a",
-					"name": "Sea Glass"
+					"color": "#2f7df6",
+					"name": "Azure"
 				},
 				{
 					"slug": "lilac",
-					"color": "#5a9b95",
+					"color": "#5b8db8",
 					"name": "Steel"
 				},
 				{
 					"slug": "cyan",
-					"color": "#3aa99f",
+					"color": "#2ea8b8",
 					"name": "Teal"
 				},
 				{
 					"slug": "line",
-					"color": "#d6e9e2",
+					"color": "#d8e7f7",
 					"name": "Line"
 				}
 			],
 			"gradients": [
 				{
-					"slug": "sea-glass",
-					"gradient": "linear-gradient(135deg, #b9eee5 0%, #2f9e8a 52%, #79d6c9 100%)",
-					"name": "Sea Glass to Sky"
+					"slug": "azure",
+					"gradient": "linear-gradient(135deg, #a9d7ff 0%, #2f7df6 52%, #63b8ff 100%)",
+					"name": "Azure to Sky"
 				}
 			]
 		},

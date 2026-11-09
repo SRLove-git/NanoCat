@@ -61,7 +61,7 @@
 		}
 
 		if (themeMeta) {
-			themeMeta.setAttribute('content', mode === 'dark' ? '#090d13' : '#f4fbf7');
+			themeMeta.setAttribute('content', mode === 'dark' ? '#060e19' : '#f2f7fd');
 		}
 	}
 
