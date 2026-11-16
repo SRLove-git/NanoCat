@@ -3,7 +3,7 @@ Contributors: nanocat
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.2.1
+Stable tag: 3.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -90,6 +90,10 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、蔚蓝的晨
 站内检索依赖具体关键词。试试“窗口服务是怎么实现的”“推荐一条从零写内核的路线”，比“介绍一下这个博客”更容易命中文章。
 
 == Changelog ==
+
+= 3.3.0 =
+* 新增樱花灵感的开屏动画：两枚蓝绿色光点分开、旋转、变回圆形，再以柔和淡出揭开页面。
+* 每个浏览器会话只播放一次；支持深浅色、手机与减少动效设置，不阻塞无 JS 访问。
 
 = 3.2.1 =
 * 首页 AI 面板改为深色悬浮控制台：提高与浅色背景的层次，表单、建议问题、回答与来源统一为深色玻璃语言。

@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'NANOCAT_VERSION' ) ) {
-	define( 'NANOCAT_VERSION', '3.2.1' );
+	define( 'NANOCAT_VERSION', '3.3.0' );
 }
 
 /**
@@ -254,6 +254,7 @@ function nanocat_comment_cookie_field( $field ) {
 add_filter( 'comment_form_field_cookies', 'nanocat_comment_cookie_field' );
 
 require get_template_directory() . '/inc/icons.php';
+require get_template_directory() . '/inc/intro.php';
 require get_template_directory() . '/inc/ai.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/topics.php';

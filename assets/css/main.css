@@ -9470,3 +9470,214 @@ html[data-theme="dark"] .entry-hero {
 
 
 
+
+/* -------------------------------------------------------------------------
+ * 32. Sakura-inspired opening animation
+ * A once-per-session curtain: two small lights orbit, split and reform,
+ * then the paper fades away. Pure CSS + a self-contained exit timer.
+ * ---------------------------------------------------------------------- */
+
+html.has-intro,
+html.has-intro body {
+	overflow: hidden;
+}
+
+.nanocat-intro {
+	display: none;
+}
+
+html.has-intro .nanocat-intro {
+	position: fixed;
+	inset: 0;
+	z-index: 99999;
+	display: grid;
+	place-items: center;
+	overflow: hidden;
+	background:
+		radial-gradient(circle at 50% 42%, rgba(47, 125, 246, 0.1), transparent 42%),
+		var(--paper);
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 0.42s ease, visibility 0.42s;
+}
+
+html.has-intro .nanocat-intro.is-out {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.nanocat-intro__inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+	transform: translateY(-3vh);
+}
+
+.nanocat-intro__loader {
+	position: relative;
+	width: 42px;
+	height: 22px;
+}
+
+.nanocat-intro__loader::before,
+.nanocat-intro__loader::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border-radius: 50%;
+	pointer-events: none;
+}
+
+.nanocat-intro__loader::before {
+	width: 136px;
+	height: 136px;
+	margin: -68px 0 0 -68px;
+	border: 1px solid var(--line);
+	opacity: 0.55;
+	animation: nanocat-intro-ring 12s linear infinite;
+}
+
+.nanocat-intro__loader::after {
+	width: 92px;
+	height: 92px;
+	margin: -46px 0 0 -46px;
+	border: 1px dashed rgba(47, 125, 246, 0.2);
+	animation: nanocat-intro-ring 9s linear infinite reverse;
+}
+
+.nanocat-intro__dot {
+	position: absolute;
+	top: 0;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	background: var(--accent);
+	box-shadow: 0 0 24px rgba(47, 125, 246, 0.38);
+	animation: nanocat-intro-dot-a 1.5s ease-in-out infinite;
+	will-change: transform, border-radius, background-color;
+}
+
+.nanocat-intro__dot--a {
+	left: 0;
+}
+
+.nanocat-intro__dot--b {
+	left: 22px;
+	background: var(--cyan);
+	box-shadow: 0 0 24px rgba(46, 168, 184, 0.32);
+	animation-name: nanocat-intro-dot-b;
+}
+
+.nanocat-intro__brand {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 9px;
+	text-align: center;
+	opacity: 0;
+	transform: translateY(8px);
+	animation: nanocat-intro-brand 0.8s 0.28s ease forwards;
+}
+
+.nanocat-intro__name {
+	color: var(--ink);
+	font-family: var(--font-sans);
+	font-size: 0.82rem;
+	font-weight: 700;
+	letter-spacing: 0.32em;
+	line-height: 1.2;
+	text-indent: 0.32em;
+	text-transform: uppercase;
+}
+
+.nanocat-intro__tag {
+	color: var(--muted);
+	font-family: var(--font-mono);
+	font-size: 0.61rem;
+	letter-spacing: 0.16em;
+	line-height: 1.5;
+	text-transform: uppercase;
+}
+
+html[data-theme="dark"] .nanocat-intro {
+	background:
+		radial-gradient(circle at 50% 42%, rgba(91, 159, 232, 0.15), transparent 42%),
+		var(--paper);
+}
+
+html[data-theme="dark"] .nanocat-intro__loader::after {
+	border-color: rgba(143, 194, 255, 0.18);
+}
+
+@keyframes nanocat-intro-dot-a {
+	0%,
+	100% {
+		transform: translateX(0) rotate(0) scale(1);
+		border-radius: 50%;
+		background-color: var(--accent);
+	}
+	46%,
+	54% {
+		transform: translateX(48px) rotate(260deg) scale(1.18);
+		border-radius: 5px;
+		background-color: var(--cyan);
+	}
+}
+
+@keyframes nanocat-intro-dot-b {
+	0%,
+	100% {
+		transform: translateX(0) rotate(0) scale(1);
+		border-radius: 50%;
+		background-color: var(--cyan);
+	}
+	46%,
+	54% {
+		transform: translateX(-48px) rotate(-260deg) scale(1.18);
+		border-radius: 5px;
+		background-color: var(--accent);
+	}
+}
+
+@keyframes nanocat-intro-ring {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes nanocat-intro-brand {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 560px) {
+	.nanocat-intro__inner {
+		gap: 24px;
+	}
+
+	.nanocat-intro__name {
+		font-size: 0.74rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html.has-intro,
+	html.has-intro body {
+		overflow: auto;
+	}
+
+	html.has-intro .nanocat-intro {
+		display: none;
+	}
+}
+
+@media print {
+	.nanocat-intro {
+		display: none !important;
+	}
+}
