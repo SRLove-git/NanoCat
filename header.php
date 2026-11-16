@@ -36,7 +36,13 @@ $nanocat_logo    = $nanocat_logo_id ? wp_get_attachment_image(
 	</div>
 <?php endif; ?>
 
-<header id="masthead" class="site-header" data-site-header>
+<?php
+$nanocat_header_class = 'site-header';
+if ( is_home() && ! is_paged() ) {
+	$nanocat_header_class .= ' site-header--rose';
+}
+?>
+<header id="masthead" class="<?php echo esc_attr( $nanocat_header_class ); ?>" data-site-header>
 	<div class="container header-inner">
 		<div class="site-branding">
 			<a class="site-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">

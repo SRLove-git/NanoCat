@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-labelledby="title desc">
+	<title id="title">A rose study</title>
+	<desc id="desc">An original warm still life: purple roses, a typewriter, tea and letters in late afternoon light.</desc>
+	<defs>
+		<linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#f8e8d2"/>
+			<stop offset=".55" stop-color="#eed2b4"/>
+			<stop offset="1" stop-color="#d8ae8d"/>
+		</linearGradient>
+		<radialGradient id="sun" cx=".8" cy=".18" r=".58">
+			<stop offset="0" stop-color="#fff7dd"/>
+			<stop offset=".4" stop-color="#ffe3b3" stop-opacity=".75"/>
+			<stop offset="1" stop-color="#ffd99b" stop-opacity="0"/>
+		</radialGradient>
+		<linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#56372c"/>
+			<stop offset=".35" stop-color="#3c221c"/>
+			<stop offset="1" stop-color="#1e100f"/>
+		</linearGradient>
+		<linearGradient id="paper" x1="0" y1="0" x2=".8" y2="1">
+			<stop offset="0" stop-color="#fffaf0"/>
+			<stop offset="1" stop-color="#e4cdb4"/>
+		</linearGradient>
+		<linearGradient id="roseOuter" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#d29ad9"/>
+			<stop offset=".5" stop-color="#9a5fae"/>
+			<stop offset="1" stop-color="#5f346f"/>
+		</linearGradient>
+		<linearGradient id="roseInner" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#f0c8ed"/>
+			<stop offset=".45" stop-color="#c186c8"/>
+			<stop offset="1" stop-color="#743e85"/>
+		</linearGradient>
+		<linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0" stop-color="#2a1a18"/>
+			<stop offset=".45" stop-color="#6c4433"/>
+			<stop offset=".62" stop-color="#9b6a4b"/>
+			<stop offset="1" stop-color="#231413"/>
+		</linearGradient>
+		<radialGradient id="glow" cx=".5" cy=".5" r=".5">
+			<stop offset="0" stop-color="#ffe5b6" stop-opacity=".55"/>
+			<stop offset="1" stop-color="#ffe5b6" stop-opacity="0"/>
+		</radialGradient>
+		<filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+			<feGaussianBlur stdDeviation="10"/>
+		</filter>
+		<filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+			<feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#2b1410" flood-opacity=".32"/>
+		</filter>
+		<filter id="grain">
+			<feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" stitchTiles="stitch"/>
+			<feColorMatrix type="saturate" values="0"/>
+			<feComponentTransfer><feFuncA type="linear" slope=".045"/></feComponentTransfer>
+		</filter>
+		<g id="rose">
+			<!-- broad, overlapping cabbage-rose petals -->
+			<g fill="url(#roseOuter)" stroke="#512b5a" stroke-width="1.4" stroke-opacity=".28">
+				<path d="M0-4C-36-14-56-48-48-82-44-102-28-116-4-120 16-123 34-111 42-94 50-76 44-54 28-38 20-29 10-18 0-4Z" transform="rotate(-4)"/>
+				<path d="M0-2C-10-26-2-56 18-76 34-92 58-96 74-84 90-72 94-50 86-32 78-14 58-2 34-2 20-2 10-4 0-2Z" transform="rotate(68)"/>
+				<path d="M0-2C-10-26-2-56 18-76 34-92 58-96 74-84 90-72 94-50 86-32 78-14 58-2 34-2 20-2 10-4 0-2Z" transform="rotate(140)"/>
+				<path d="M0-2C-10-26-2-56 18-76 34-92 58-96 74-84 90-72 94-50 86-32 78-14 58-2 34-2 20-2 10-4 0-2Z" transform="rotate(212)"/>
+				<path d="M0-2C-10-26-2-56 18-76 34-92 58-96 74-84 90-72 94-50 86-32 78-14 58-2 34-2 20-2 10-4 0-2Z" transform="rotate(284)"/>
+			</g>
+			<g fill="url(#roseInner)" stroke="#6d3b78" stroke-width="1" stroke-opacity=".2">
+				<path d="M0-2C-8-22-2-44 14-58 30-71 48-70 58-58 68-46 66-28 56-16 46-4 32 2 18 2 10 2 4 0 0-2Z" transform="rotate(30)"/>
+				<path d="M0-2C-8-22-2-44 14-58 30-71 48-70 58-58 68-46 66-28 56-16 46-4 32 2 18 2 10 2 4 0 0-2Z" transform="rotate(102)"/>
+				<path d="M0-2C-8-22-2-44 14-58 30-71 48-70 58-58 68-46 66-28 56-16 46-4 32 2 18 2 10 2 4 0 0-2Z" transform="rotate(174)"/>
+				<path d="M0-2C-8-22-2-44 14-58 30-71 48-70 58-58 68-46 66-28 56-16 46-4 32 2 18 2 10 2 4 0 0-2Z" transform="rotate(246)"/>
+				<path d="M0-2C-8-22-2-44 14-58 30-71 48-70 58-58 68-46 66-28 56-16 46-4 32 2 18 2 10 2 4 0 0-2Z" transform="rotate(318)"/>
+			</g>
+			<g fill="url(#roseInner)">
+				<path d="M0 0C-22 2-34-13-28-30-18-22-6-18 6-22 18-26 26-36 22-48 38-32 34-8 14 4 6 8 2 4 0 0Z"/>
+				<path d="M2 2C20 0 28-14 20-28 12-20 2-16-8-20-18-24-22-34-17-44-32-30-28-8-10 3-4 7-1 4 2 2Z" opacity=".9"/>
+			</g>
+			<path d="M-2 4C-12 10-14 22-4 28 5 20 16 18 26 24 30 10 18 1 7 2 3 3 1 4-2 4Z" fill="#5b2d68"/>
+			<g fill="none" stroke="#f1d0e8" stroke-width="2" stroke-linecap="round" opacity=".45">
+				<path d="M-30-44C-12-54 8-54 25-44M-40-19C-22-30 0-31 20-22M-23-4C-12-13 2-13 14-6"/>
+			</g>
+		</g>
+		<g id="leaf">
+			<path d="M0 0C-15-8-20-25-10-40 7-33 16-18 10-2Z" fill="#5b6a48"/>
+			<path d="M0 0C-7-12-7-25 0-36" fill="none" stroke="#8a9a70" stroke-width="1.6"/>
+		</g>
+	</defs>
+
+	<rect width="1920" height="1080" fill="url(#wall)"/>
+	<rect width="1920" height="1080" fill="url(#sun)"/>
+	<ellipse cx="1010" cy="500" rx="520" ry="440" fill="url(#glow)"/>
+
+	<!-- window -->
+	<g opacity=".75">
+		<path d="M1230 70h540v600h-540z" fill="#fff4dc" opacity=".22"/>
+		<path d="M1510 70v600M1230 310h540M1230 460h540" fill="none" stroke="#956a50" stroke-width="9" opacity=".22"/>
+		<path d="M1230 70h540v600h-540z" fill="none" stroke="#9b6d51" stroke-width="16" opacity=".28"/>
+		<path d="M1280 0v70M1710 0v70" stroke="#9b6d51" stroke-width="12" opacity=".2"/>
+		<path d="M1230 670h540" stroke="#9b6d51" stroke-width="16" opacity=".26"/>
+	</g>
+	<g opacity=".32">
+		<path d="M1290 670 1840 0h80L1360 670Z" fill="#fff4d6"/>
+		<path d="M1450 670 1920 100 1920 260 1540 670Z" fill="#fff4d6" opacity=".7"/>
+	</g>
+
+	<!-- curtain -->
+	<g opacity=".5">
+		<path d="M1760 0c-70 180-20 330 20 480 32 124 28 240-18 350h118V0Z" fill="#d6a07e"/>
+		<path d="M1798 0c-30 178 6 318 46 466 34 126 25 245-17 364h58V0Z" fill="#b7785d" opacity=".55"/>
+	</g>
+
+	<!-- table -->
+	<path d="M0 760c310-34 620-20 930 16 300 35 630 24 990-22v326H0Z" fill="url(#wood)"/>
+	<g fill="none" stroke="#b88868" stroke-width="2" opacity=".2">
+		<path d="M0 836c350-34 600 12 880 30 280 18 590-20 1040-56"/>
+		<path d="M0 926c280-22 520 22 800 32 300 10 620-32 1120-62"/>
+		<path d="M0 1012c380-30 620 24 900 24 320 0 700-50 1020-66"/>
+	</g>
+
+	<!-- hanging botanical sprigs -->
+	<g fill="none" stroke="#554531" stroke-width="4" opacity=".55">
+		<path d="M820 0c-60 90-40 210 20 280 58 68 62 148 12 224"/>
+		<path d="M1010 0c30 90-20 170-80 230-62 62-72 150-30 220"/>
+	</g>
+	<g transform="translate(842 254) scale(.34)"><use href="#rose"/></g>
+	<g transform="translate(930 410) scale(.28)"><use href="#rose"/></g>
+
+	<!-- left rose bough -->
+	<g filter="url(#shadow)">
+		<path d="M-40 230C130 310 210 450 190 610 174 744 240 840 360 900" fill="none" stroke="#5a4332" stroke-width="7" opacity=".65"/>
+		<path d="M80 330c60 30 100 80 120 144" fill="none" stroke="#5a4332" stroke-width="5" opacity=".5"/>
+		<g transform="translate(92 236) scale(1.15) rotate(-12)"><use href="#rose"/></g>
+		<g transform="translate(196 390) scale(.8) rotate(18)"><use href="#rose"/></g>
+		<g transform="translate(138 540) scale(.62) rotate(-22)"><use href="#rose"/></g>
+		<g transform="translate(312 746) scale(.92) rotate(8)"><use href="#rose"/></g>
+		<g transform="translate(56 690) scale(.5) rotate(24)"><use href="#rose"/></g>
+		<g transform="translate(270 300) scale(.55) rotate(-36)"><use href="#rose"/></g>
+		<g transform="translate(56 836) scale(.72) rotate(-7)"><use href="#rose"/></g>
+		<g transform="translate(86 420) rotate(-30)"><use href="#leaf"/></g>
+		<g transform="translate(238 480) rotate(16) scale(1.2)"><use href="#leaf"/></g>
+		<g transform="translate(170 620) rotate(-8) scale(.8)"><use href="#leaf"/></g>
+	</g>
+
+	<!-- letters and book on the left -->
+	<g filter="url(#shadow)">
+		<path d="M48 870c78-60 190-56 270 12 24 20 20 46-10 58-96 38-206 32-282-18-18-12-12-36 22-52Z" fill="url(#paper)"/>
+		<path d="M62 862c70-42 168-38 240 14 18 14 14 31-9 40-84 32-178 26-244-18-14-10-8-26 13-36Z" fill="#fffaf0"/>
+		<g stroke="#a98162" stroke-width="3" opacity=".48">
+			<path d="M108 863c50-17 106-10 150 13M96 879c62-18 126-10 180 17M84 895c76-16 146-8 208 20"/>
+		</g>
+		<path d="M114 950c42-26 118-24 172 6 20 11 17 26-5 35-58 22-130 17-184-12-16-9-9-22 17-29Z" fill="#f4e6d3"/>
+		<path d="M172 900l-32 122" stroke="#5b3b2a" stroke-width="9" stroke-linecap="round"/>
+		<path d="M171 899l8-31 20 16-9 20Z" fill="#c99b63"/>
+		<path d="M191 862l35 22-8 12-34-21Z" fill="#e2bd86"/>
+	</g>
+
+	<!-- teacup -->
+	<g transform="translate(1000 760)">
+		<ellipse cx="110" cy="122" rx="150" ry="26" fill="#2a1512" opacity=".35" filter="url(#soft)"/>
+		<ellipse cx="110" cy="100" rx="118" ry="23" fill="#d8bca1"/>
+		<ellipse cx="110" cy="95" rx="108" ry="17" fill="#f8eddd" opacity=".38"/>
+		<path d="M40 36h138c-7 45-35 69-69 69S47 81 40 36Z" fill="#fbf5e9"/>
+		<ellipse cx="109" cy="36" rx="69" ry="15" fill="#f5ebdd"/>
+		<ellipse cx="109" cy="37" rx="61" ry="10" fill="#9e5e42"/>
+		<path d="M177 48c30-3 41 15 31 33-8 14-22 18-39 15" fill="none" stroke="#fbf5e9" stroke-width="12"/>
+		<path d="M74 22c-10-24 10-38 2-56M108 20c-9-22 10-35 2-52M142 20c-8-20 9-32 2-46" fill="none" stroke="#fff5df" stroke-width="4" opacity=".42"/>
+		<path d="M60 64c18 27 72 36 104 6" fill="none" stroke="#c69a77" stroke-width="3" opacity=".45"/>
+	</g>
+
+	<!-- typewriter -->
+	<g transform="translate(1310 610) rotate(-4)" filter="url(#shadow)">
+		<path d="M82 128h406c32 0 55 25 51 55l-19 128H43L23 183c-4-30 19-55 51-55Z" fill="#3b2725"/>
+		<path d="M64 130h430l-10 32H72Z" fill="#7b4a39" opacity=".7"/>
+		<path d="M101 162h350l-16 101H116Z" fill="#201615"/>
+		<path d="M100 169h347l-10 21H109Z" fill="#d5b48c" opacity=".35"/>
+		<g fill="#c69b73">
+			<circle cx="137" cy="210" r="10"/><circle cx="175" cy="210" r="10"/><circle cx="213" cy="210" r="10"/><circle cx="251" cy="210" r="10"/><circle cx="289" cy="210" r="10"/><circle cx="327" cy="210" r="10"/><circle cx="365" cy="210" r="10"/><circle cx="403" cy="210" r="10"/>
+			<circle cx="157" cy="242" r="10"/><circle cx="195" cy="242" r="10"/><circle cx="233" cy="242" r="10"/><circle cx="271" cy="242" r="10"/><circle cx="309" cy="242" r="10"/><circle cx="347" cy="242" r="10"/><circle cx="385" cy="242" r="10"/>
+			<circle cx="178" cy="274" r="10"/><circle cx="216" cy="274" r="10"/><circle cx="254" cy="274" r="10"/><circle cx="292" cy="274" r="10"/><circle cx="330" cy="274" r="10"/><circle cx="368" cy="274" r="10"/>
+		</g>
+		<path d="M126 108h322l28-54H99Z" fill="#f3e7d3"/>
+		<path d="M132 108h310l22-43H111Z" fill="#fbf4e7"/>
+		<g stroke="#a8876d" stroke-width="3" opacity=".55">
+			<path d="M157 85h214M153 95h238M148 105h228"/>
+		</g>
+		<path d="M464 118c28-17 38-38 30-62-27-6-46 5-58 34Z" fill="#d6b18e"/>
+		<path d="M40 310h476l-32 34H75Z" fill="#2a1b19"/>
+	</g>
+
+	<!-- scattered petals and small blooms -->
+	<g>
+		<g transform="translate(720 890) scale(.42) rotate(14)"><use href="#rose"/></g>
+		<g transform="translate(900 920) scale(.3) rotate(-22)"><use href="#rose"/></g>
+		<g transform="translate(1160 930) scale(.38) rotate(30)"><use href="#rose"/></g>
+		<g transform="translate(1690 900) scale(.32) rotate(-8)"><use href="#rose"/></g>
+		<g transform="translate(620 280) scale(.34) rotate(18)"><use href="#rose"/></g>
+	</g>
+	<g fill="#9b5eaa" opacity=".85">
+		<path d="M1210 332c26-24 54-17 57 10 3 22-21 36-43 27-15-6-20-21-14-37Z" transform="rotate(22 1210 332)"/>
+		<path d="M835 520c22-20 46-14 49 8 3 19-17 31-36 23-13-5-18-18-13-31Z" transform="rotate(-18 835 520)"/>
+		<path d="M1530 480c18-17 38-12 41 7 2 16-15 26-31 19-11-4-15-15-10-26Z" transform="rotate(44 1530 480)"/>
+		<path d="M1120 650c17-16 36-11 39 7 2 15-14 25-29 18-10-4-14-14-10-25Z" transform="rotate(-12 1120 650)"/>
+	</g>
+	<g fill="#f7e8d4" opacity=".7">
+		<path d="M860 1048l48-16 18 26-46 18Z" opacity=".6"/>
+		<path d="M930 1028l72-10 12 22-66 15Z" opacity=".4"/>
+	</g>
+	<g fill="#ffe3b3" opacity=".7">
+		<circle cx="1080" cy="168" r="3"/><circle cx="1200" cy="220" r="2"/><circle cx="1640" cy="330" r="3"/><circle cx="728" cy="178" r="2"/><circle cx="1450" cy="236" r="4"/><circle cx="940" cy="302" r="2"/>
+	</g>
+
+	<!-- vignette / texture -->
+	<radialGradient id="vig" cx=".5" cy=".44" r=".72">
+		<stop offset=".58" stop-color="#2d1712" stop-opacity="0"/>
+		<stop offset="1" stop-color="#2d1712" stop-opacity=".32"/>
+	</radialGradient>
+	<rect width="1920" height="1080" fill="url(#vig)"/>
+	<rect width="1920" height="1080" filter="url(#grain)" opacity=".55"/>
+</svg>

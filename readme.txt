@@ -3,7 +3,7 @@ Contributors: nanocat
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.3.1
+Stable tag: 3.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -18,7 +18,7 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、蔚蓝的晨
 
 * 响应式布局，桌面、平板和手机都有单独调整。
 * 浅色 / 深色模式，支持跟随系统，也会记住访客的选择。
-* 首页 AI 优先：第一屏只有标题、大号提问框和具体问题建议，回答直接在页面内流式展开；博客文章退到下方，以安静的编号索引呈现，不再使用大图 Hero、资料卡或三栏卡片。
+* 首页玫瑰书房：第一屏是柔焦玫瑰、旧打字机与茶的开屏卡，中央保留头像、随笔短句、站内入口与“问 AI”；文章索引在下方，左右栏保留。
 * AI 原生体验：页头“问 AI”或 `⌘/Ctrl K` 打开全局对话；回答以 SSE 流式呈现并附带站内来源，支持会话历史与随时停止。
 * 文章 AI 伴读：自动生成摘要，可一键“三句话总结 / 列出要点 / 讲人话 / 考考我”，选中正文可直接追问。
 * AI 工作台：独立的 `/ai/` 页面，包含大对话区、知识地图、最近提问和最新文章；首次启用自动创建。
@@ -90,6 +90,11 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、蔚蓝的晨
 站内检索依赖具体关键词。试试“窗口服务是怎么实现的”“推荐一条从零写内核的路线”，比“介绍一下这个博客”更容易命中文章。
 
 == Changelog ==
+
+= 3.4.0 =
+* 首页改为玫瑰书房开屏 Hero：柔焦玫瑰、旧打字机与茶，中央是头像、随笔短句、站内入口和 AI 按钮。
+* 页头在开屏页使用透明覆盖样式，滚动或打开移动菜单时恢复玻璃底；下方继续保留左栏 / 文章索引 / 右栏。
+* 玫瑰 Hero 内置一张 Pixabay Content License 背景照片，并在 README 中补充素材许可说明。
 
 = 3.3.1 =
 * 修复 980–1180px 中间宽度下首页 AI 双栏提前堆叠造成的比例失衡；981px 以上保持左右双栏，980px 以下才单栏堆叠。

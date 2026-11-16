@@ -8,7 +8,7 @@
 get_header();
 
 if ( is_home() && ! is_paged() ) {
-	get_template_part( 'template-parts/home-ai' );
+	get_template_part( 'template-parts/hero-rose' );
 }
 ?>
 
