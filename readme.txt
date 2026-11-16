@@ -3,7 +3,7 @@ Contributors: nanocat
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.2.0
+Stable tag: 3.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -91,6 +91,10 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、蔚蓝的晨
 
 == Changelog ==
 
+= 3.2.1 =
+* 首页 AI 面板改为深色悬浮控制台：提高与浅色背景的层次，表单、建议问题、回答与来源统一为深色玻璃语言。
+* 左侧新增 LATEST NOTE 最新文章入口；收紧首屏上下留白，文章索引与左右侧栏在首屏底部露出。
+* AI 回答不再限制面板高度，内容自然展开，不再出现内部裁切。
 = 3.2.0 =
 * 首页改成双栏编辑台：左侧标题与入口，右侧完整的 AI 提问面板；第一屏更紧凑，文章索引重新露出。
 * 调整标题尺度、留白、边框和深色玻璃层次；AI 回答在面板内滚动，不再把首页拉得过长。

@@ -26,6 +26,15 @@ $nanocat_topic_count = wp_count_terms(
 );
 $nanocat_topic_count = is_wp_error( $nanocat_topic_count ) ? 0 : (int) $nanocat_topic_count;
 
+$nanocat_latest = get_posts(
+	array(
+		'numberposts' => 1,
+		'post_status' => 'publish',
+		'post_type'   => 'post',
+	)
+);
+$nanocat_latest = $nanocat_latest ? $nanocat_latest[0] : null;
+
 $nanocat_prompts = array(
 	__( '推荐一条从零写内核的路线', 'nanocat' ),
 	__( '窗口服务是怎么实现的？', 'nanocat' ),
@@ -71,6 +80,14 @@ $nanocat_prompts = array(
 						?>
 					</span>
 				</div>
+
+				<?php if ( $nanocat_latest ) : ?>
+					<a class="home-ai__latest" href="<?php echo esc_url( get_permalink( $nanocat_latest ) ); ?>">
+						<span class="home-ai__latest-label"><?php esc_html_e( 'LATEST NOTE', 'nanocat' ); ?></span>
+						<span class="home-ai__latest-title"><?php echo esc_html( get_the_title( $nanocat_latest ) ); ?></span>
+						<span class="home-ai__latest-arrow" aria-hidden="true">↗</span>
+					</a>
+				<?php endif; ?>
 			</div>
 
 			<div class="home-ai__ask">
