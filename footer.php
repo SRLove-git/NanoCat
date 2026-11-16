@@ -22,7 +22,22 @@ $nanocat_footer_text        = get_theme_mod( 'nanocat_footer_text', nanocat_get_
 	<div class="container footer-main">
 		<div class="footer-brand">
 			<a class="footer-brand__link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<?php echo nanocat_get_mark( 'footer-brand__mark' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG. ?>
+				<?php
+				$nanocat_footer_logo = get_theme_mod( 'custom_logo' );
+				if ( $nanocat_footer_logo ) {
+					echo wp_get_attachment_image(
+						$nanocat_footer_logo,
+						'thumbnail',
+						false,
+						array(
+							'class' => 'footer-brand__mark',
+							'alt'   => get_bloginfo( 'name' ),
+						)
+					);
+				} else {
+					echo nanocat_get_mark( 'footer-brand__mark' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG.
+				}
+				?>
 				<span><?php bloginfo( 'name' ); ?></span>
 			</a>
 			<p class="footer-brand__text"><?php echo esc_html( $nanocat_footer_text ); ?></p>
