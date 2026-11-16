@@ -3,7 +3,7 @@ Contributors: nanocat
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.3.0
+Stable tag: 3.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -90,6 +90,9 @@ NanoCat 是一套为个人博客准备的主题：有午夜的城、蔚蓝的晨
 站内检索依赖具体关键词。试试“窗口服务是怎么实现的”“推荐一条从零写内核的路线”，比“介绍一下这个博客”更容易命中文章。
 
 == Changelog ==
+
+= 3.3.1 =
+* 修复 980–1180px 中间宽度下首页 AI 双栏提前堆叠造成的比例失衡；981px 以上保持左右双栏，980px 以下才单栏堆叠。
 
 = 3.3.0 =
 * 新增樱花灵感的开屏动画：两枚蓝绿色光点分开、旋转、变回圆形，再以柔和淡出揭开页面。
