@@ -53,7 +53,8 @@
 	--font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
 		"Microsoft YaHei", monospace;
 
-	--container: 1180px;
+	/* One 1600px rail for every template, matching the masthead and home stage. */
+	--container: 1600px;
 	--container-narrow: 820px;
 	--header-h: 76px;
 	--ease: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -5056,10 +5057,6 @@ html[data-theme="dark"] .site-footer {
 .topic-shell {
 	padding-top: 46px;
 	padding-bottom: 62px;
-}
-
-.topic-shell {
-	max-width: 1000px;
 }
 
 .topic-intro,
