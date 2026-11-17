@@ -3047,3 +3047,8 @@ html[data-theme="dark"] .flec-header .icon-button.search-toggle:hover {
 		display: none;
 	}
 }
+
+/* Keep the mascot visible while the wallpaper loader is up. */
+#sakana-widget {
+	z-index: 10001;
+}
