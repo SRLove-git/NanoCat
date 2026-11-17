@@ -28,7 +28,7 @@ function nanocat_get_defaults() {
 		'profile_bio'         => '白天写界面，晚上写 bug。相信好的设计会呼吸，也相信猫能治愈一切。',
 		'social_github'       => 'https://github.com/srlove-git',
 		'social_bilibili'     => '',
-		'social_email'        => '',
+		'social_email'        => 'srlovecode@outlook.com',
 		'footer_text'         => '保持好奇，持续构建。',
 	);
 
