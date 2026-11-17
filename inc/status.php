@@ -173,11 +173,6 @@ function nanocat_status_report( $force = false ) {
 
 	ksort( $history );
 
-	$days = array();
-	for ( $i = 29; $i >= 0; $i-- ) {
-		$days[ wp_date( 'Y-m-d', time() - $i * DAY_IN_SECONDS ) ] = 'none';
-	}
-
 	$summary = array(
 		'operational' => 0,
 		'degraded'    => 0,
@@ -197,28 +192,39 @@ function nanocat_status_report( $force = false ) {
 		$summary_key = isset( $summary[ $current['status'] ] ) ? $current['status'] : 'unknown';
 		$summary[ $summary_key ]++;
 
-		$bars = $days;
+		$bars   = array();
 		$checks = 0;
 		$good   = 0;
 		$ms_sum = 0;
 		$ms_n   = 0;
-		$day_cutoff = time() - 30 * DAY_IN_SECONDS;
+		$cutoff = time() - 30 * DAY_IN_SECONDS;
 
 		foreach ( $history as $timestamp => $results ) {
-			if ( ! isset( $results[ $id ] ) || (int) $timestamp < $day_cutoff ) {
+			if ( ! isset( $results[ $id ] ) || (int) $timestamp < $cutoff ) {
 				continue;
 			}
 
 			$entry = $results[ $id ];
 			$checks++;
-			$good  += 'operational' === $entry['status'] ? 1 : 0;
+			$good   += 'operational' === $entry['status'] ? 1 : 0;
 			$ms_sum += (int) $entry['ms'];
 			$ms_n++;
 
-			$day = wp_date( 'Y-m-d', (int) $timestamp );
-			if ( isset( $bars[ $day ] ) ) {
-				$bars[ $day ] = nanocat_status_worst( $bars[ $day ], $entry['status'] );
-			}
+			$bars[] = array(
+				'status' => $entry['status'],
+				'time'   => (int) $timestamp,
+			);
+		}
+
+		$bars = array_slice( $bars, -30 );
+		while ( count( $bars ) < 30 ) {
+			array_unshift(
+				$bars,
+				array(
+					'status' => 'none',
+					'time'   => 0,
+				)
+			);
 		}
 
 		$services[] = array(
@@ -229,12 +235,15 @@ function nanocat_status_report( $force = false ) {
 			'ms'         => (int) $current['ms'],
 			'uptime'     => $checks ? round( $good / $checks * 100, 1 ) : null,
 			'avg_ms'     => $ms_n ? (int) round( $ms_sum / $ms_n ) : (int) $current['ms'],
+			'checks'     => $checks,
 			'bars'       => $bars,
 		);
 	}
 
 	$report = array(
 		'generated_at' => (int) get_option( 'nanocat_status_last_run', 0 ),
+		'checks'       => count( $history ),
+		'first_check'  => $history ? (int) min( array_keys( $history ) ) : 0,
 		'summary'      => $summary,
 		'services'     => $services,
 	);

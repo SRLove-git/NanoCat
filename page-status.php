@@ -46,6 +46,22 @@ $nanocat_labels = array(
 					<?php endif; ?>
 				</div>
 
+				<?php if ( $nanocat_report['checks'] < 30 ) : ?>
+					<p class="status-note">
+						<?php
+						if ( $nanocat_report['first_check'] ) {
+							printf(
+								/* translators: %s: datetime. */
+								esc_html__( '检测从 %s 开始记录，灰色格子表示还没有历史数据；之后每检测一次就会点亮一格。', 'nanocat' ),
+								esc_html( wp_date( 'Y-m-d H:i', $nanocat_report['first_check'] ) )
+							);
+						} else {
+							esc_html_e( '检测刚刚开始，灰色格子表示还没有历史数据；之后每检测一次就会点亮一格。', 'nanocat' );
+						}
+						?>
+					</p>
+				<?php endif; ?>
+
 				<div class="status-cards">
 					<?php foreach ( $nanocat_report['services'] as $nanocat_service ) : ?>
 						<article class="status-card">
@@ -66,19 +82,26 @@ $nanocat_labels = array(
 									esc_html_e( '30 天可用率 —', 'nanocat' );
 								} else {
 									printf(
-										/* translators: %s: uptime percentage. */
-										esc_html__( '30 天可用率 %s%%', 'nanocat' ),
-										esc_html( number_format_i18n( $nanocat_service['uptime'], 1 ) )
+										/* translators: 1: uptime percentage, 2: number of checks. */
+										esc_html__( '30 天可用率 %1$s%% · %2$s 次检测', 'nanocat' ),
+										esc_html( number_format_i18n( $nanocat_service['uptime'], 1 ) ),
+										esc_html( number_format_i18n( $nanocat_service['checks'] ) )
 									);
 								}
 								?>
 							</p>
 
-							<div class="status-card__bars" role="img" aria-label="<?php echo esc_attr( sprintf( /* translators: %s: service name. */ __( '%s 最近 30 天状态', 'nanocat' ), $nanocat_service['label'] ) ); ?>">
-								<?php foreach ( $nanocat_service['bars'] as $nanocat_day => $nanocat_state ) : ?>
+							<div class="status-card__bars" role="img" aria-label="<?php echo esc_attr( sprintf( /* translators: %s: service name. */ __( '%s 最近 30 次检测', 'nanocat' ), $nanocat_service['label'] ) ); ?>">
+								<?php foreach ( $nanocat_service['bars'] as $nanocat_bar ) : ?>
+									<?php
+									$nanocat_state = $nanocat_bar['status'];
+									$nanocat_title = $nanocat_bar['time']
+										? wp_date( 'Y-m-d H:i', $nanocat_bar['time'] ) . ' · ' . ( isset( $nanocat_labels[ $nanocat_state ] ) ? $nanocat_labels[ $nanocat_state ] : $nanocat_labels['none'] )
+										: $nanocat_labels['none'];
+									?>
 									<span
 										class="status-card__bar is-<?php echo esc_attr( $nanocat_state ); ?>"
-										title="<?php echo esc_attr( $nanocat_day . ' · ' . ( isset( $nanocat_labels[ $nanocat_state ] ) ? $nanocat_labels[ $nanocat_state ] : $nanocat_labels['none'] ) ); ?>"
+										title="<?php echo esc_attr( $nanocat_title ); ?>"
 									></span>
 								<?php endforeach; ?>
 							</div>

@@ -2095,3 +2095,10 @@ html[data-theme="light"] .site-footer {
 		width: auto;
 	}
 }
+
+.status-note {
+	margin: -4px 0 var(--v-gap);
+	color: var(--v-meta);
+	font-size: 0.72rem;
+	line-height: 1.6;
+}
