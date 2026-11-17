@@ -1973,3 +1973,125 @@ html.is-changing #swup {
 .status-card__bar.is-none {
 	background: rgba(255, 255, 255, 0.16);
 }
+
+/* --------------------------------------------------------------------------
+ * 25. Pagination and footer, matching the reference
+ * ----------------------------------------------------------------------- */
+
+.navigation.pagination {
+	margin: 24px 0;
+}
+
+.navigation.pagination .nav-links {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	width: auto;
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+	background: none;
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+}
+
+.navigation.pagination .page-numbers {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	min-width: 40px;
+	height: 40px;
+	padding: 0;
+	border: 1px solid var(--v-border);
+	border-radius: 8px;
+	background: rgba(28, 28, 34, 0.35);
+	-webkit-backdrop-filter: blur(20px) saturate(1.15);
+	backdrop-filter: blur(20px) saturate(1.15);
+	color: var(--v-text);
+	font-size: 0.86rem;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.navigation.pagination .page-numbers:hover {
+	border-color: rgba(99, 179, 255, 0.45);
+	background: rgba(99, 179, 255, 0.12);
+	color: var(--v-title);
+}
+
+.navigation.pagination .page-numbers.current {
+	border-color: var(--v-primary);
+	background: var(--v-primary);
+	color: #0b1018;
+}
+
+.navigation.pagination .page-numbers.prev,
+.navigation.pagination .page-numbers.next {
+	border-radius: 12px;
+	color: var(--v-text);
+}
+
+.navigation.pagination .page-numbers.prev span,
+.navigation.pagination .page-numbers.next span {
+	display: none;
+}
+
+.navigation.pagination .page-numbers.dots {
+	width: auto;
+	min-width: 20px;
+	border: 0;
+	background: transparent;
+	color: var(--v-meta);
+}
+
+html[data-theme="dark"] .site-footer,
+html[data-theme="light"] .site-footer {
+	width: fit-content;
+	max-width: calc(100% - 24px);
+	height: auto;
+	margin: 0 auto 16px;
+	padding: 10px 20px;
+	border: 1px solid var(--v-border);
+	border-radius: 999px;
+	background: rgba(18, 18, 24, 0.32);
+	-webkit-backdrop-filter: blur(24px) saturate(1.15);
+	backdrop-filter: blur(24px) saturate(1.15);
+}
+
+.site-footer .footer-bottom {
+	height: auto;
+	padding: 0;
+	font-size: 0.76rem;
+	white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+	html[data-theme="dark"] .site-footer,
+	html[data-theme="light"] .site-footer {
+		max-width: calc(100% - 16px);
+		padding: 8px 14px;
+		font-size: 0.7rem;
+	}
+}
+
+html[data-theme="dark"] .site-footer,
+html[data-theme="light"] .site-footer {
+	width: max-content;
+}
+
+.site-footer .footer-bottom,
+.site-footer .footer-copyright {
+	width: max-content;
+	white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+	html[data-theme="dark"] .site-footer,
+	html[data-theme="light"] .site-footer,
+	.site-footer .footer-bottom,
+	.site-footer .footer-copyright {
+		width: auto;
+	}
+}
