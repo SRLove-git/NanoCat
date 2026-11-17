@@ -1746,3 +1746,215 @@ html.is-changing #swup {
 .friend-row__rss:hover {
 	opacity: 1;
 }
+
+/* --------------------------------------------------------------------------
+ * 24. Status page
+ * ----------------------------------------------------------------------- */
+
+.status-heading {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.status-refresh {
+	display: inline-flex;
+	align-items: center;
+	padding: 6px 14px;
+	border: 1px solid var(--v-border);
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.04);
+	color: var(--v-text);
+	font-size: 0.76rem;
+	text-decoration: none;
+}
+
+.status-refresh:hover {
+	border-color: rgba(99, 179, 255, 0.45);
+	background: rgba(99, 179, 255, 0.1);
+	color: var(--v-primary);
+}
+
+.status-summary {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 18px;
+	margin-bottom: var(--v-gap);
+	padding: 14px 18px;
+	border: 1px solid var(--v-border);
+	border-radius: 12px;
+	background: var(--v-panel);
+	-webkit-backdrop-filter: blur(24px) saturate(1.15);
+	backdrop-filter: blur(24px) saturate(1.15);
+	color: var(--v-text);
+	font-size: 0.78rem;
+}
+
+.status-summary span {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+}
+
+.status-summary .status-dot,
+.status-legend .status-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.status-summary .status-dot.is-operational,
+.status-legend .status-dot.is-operational {
+	background: #22c55e;
+}
+
+.status-summary .status-dot.is-degraded,
+.status-legend .status-dot.is-degraded {
+	background: #eab308;
+}
+
+.status-summary .status-dot.is-down,
+.status-legend .status-dot.is-down {
+	background: #ef4444;
+}
+
+.status-summary .status-dot.is-unknown,
+.status-legend .status-dot.is-none {
+	background: rgba(255, 255, 255, 0.22);
+}
+
+.status-cards {
+	display: flex;
+	flex-direction: column;
+	gap: var(--v-gap);
+}
+
+.status-card {
+	padding: 18px 22px 16px;
+	border: 1px solid var(--v-border);
+	border-radius: var(--v-radius);
+	background: var(--v-panel);
+	-webkit-backdrop-filter: blur(24px) saturate(1.15);
+	backdrop-filter: blur(24px) saturate(1.15);
+}
+
+.status-card__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.status-card__name {
+	margin: 0;
+	color: var(--v-title);
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+.status-card__label {
+	flex: none;
+	padding: 3px 10px;
+	border-radius: 999px;
+	font-size: 0.7rem;
+	line-height: 1.5;
+	background: rgba(255, 255, 255, 0.08);
+	color: var(--v-meta);
+}
+
+.status-card__label.is-operational {
+	background: rgba(34, 197, 94, 0.14);
+	color: #86efac;
+}
+
+.status-card__label.is-degraded {
+	background: rgba(234, 179, 8, 0.14);
+	color: #fde68a;
+}
+
+.status-card__label.is-down {
+	background: rgba(239, 68, 68, 0.14);
+	color: #fca5a5;
+}
+
+.status-card__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin: 6px 0 14px;
+	color: var(--v-meta);
+	font-size: 0.74rem;
+}
+
+.status-card__bars {
+	display: flex;
+	align-items: flex-end;
+	gap: 4px;
+	height: 40px;
+}
+
+.status-card__bar {
+	flex: 1;
+	min-width: 0;
+	height: 8px;
+	border-radius: 3px 3px 0 0;
+	background: rgba(255, 255, 255, 0.08);
+}
+
+.status-card__bar.is-operational {
+	height: 100%;
+	background: #22c55e;
+}
+
+.status-card__bar.is-degraded {
+	height: 65%;
+	background: #eab308;
+}
+
+.status-card__bar.is-down {
+	height: 100%;
+	background: #ef4444;
+}
+
+.status-footer {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-top: var(--v-gap);
+}
+
+.status-legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+	color: var(--v-meta);
+	font-size: 0.72rem;
+}
+
+.status-legend span {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.status-updated {
+	margin: 0;
+	color: var(--v-meta);
+	font-size: 0.72rem;
+}
+
+/* Status panels need a little more body over a bright wallpaper. */
+.status-summary,
+.status-card {
+	background: rgba(11, 11, 17, 0.55);
+	border-color: rgba(255, 255, 255, 0.12);
+}
+
+.status-card__bar.is-none {
+	background: rgba(255, 255, 255, 0.16);
+}

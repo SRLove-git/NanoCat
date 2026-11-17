@@ -527,6 +527,7 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/topics.php';
 require get_template_directory() . '/inc/wiki.php';
 require get_template_directory() . '/inc/links.php';
+require get_template_directory() . '/inc/status.php';
 require get_template_directory() . '/inc/content-admin.php';
 require get_template_directory() . '/inc/customizer.php';
 
