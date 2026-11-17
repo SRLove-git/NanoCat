@@ -202,7 +202,7 @@ html[data-theme="dark"] ::selection {
 .flec-side {
 	order: 1;
 	position: sticky;
-	top: 88px;
+	top: 90px;
 	align-self: start;
 }
 
@@ -1061,7 +1061,7 @@ html[data-theme="dark"] .single .entry-hero {
 
 .vivia-page-grid > .flec-side {
 	position: sticky;
-	top: 88px;
+	top: 90px;
 }
 
 .vivia-page-main > .entry-hero,
