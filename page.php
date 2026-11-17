@@ -11,6 +11,9 @@ while ( have_posts() ) :
 	the_post();
 	?>
 	<main id="primary" class="site-main page-view">
+		<div class="vivia-page-grid">
+			<?php get_sidebar( 'right' ); ?>
+			<div class="vivia-page-main">
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'single-page' ); ?>>
 			<header class="page-hero">
 				<div class="container container--narrow">
@@ -78,6 +81,8 @@ while ( have_posts() ) :
 				?>
 			</div>
 		</article>
+			</div>
+		</div>
 	</main>
 	<?php
 endwhile;

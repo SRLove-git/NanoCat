@@ -8,6 +8,9 @@
 get_header();
 ?>
 <main id="primary" class="site-main search-view">
+	<div class="vivia-page-grid">
+		<?php get_sidebar( 'right' ); ?>
+		<div class="vivia-page-main">
 	<header class="search-hero">
 		<div class="container search-hero__inner">
 			<?php nanocat_breadcrumbs(); ?>
@@ -70,7 +73,8 @@ get_header();
 				<?php endif; ?>
 			</div>
 
-			<?php get_sidebar(); ?>
+		</div>
+	</div>
 		</div>
 	</div>
 </main>

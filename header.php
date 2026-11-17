@@ -37,9 +37,9 @@ $nanocat_logo    = $nanocat_logo_id ? wp_get_attachment_image(
 <?php endif; ?>
 
 <?php
-$nanocat_header_class = 'site-header';
+$nanocat_header_class = 'site-header flec-header';
 if ( is_home() && ! is_paged() ) {
-	$nanocat_header_class .= ' site-header--rose';
+	$nanocat_header_class .= ' flec-header--hero';
 }
 ?>
 <header id="masthead" class="<?php echo esc_attr( $nanocat_header_class ); ?>" data-site-header>

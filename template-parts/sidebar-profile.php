@@ -12,6 +12,8 @@ $nanocat_total  = isset( $nanocat_counts->publish ) ? (int) $nanocat_counts->pub
 $nanocat_cats   = wp_count_terms( array( 'taxonomy' => 'category', 'hide_empty' => true ) );
 $nanocat_cats   = is_wp_error( $nanocat_cats ) ? 0 : (int) $nanocat_cats;
 $nanocat_role   = get_theme_mod( 'nanocat_profile_role', nanocat_get_default( 'profile_role' ) );
+$nanocat_tags   = wp_count_terms( array( 'taxonomy' => 'post_tag', 'hide_empty' => true ) );
+$nanocat_tags   = is_wp_error( $nanocat_tags ) ? 0 : (int) $nanocat_tags;
 $nanocat_bio    = get_theme_mod( 'nanocat_profile_bio', nanocat_get_default( 'profile_bio' ) );
 ?>
 <section class="widget profile-card">
@@ -31,8 +33,10 @@ $nanocat_bio    = get_theme_mod( 'nanocat_profile_bio', nanocat_get_default( 'pr
 		<div class="profile-card__stats">
 			<div><strong><?php echo esc_html( number_format_i18n( $nanocat_total ) ); ?></strong><span><?php esc_html_e( '文章', 'nanocat' ); ?></span></div>
 			<div><strong><?php echo esc_html( number_format_i18n( $nanocat_cats ) ); ?></strong><span><?php esc_html_e( '分类', 'nanocat' ); ?></span></div>
-			<div><strong>∞</strong><span><?php esc_html_e( '咖啡', 'nanocat' ); ?></span></div>
+			<div><strong><?php echo esc_html( number_format_i18n( $nanocat_tags ) ); ?></strong><span><?php esc_html_e( '标签', 'nanocat' ); ?></span></div>
 		</div>
+
+		<a class="flec-subscribe" href="<?php echo esc_url( get_feed_link() ); ?>"><?php esc_html_e( '订阅本站', 'nanocat' ); ?></a>
 
 		<?php nanocat_social_links( 'social-links--profile' ); ?>
 	</div>

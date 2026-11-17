@@ -20,6 +20,9 @@ while ( have_posts() ) :
 	$nanocat_words      = nanocat_get_character_count();
 	?>
 	<main id="primary" class="site-main single-view">
+		<div class="vivia-page-grid">
+			<?php get_sidebar( 'right' ); ?>
+			<div class="vivia-page-main">
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'single-post' ); ?>>
 			<header class="entry-hero">
 				<div class="container entry-hero__inner">
@@ -307,6 +310,8 @@ while ( have_posts() ) :
 				</aside>
 			</div>
 		</article>
+			</div>
+		</div>
 	</main>
 	<?php
 endwhile;

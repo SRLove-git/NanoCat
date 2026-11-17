@@ -26,6 +26,9 @@ while ( have_posts() ) :
 	);
 	?>
 	<main id="primary" class="site-main links-view">
+		<div class="vivia-page-grid">
+			<?php get_sidebar( 'right' ); ?>
+			<div class="vivia-page-main">
 		<header class="hub-hero hub-hero--links">
 			<div class="container hub-hero__inner">
 				<div class="hub-hero__copy">
@@ -82,6 +85,10 @@ while ( have_posts() ) :
 		</header>
 
 		<div class="container links-shell">
+			<header class="v-panel-heading">
+				<h1><?php esc_html_e( 'Links', 'nanocat' ); ?></h1>
+			</header>
+
 			<?php if ( $nanocat_intro ) : ?>
 				<div class="links-intro entry-content"><?php echo apply_filters( 'the_content', $nanocat_intro ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
 			<?php endif; ?>
@@ -103,105 +110,72 @@ while ( have_posts() ) :
 				</div>
 			<?php endif; ?>
 
-			<?php if ( $nanocat_friend_posts ) : ?>
-				<section class="friend-feed" aria-labelledby="friend-feed-title">
-					<div class="section-heading">
-						<div>
-							<p class="section-kicker"><?php esc_html_e( '// FRIENDS_ARE_WRITING', 'nanocat' ); ?></p>
-							<h2 class="section-title" id="friend-feed-title"><?php esc_html_e( '友链新文', 'nanocat' ); ?></h2>
-						</div>
-						<p class="section-count"><?php esc_html_e( '来自邻居的最近更新', 'nanocat' ); ?></p>
-					</div>
-
-					<div class="friend-feed__list">
-						<?php foreach ( $nanocat_friend_posts as $nanocat_item ) : ?>
-							<a class="friend-feed__item" href="<?php echo esc_url( $nanocat_item['permalink'] ); ?>" target="_blank" rel="noopener noreferrer">
-								<span class="friend-feed__friend"><?php echo esc_html( $nanocat_item['friend'] ); ?></span>
-								<span class="friend-feed__title"><?php echo esc_html( $nanocat_item['title'] ); ?></span>
-								<time class="friend-feed__date" datetime="<?php echo esc_attr( gmdate( 'c', (int) $nanocat_item['timestamp'] ) ); ?>"><?php echo esc_html( $nanocat_item['date'] ); ?></time>
-								<?php nanocat_icon( 'arrow-right', 15 ); ?>
-							</a>
-						<?php endforeach; ?>
-					</div>
-				</section>
-			<?php endif; ?>
-
 			<?php if ( $nanocat_friends ) : ?>
-				<div class="friend-section-head">
-					<div>
-						<p class="section-kicker"><?php esc_html_e( '// NEIGHBORS', 'nanocat' ); ?></p>
-						<h2 class="section-title"><?php esc_html_e( '常去的地方', 'nanocat' ); ?></h2>
-					</div>
-					<span class="section-count"><?php esc_html_e( '排名按后台评分排序', 'nanocat' ); ?></span>
-				</div>
-
-				<div class="friend-grid">
+				<div class="friend-list">
 					<?php
 					foreach ( $nanocat_friends as $nanocat_friend ) :
-						$nanocat_host = wp_parse_url( $nanocat_friend['url'], PHP_URL_HOST );
-						$nanocat_host = $nanocat_host ? $nanocat_host : $nanocat_friend['url'];
+						$nanocat_host  = wp_parse_url( $nanocat_friend['url'], PHP_URL_HOST );
+						$nanocat_host  = $nanocat_host ? $nanocat_host : $nanocat_friend['url'];
 						$nanocat_state = isset( $nanocat_friend['health']['status'] ) ? $nanocat_friend['health']['status'] : 'unknown';
 						$nanocat_label = 'live' === $nanocat_state ? __( '在线', 'nanocat' ) : ( 'down' === $nanocat_state ? __( '失联', 'nanocat' ) : __( '待检测', 'nanocat' ) );
 						?>
-						<article class="friend-card">
-							<header class="friend-card__head">
-								<a class="friend-card__avatar" href="<?php echo esc_url( $nanocat_friend['url'] ); ?>" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+						<article class="friend-row">
+							<div class="friend-row__identity">
+								<a class="friend-row__avatar" href="<?php echo esc_url( $nanocat_friend['url'] ); ?>" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
 									<?php if ( $nanocat_friend['image'] ) : ?>
-										<img src="<?php echo esc_url( $nanocat_friend['image'] ); ?>" alt="" width="56" height="56" loading="lazy" referrerpolicy="no-referrer">
+										<img src="<?php echo esc_url( $nanocat_friend['image'] ); ?>" alt="" width="112" height="112" loading="lazy" referrerpolicy="no-referrer">
 									<?php else : ?>
 										<span><?php echo esc_html( $nanocat_friend['initial'] ); ?></span>
 									<?php endif; ?>
 								</a>
-
-								<div class="friend-card__identity">
-									<h3 class="friend-card__name">
-										<a href="<?php echo esc_url( $nanocat_friend['url'] ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $nanocat_friend['name'] ); ?></a>
-									</h3>
-									<p class="friend-card__host"><?php echo esc_html( $nanocat_host ); ?></p>
-								</div>
-
-								<span class="link-status link-status--<?php echo esc_attr( $nanocat_state ); ?>" title="<?php echo esc_attr( $nanocat_friend['health']['code'] ? 'HTTP ' . $nanocat_friend['health']['code'] : '' ); ?>">
-									<span class="status-dot" aria-hidden="true"></span>
-									<?php echo esc_html( $nanocat_label ); ?>
-								</span>
-							</header>
-
-							<?php if ( $nanocat_friend['description'] ) : ?>
-								<p class="friend-card__desc"><?php echo esc_html( $nanocat_friend['description'] ); ?></p>
-							<?php endif; ?>
-
-							<?php if ( $nanocat_friend['categories'] ) : ?>
-								<ul class="friend-card__tags" aria-label="<?php esc_attr_e( '友链分类', 'nanocat' ); ?>">
-									<?php foreach ( $nanocat_friend['categories'] as $nanocat_link_cat ) : ?>
-										<li><?php echo esc_html( $nanocat_link_cat->name ); ?></li>
-									<?php endforeach; ?>
+								<h3 class="friend-row__name">
+									<a href="<?php echo esc_url( $nanocat_friend['url'] ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $nanocat_friend['name'] ); ?></a>
+								</h3>
+								<p class="friend-row__host"><?php echo esc_html( $nanocat_host ); ?></p>
+								<ul class="friend-row__tags">
+									<li class="is-<?php echo esc_attr( $nanocat_state ); ?>">
+										<span class="status-dot" aria-hidden="true"></span>
+										<?php echo esc_html( $nanocat_label ); ?>
+									</li>
+									<?php if ( $nanocat_friend['categories'] ) : ?>
+										<?php foreach ( $nanocat_friend['categories'] as $nanocat_link_cat ) : ?>
+											<li><?php echo esc_html( $nanocat_link_cat->name ); ?></li>
+										<?php endforeach; ?>
+									<?php endif; ?>
 								</ul>
-							<?php endif; ?>
+							</div>
 
-							<?php if ( $nanocat_friend['feed'] ) : ?>
-								<ul class="friend-card__posts">
-									<?php foreach ( $nanocat_friend['feed'] as $nanocat_post ) : ?>
-										<li>
-											<a href="<?php echo esc_url( $nanocat_post['permalink'] ); ?>" target="_blank" rel="noopener noreferrer">
-												<span><?php echo esc_html( $nanocat_post['title'] ); ?></span>
-												<time datetime="<?php echo esc_attr( gmdate( 'c', (int) $nanocat_post['timestamp'] ) ); ?>"><?php echo esc_html( $nanocat_post['date'] ); ?></time>
-											</a>
-										</li>
-									<?php endforeach; ?>
-								</ul>
-							<?php elseif ( $nanocat_friend['rss'] ) : ?>
-								<p class="friend-card__empty"><?php esc_html_e( 'RSS 还在路上，稍后刷新就会有了。', 'nanocat' ); ?></p>
-							<?php else : ?>
-								<p class="friend-card__empty"><?php esc_html_e( '这位朋友没有留下 RSS，直接去串门吧。', 'nanocat' ); ?></p>
-							<?php endif; ?>
+							<div class="friend-row__body">
+								<?php if ( $nanocat_friend['description'] ) : ?>
+									<p class="friend-row__quote"><?php echo esc_html( $nanocat_friend['description'] ); ?></p>
+								<?php endif; ?>
 
-							<a class="friend-card__visit" href="<?php echo esc_url( $nanocat_friend['url'] ); ?>" target="_blank" rel="noopener noreferrer">
-								<?php esc_html_e( '访问网站', 'nanocat' ); ?>
-								<?php nanocat_icon( 'arrow-right', 15 ); ?>
-							</a>
+								<?php if ( $nanocat_friend['feed'] ) : ?>
+									<ul class="friend-row__posts">
+										<?php foreach ( $nanocat_friend['feed'] as $nanocat_post ) : ?>
+											<li>
+												<a href="<?php echo esc_url( $nanocat_post['permalink'] ); ?>" target="_blank" rel="noopener noreferrer">
+													<span class="friend-row__post-title"><?php echo esc_html( $nanocat_post['title'] ); ?></span>
+													<time datetime="<?php echo esc_attr( gmdate( 'c', (int) $nanocat_post['timestamp'] ) ); ?>"><?php echo esc_html( wp_date( 'Y-m-d H:i', (int) $nanocat_post['timestamp'] ) ); ?></time>
+												</a>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								<?php elseif ( $nanocat_friend['rss'] ) : ?>
+									<p class="friend-row__empty"><?php esc_html_e( 'RSS 还在路上，稍后刷新就会有了。', 'nanocat' ); ?></p>
+								<?php else : ?>
+									<p class="friend-row__empty"><?php esc_html_e( '这位朋友没有留下 RSS，直接去串门吧。', 'nanocat' ); ?></p>
+								<?php endif; ?>
+
+								<a class="friend-row__visit" href="<?php echo esc_url( $nanocat_friend['url'] ); ?>" target="_blank" rel="noopener noreferrer">
+									<?php esc_html_e( '访问网站', 'nanocat' ); ?>
+									<?php nanocat_icon( 'arrow-right', 15 ); ?>
+								</a>
+							</div>
 						</article>
 					<?php endforeach; ?>
 				</div>
+
 			<?php else : ?>
 				<div class="content-none">
 					<p class="section-kicker"><?php esc_html_e( '// NO_NEIGHBORS_YET', 'nanocat' ); ?></p>
@@ -238,6 +212,8 @@ while ( have_posts() ) :
 					</a>
 				<?php endif; ?>
 			</nav>
+		</div>
+			</div>
 		</div>
 	</main>
 	<?php

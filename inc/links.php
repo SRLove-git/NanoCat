@@ -98,14 +98,16 @@ function nanocat_check_link_health( $url ) {
 			'user-agent'  => 'NanoCat/' . NANOCAT_VERSION . '; ' . home_url( '/' ),
 		)
 	);
+	$code     = is_wp_error( $response ) ? 0 : (int) wp_remote_retrieve_response_code( $response );
 
-	if ( is_wp_error( $response ) ) {
+	// Some hosts reject HEAD or non-browser agents; retry as a browser GET.
+	if ( 0 === $code || $code >= 400 ) {
 		$response = wp_remote_get(
 			$url,
 			array(
-				'timeout'     => 6,
+				'timeout'     => 8,
 				'redirection' => 3,
-				'user-agent'  => 'NanoCat/' . NANOCAT_VERSION . '; ' . home_url( '/' ),
+				'user-agent'  => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36 NanoCat/' . NANOCAT_VERSION,
 			)
 		);
 	}

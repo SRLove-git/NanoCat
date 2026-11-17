@@ -652,3 +652,31 @@ function nanocat_comment( $comment, $args, $depth ) {
 	<?php
 	// The closing </li> is intentionally left to Walker_Comment.
 }
+
+/**
+ * Cover image for an index card: featured image, first inline image, or a
+ * themed fallback so every card keeps the same shape.
+ *
+ * @param int $post_id Post ID.
+ * @return string
+ */
+function nanocat_get_post_cover( $post_id = 0 ) {
+	$post_id = $post_id ? (int) $post_id : (int) get_the_ID();
+
+	if ( has_post_thumbnail( $post_id ) ) {
+		$url = get_the_post_thumbnail_url( $post_id, 'large' );
+		if ( $url ) {
+			return $url;
+		}
+	}
+
+	$content = (string) get_post_field( 'post_content', $post_id );
+	if ( preg_match( '/<img[^>]+src=[\'"]([^\'"]+)[\'"]/i', $content, $matches ) ) {
+		return $matches[1];
+	}
+
+	$fallbacks = array( 'fallback-1.svg', 'fallback-2.svg', 'fallback-3.svg' );
+	$index     = $post_id % count( $fallbacks );
+
+	return get_template_directory_uri() . '/assets/images/' . $fallbacks[ $index ];
+}

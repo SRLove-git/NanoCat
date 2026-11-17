@@ -121,6 +121,69 @@ function nanocat_polish_assets() {
 }
 add_action( 'wp_enqueue_scripts', 'nanocat_polish_assets', 30 );
 
+/**
+ * Flec layout skin: the light, card-based restructuring layer.
+ */
+function nanocat_flec_assets() {
+	$path = get_template_directory() . '/assets/css/flec.css';
+
+	if ( ! file_exists( $path ) ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		'nanocat-flec',
+		get_template_directory_uri() . '/assets/css/flec.css',
+		array( 'nanocat-main' ),
+		(string) filemtime( $path )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'nanocat_flec_assets', 40 );
+
+/**
+ * Vivia glass skin: transparent panels over a fixed wallpaper.
+ */
+function nanocat_vivia_assets() {
+	$path = get_template_directory() . '/assets/css/vivia.css';
+
+	if ( ! file_exists( $path ) ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		'nanocat-vivia',
+		get_template_directory_uri() . '/assets/css/vivia.css',
+		array( 'nanocat-main' ),
+		(string) filemtime( $path )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'nanocat_vivia_assets', 50 );
+
+/**
+ * Floating mascot + dock, mirroring the reference layout.
+ */
+function nanocat_vivia_float_dock() {
+	if ( is_admin() || is_feed() ) {
+		return;
+	}
+	?>
+	<div class="vivia-float">
+		<span class="vivia-chibi" aria-hidden="true">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mascot.svg' ); ?>" alt="" width="96" height="96">
+		</span>
+		<div class="vivia-dock">
+			<button class="vivia-dock__btn" type="button" data-search-open aria-label="<?php esc_attr_e( '搜索', 'nanocat' ); ?>">
+				<?php nanocat_icon( 'search', 17 ); ?>
+			</button>
+			<button class="vivia-dock__btn" type="button" data-back-to-top aria-label="<?php esc_attr_e( '回到顶部', 'nanocat' ); ?>">
+				<?php nanocat_icon( 'arrow-up', 17 ); ?>
+			</button>
+		</div>
+	</div>
+	<?php
+}
+add_action( 'wp_footer', 'nanocat_vivia_float_dock', 30 );
+
 
 /**
  * Avoid a flash of the wrong color scheme and mark that JavaScript is available.
@@ -132,24 +195,17 @@ function nanocat_color_mode_script() {
 		var root = document.documentElement;
 		root.classList.remove('no-js');
 		root.classList.add('js');
-		var mode = 'light';
+		var mode = 'dark';
 		try {
-			var saved = window.localStorage.getItem('nanocat-theme');
-			if (saved === 'light' || saved === 'dark') {
-				mode = saved;
-			} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				mode = 'dark';
-			}
+			window.localStorage.removeItem('nanocat-theme');
 		} catch (error) {
-			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				mode = 'dark';
-			}
+			mode = 'dark';
 		}
 		root.setAttribute('data-theme', mode);
 
 		var meta = document.getElementById('nanocat-theme-color');
 		if (meta) {
-			meta.setAttribute('content', mode === 'dark' ? '#060e19' : '#f2f7fd');
+			meta.setAttribute('content', mode === 'dark' ? '#0a0a0e' : '#f6f3ee');
 		}
 	}());
 	</script>

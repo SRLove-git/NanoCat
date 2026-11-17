@@ -815,3 +815,33 @@ html[data-theme="light"] .entry-hero {
 	-webkit-backdrop-filter: blur(14px) saturate(1.05);
 	backdrop-filter: blur(14px) saturate(1.05);
 }
+
+/* --------------------------------------------------------------------------
+ * 15. Light footer contrast
+ * ----------------------------------------------------------------------- */
+
+html[data-theme="light"] .site-footer {
+	color: var(--muted);
+}
+
+html[data-theme="light"] .footer-brand__link {
+	color: var(--ink) !important;
+}
+
+html[data-theme="light"] .footer-brand__text,
+html[data-theme="light"] .footer-brand__meta,
+html[data-theme="light"] .footer-note {
+	color: var(--muted);
+}
+
+html[data-theme="light"] .social-links--footer .social-link {
+	border-color: var(--line);
+	background: var(--surface);
+	color: var(--ink-soft);
+}
+
+html[data-theme="light"] .social-links--footer .social-link:hover {
+	border-color: var(--line-strong);
+	background: var(--surface-2);
+	color: var(--ink);
+}
