@@ -3052,3 +3052,52 @@ html[data-theme="dark"] .flec-header .icon-button.search-toggle:hover {
 #sakana-widget {
 	z-index: 10001;
 }
+
+/* --------------------------------------------------------------------------
+ * 31. Guestbook / page: one continuous sheet
+ * ----------------------------------------------------------------------- */
+
+.page-view .single-page {
+	width: 100%;
+	overflow: hidden;
+	border: 1px solid var(--v-border);
+	border-radius: var(--v-radius);
+	background: var(--v-panel);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
+	box-shadow: none;
+}
+
+.page-view .single-page .page-hero {
+	width: 100%;
+	margin: 0;
+	padding: 26px 30px 8px;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+}
+
+.page-view .single-page .page-shell {
+	width: 100%;
+	max-width: none;
+	margin: 0;
+	padding: 18px 30px 28px;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+}
+
+.page-view .single-page .page-hero .container,
+.page-view .single-page .page-shell {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.page-view .single-page .page-hero .container--narrow {
+	width: 100%;
+	padding: 0;
+}
