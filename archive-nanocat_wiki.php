@@ -74,6 +74,16 @@ $nanocat_links  = get_page_by_path( 'links' );
 					$nanocat_count   = nanocat_get_wiki_count( $nanocat_root->ID );
 					$nanocat_updated = get_the_modified_time( 'Y-m-d', $nanocat_root );
 					$nanocat_excerpt = nanocat_get_excerpt( 90, $nanocat_root->ID );
+					$nanocat_child_pages = get_posts(
+						array(
+							'post_type'      => 'nanocat_wiki',
+							'post_parent'    => $nanocat_root->ID,
+							'posts_per_page' => 3,
+							'orderby'        => 'menu_order title',
+							'order'          => 'ASC',
+							'no_found_rows'  => true,
+						)
+					);
 					?>
 					<article class="wiki-card">
 						<a class="wiki-card__media" href="<?php echo esc_url( get_permalink( $nanocat_root ) ); ?>" aria-hidden="true" tabindex="-1">
@@ -95,6 +105,20 @@ $nanocat_links  = get_page_by_path( 'links' );
 								<a href="<?php echo esc_url( get_permalink( $nanocat_root ) ); ?>"><?php echo esc_html( get_the_title( $nanocat_root ) ); ?></a>
 							</h2>
 							<p class="wiki-card__desc"><?php echo esc_html( $nanocat_excerpt ); ?></p>
+
+							<?php if ( $nanocat_child_pages ) : ?>
+								<ul class="wiki-card__pages">
+									<?php foreach ( $nanocat_child_pages as $nanocat_child_page ) : ?>
+										<li>
+											<a href="<?php echo esc_url( get_permalink( $nanocat_child_page ) ); ?>">
+												<span><?php echo esc_html( get_the_title( $nanocat_child_page ) ); ?></span>
+												<?php nanocat_icon( 'arrow-right', 12 ); ?>
+											</a>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+							<?php endif; ?>
+
 							<div class="wiki-card__foot">
 								<span>
 									<?php

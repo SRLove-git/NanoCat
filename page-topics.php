@@ -83,7 +83,7 @@ while ( have_posts() ) :
 					foreach ( $nanocat_topics as $nanocat_topic ) :
 						$nanocat_topic_index++;
 						$nanocat_topic_sort = nanocat_get_topic_sort( $nanocat_topic );
-						$nanocat_latest     = nanocat_get_topic_posts( $nanocat_topic, 1 );
+						$nanocat_latest     = nanocat_get_topic_posts( $nanocat_topic, 3 );
 						$nanocat_topic_link = get_term_link( $nanocat_topic );
 
 						if ( is_wp_error( $nanocat_topic_link ) ) {
@@ -115,10 +115,15 @@ while ( have_posts() ) :
 							</p>
 
 							<?php if ( $nanocat_latest->have_posts() ) : ?>
-								<div class="topic-card__latest">
-									<span><?php echo 'date' === $nanocat_topic_sort ? esc_html__( '开篇', 'nanocat' ) : esc_html__( '最新', 'nanocat' ); ?></span>
-									<?php echo esc_html( get_the_title( $nanocat_latest->posts[0] ) ); ?>
-								</div>
+								<p class="topic-card__posts-label"><?php echo 'date' === $nanocat_topic_sort ? esc_html__( '从第一篇开始', 'nanocat' ) : esc_html__( '最近更新', 'nanocat' ); ?></p>
+								<ul class="topic-card__posts">
+									<?php foreach ( $nanocat_latest->posts as $nanocat_latest_post ) : ?>
+										<li>
+											<span><?php echo esc_html( get_the_title( $nanocat_latest_post ) ); ?></span>
+											<time datetime="<?php echo esc_attr( get_the_date( 'c', $nanocat_latest_post ) ); ?>"><?php echo esc_html( get_the_date( 'm-d', $nanocat_latest_post ) ); ?></time>
+										</li>
+									<?php endforeach; ?>
+								</ul>
 								<?php wp_reset_postdata(); ?>
 							<?php endif; ?>
 
