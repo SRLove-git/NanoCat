@@ -102,6 +102,27 @@ function nanocat_scripts() {
 add_action( 'wp_enqueue_scripts', 'nanocat_scripts' );
 
 /**
+ * Refinement layer: loaded after main.css and ai.css so it can quiet the
+ * palette and spacing without touching the base styles.
+ */
+function nanocat_polish_assets() {
+	$path = get_template_directory() . '/assets/css/polish.css';
+
+	if ( ! file_exists( $path ) ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		'nanocat-polish',
+		get_template_directory_uri() . '/assets/css/polish.css',
+		array( 'nanocat-main' ),
+		(string) filemtime( $path )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'nanocat_polish_assets', 30 );
+
+
+/**
  * Avoid a flash of the wrong color scheme and mark that JavaScript is available.
  */
 function nanocat_color_mode_script() {

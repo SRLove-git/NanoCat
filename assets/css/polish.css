@@ -1,0 +1,817 @@
+/**
+ * NanoCat — quiet pass.
+ *
+ * A restrained refinement layer loaded after main.css and ai.css:
+ * a neutral, warmer dark canvas, fewer terminal-isms, quieter borders
+ * and more air. No layout changes, no external assets.
+ */
+
+/* --------------------------------------------------------------------------
+ * 1. Palette
+ * ----------------------------------------------------------------------- */
+
+html[data-theme="dark"] {
+	--paper: #0a0b0d;
+	--paper-tint: #0d0f12;
+	--surface: #121316;
+	--surface-2: #17191d;
+	--surface-glass: rgba(10, 11, 13, 0.76);
+	--ink: #eae8e3;
+	--ink-soft: #cdcac3;
+	--muted: #a19e97;
+	--line: rgba(255, 255, 255, 0.065);
+	--line-strong: rgba(255, 255, 255, 0.13);
+	--dot: transparent;
+	--accent: #8fb3d9;
+	--accent-strong: #b9d0e8;
+	--accent-soft: rgba(143, 179, 217, 0.12);
+	--lilac: #b5a8c4;
+	--lilac-soft: rgba(181, 168, 196, 0.12);
+	--cyan: #9dbfc4;
+	--cyan-soft: rgba(157, 191, 196, 0.1);
+	--sun: #f0d9bf;
+	--code-bg: #101215;
+	--code-bar: #14171b;
+	--code-line: #23262b;
+	--shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.22);
+	--shadow: 0 24px 60px -34px rgba(0, 0, 0, 0.78);
+	--shadow-lg: 0 50px 100px -44px rgba(0, 0, 0, 0.88);
+}
+
+html[data-theme="light"] {
+	--paper: #f6f4ef;
+	--paper-tint: #efece6;
+	--surface: #fffefb;
+	--surface-2: #f4f1ea;
+	--surface-glass: rgba(246, 244, 239, 0.82);
+	--ink: #1d1c19;
+	--ink-soft: #3f3d38;
+	--muted: #6f6b63;
+	--line: rgba(29, 28, 25, 0.09);
+	--line-strong: rgba(29, 28, 25, 0.16);
+	--dot: transparent;
+	--accent: #2f6ba8;
+	--accent-strong: #1f5188;
+	--accent-soft: rgba(47, 107, 168, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+ * 2. Canvas
+ * ----------------------------------------------------------------------- */
+
+body {
+	background-image: radial-gradient(
+		1100px 520px at 50% -220px,
+		rgba(255, 255, 255, 0.045),
+		transparent 70%
+	);
+	background-size: auto;
+	background-attachment: scroll;
+}
+
+html[data-theme="light"] body {
+	background-image: radial-gradient(
+		1100px 520px at 50% -220px,
+		rgba(29, 28, 25, 0.035),
+		transparent 70%
+	);
+}
+
+::selection {
+	background: var(--accent-soft);
+	color: var(--ink);
+}
+
+.section-kicker {
+	font-size: 0.6rem;
+	font-weight: 600;
+	letter-spacing: 0.16em;
+	color: var(--muted);
+	opacity: 0.75;
+}
+
+/* --------------------------------------------------------------------------
+ * 3. Masthead
+ * ----------------------------------------------------------------------- */
+
+.site-header {
+	background: transparent;
+	border-bottom: 0;
+}
+
+.site-header::after {
+	display: none;
+}
+
+.site-header.is-scrolled {
+	background: var(--surface-glass);
+	border-bottom: 1px solid var(--line);
+	box-shadow: none;
+	-webkit-backdrop-filter: blur(16px) saturate(1.2);
+	backdrop-filter: blur(16px) saturate(1.2);
+}
+
+.header-inner {
+	height: 70px;
+}
+
+.custom-logo {
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	box-shadow: 0 0 0 1px var(--line);
+}
+
+.site-brand {
+	gap: 12px;
+}
+
+.site-brand__name {
+	font-size: 1.04rem;
+	font-weight: 650;
+	letter-spacing: 0;
+}
+
+.site-brand__tag {
+	margin-top: 2px;
+	color: var(--muted);
+	font-size: 0.66rem;
+	letter-spacing: 0.04em;
+}
+
+.primary-menu a {
+	height: 34px;
+	padding: 0 12px;
+	color: var(--muted);
+	font-size: 0.82rem;
+	font-weight: 500;
+	letter-spacing: 0.01em;
+	border-radius: 8px;
+}
+
+.primary-menu a:hover {
+	background: transparent;
+	color: var(--ink);
+}
+
+.primary-menu .current-menu-item > a,
+.primary-menu .current_page_item > a,
+.primary-menu .current-menu-ancestor > a {
+	background: transparent;
+	color: var(--ink);
+}
+
+.primary-menu .current-menu-item > a::before,
+.primary-menu .current_page_item > a::before {
+	width: 3px;
+	height: 3px;
+	margin-right: 6px;
+	background: var(--accent);
+}
+
+.ai-trigger {
+	border: 1px solid var(--line);
+	background: transparent;
+	color: var(--ink-soft);
+	border-radius: 999px;
+	box-shadow: none;
+}
+
+.ai-trigger:hover {
+	border-color: var(--line-strong);
+	background: var(--surface);
+	color: var(--ink);
+}
+
+.icon-button {
+	color: var(--muted);
+	border-radius: 999px;
+}
+
+.icon-button:hover {
+	background: var(--surface);
+	color: var(--ink);
+}
+
+/* --------------------------------------------------------------------------
+ * 4. Rose hero — keep the warmth, drop the telemetry
+ * ----------------------------------------------------------------------- */
+
+.rose-hero__masthead {
+	display: none;
+}
+
+.rose-hero__footer {
+	justify-content: center;
+	gap: 0;
+	padding-top: 22px;
+	border-top: 0;
+}
+
+.rose-hero__footer > span,
+.rose-hero__footer > a:last-child {
+	display: none;
+}
+
+.rose-hero__footer > a:first-child {
+	color: rgba(255, 238, 221, 0.5);
+	font-size: 9px;
+	letter-spacing: 0.2em;
+}
+
+.rose-card {
+	width: min(520px, 100%);
+	padding: 40px 42px 32px;
+	border-color: rgba(255, 226, 204, 0.16);
+	border-radius: 26px;
+	box-shadow: 0 40px 120px rgba(8, 4, 7, 0.55);
+}
+
+.rose-card::before {
+	display: none;
+}
+
+.rose-card__avatar {
+	width: 84px;
+	height: 84px;
+	margin-bottom: 20px;
+	padding: 3px;
+}
+
+.rose-card__kicker {
+	display: none;
+}
+
+.rose-card__name {
+	font-size: clamp(30px, 3.6vw, 40px);
+	letter-spacing: 0.06em;
+}
+
+.rose-card__role {
+	font-size: 11px;
+	letter-spacing: 0.12em;
+	color: rgba(255, 231, 208, 0.5);
+}
+
+.rose-card__quote {
+	margin-top: 20px;
+	color: rgba(255, 237, 222, 0.85);
+	font-size: 0.95rem;
+	line-height: 1.95;
+}
+
+.rose-card__note {
+	color: rgba(255, 231, 208, 0.4);
+	font-size: 0.7rem;
+}
+
+.social-links--rose .social-link {
+	border-color: rgba(255, 226, 204, 0.14);
+	background: transparent;
+	color: rgba(255, 236, 219, 0.62);
+}
+
+.social-links--rose .social-link:hover {
+	border-color: rgba(255, 226, 204, 0.3);
+	color: #fff1e2;
+}
+
+.rose-card__actions {
+	margin-top: 26px;
+}
+
+.rose-card__button--solid {
+	border: 0;
+	background: #f1e0cb;
+	color: #2a1a15;
+	box-shadow: none;
+}
+
+.rose-card__button--solid:hover {
+	background: #f7e9d8;
+	color: #1d120e;
+}
+
+.rose-card__button--ghost {
+	border: 1px solid rgba(255, 226, 204, 0.22);
+	background: transparent;
+	color: rgba(255, 238, 222, 0.82);
+}
+
+.rose-card__button--ghost:hover {
+	border-color: rgba(255, 226, 204, 0.4);
+	background: rgba(255, 226, 204, 0.06);
+}
+
+/* --------------------------------------------------------------------------
+ * 5. Home index
+ * ----------------------------------------------------------------------- */
+
+.home-index__head {
+	align-items: baseline;
+	padding-bottom: 20px;
+	border-bottom-color: var(--line);
+}
+
+.home-index__head .section-kicker {
+	display: none;
+}
+
+.home-index__title {
+	margin-top: 0;
+	font-size: clamp(1.6rem, 2.6vw, 2.15rem);
+	font-weight: 700;
+	letter-spacing: -0.01em;
+}
+
+.home-index__count {
+	color: var(--muted);
+	font-size: 0.66rem;
+}
+
+.index-entry {
+	border-top-color: var(--line);
+}
+
+.index-entry__link {
+	grid-template-columns: 40px minmax(0, 1fr) 76px;
+	gap: 18px;
+	padding: 27px 0;
+}
+
+.index-entry__number {
+	padding-top: 7px;
+	color: var(--muted);
+	font-size: 0.6rem;
+	opacity: 0.7;
+}
+
+.index-entry__meta {
+	gap: 6px;
+	color: var(--muted);
+	font-size: 0.6rem;
+	letter-spacing: 0.02em;
+}
+
+.index-entry__title {
+	margin-top: 8px;
+	font-size: clamp(1.08rem, 1.7vw, 1.3rem);
+	font-weight: 650;
+	letter-spacing: 0;
+	line-height: 1.45;
+}
+
+.index-entry__excerpt {
+	display: -webkit-box;
+	overflow: hidden;
+	max-width: 70ch;
+	margin-top: 8px;
+	color: var(--muted);
+	font-size: 0.84rem;
+	line-height: 1.8;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+.index-entry__side {
+	padding-top: 8px;
+	color: var(--muted);
+	font-size: 0.6rem;
+}
+
+.index-entry__side svg {
+	color: var(--muted);
+	opacity: 0.6;
+}
+
+.index-entry__link:hover .index-entry__title {
+	color: var(--ink);
+	text-decoration: underline;
+	text-decoration-color: var(--accent);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 4px;
+}
+
+.index-entry__link:hover .index-entry__side svg {
+	color: var(--ink);
+	opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+ * 6. Sidebars
+ * ----------------------------------------------------------------------- */
+
+.sidebar .widget {
+	padding: 20px;
+	border-color: var(--line);
+	border-radius: 18px;
+	box-shadow: none;
+}
+
+.widget-title {
+	margin-top: 2px;
+	font-size: 0.98rem;
+	font-weight: 650;
+	letter-spacing: 0;
+}
+
+.home-side .section-kicker {
+	display: none;
+}
+
+.profile-card__banner {
+	display: none;
+}
+
+.profile-card .profile-card__avatar {
+	width: 82px;
+	height: 82px;
+	margin: 24px auto 0;
+	border: 0;
+	background: transparent;
+	box-shadow: 0 0 0 1px var(--line);
+}
+
+.profile-card__body {
+	padding: 14px 20px 22px;
+	text-align: center;
+}
+
+.profile-card__name {
+	font-size: 1.08rem;
+	font-weight: 650;
+	letter-spacing: 0;
+}
+
+.profile-card__role {
+	margin-top: 4px;
+	color: var(--muted);
+	font-size: 0.6rem;
+	letter-spacing: 0.04em;
+}
+
+.profile-card__bio {
+	margin-top: 10px;
+	color: var(--muted);
+	font-size: 0.76rem;
+	line-height: 1.8;
+}
+
+.profile-card__stats {
+	margin-top: 18px;
+	padding-top: 14px;
+	border-top: 1px solid var(--line);
+}
+
+.profile-card__stats strong {
+	font-size: 0.98rem;
+	font-weight: 650;
+	letter-spacing: 0;
+}
+
+.profile-card__stats span {
+	color: var(--muted);
+	font-size: 0.58rem;
+	letter-spacing: 0.04em;
+}
+
+.social-links--profile {
+	justify-content: center;
+	margin-top: 14px;
+}
+
+.sidebar .widget:not(.profile-card) ul:not(.social-links):not(.popular-list) li {
+	padding: 9px 0;
+	border-bottom: 1px solid var(--line);
+	font-size: 0.82rem;
+}
+
+.popular-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.popular-item {
+	padding: 0;
+	border-bottom: 1px solid var(--line);
+}
+
+.popular-item:last-child {
+	border-bottom: 0;
+}
+
+.popular-item > a {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 13px 0;
+}
+
+.popular-item:first-child > a {
+	padding-top: 2px;
+}
+
+.popular-item:last-child > a {
+	padding-bottom: 0;
+}
+
+.popular-item__rank {
+	flex: none;
+	padding-top: 2px;
+	color: var(--muted);
+	font-family: var(--font-mono);
+	font-size: 0.56rem;
+	opacity: 0.75;
+}
+
+.popular-item__copy {
+	display: flex;
+	min-width: 0;
+	flex-direction: column;
+}
+
+.popular-item__title {
+	color: var(--ink-soft);
+	font-size: 0.82rem;
+	font-weight: 500;
+	line-height: 1.6;
+}
+
+.popular-item__meta {
+	margin-top: 4px;
+	color: var(--muted);
+	font-family: var(--font-mono);
+	font-size: 0.58rem;
+}
+
+.popular-item a:hover .popular-item__title {
+	color: var(--ink);
+}
+
+/* --------------------------------------------------------------------------
+ * 7. Article reading
+ * ----------------------------------------------------------------------- */
+
+.single .entry-title,
+.page-title {
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.entry-meta,
+.entry-author__meta {
+	color: var(--muted);
+	font-size: 0.72rem;
+}
+
+.entry-content {
+	font-size: 1.02rem;
+	line-height: 1.95;
+	color: var(--ink-soft);
+}
+
+.entry-content h2 {
+	margin-top: 2.6em;
+	font-size: 1.42rem;
+	font-weight: 650;
+	letter-spacing: 0;
+}
+
+.entry-content h3 {
+	margin-top: 2em;
+	font-size: 1.14rem;
+	font-weight: 650;
+	letter-spacing: 0;
+}
+
+.entry-content a {
+	text-underline-offset: 4px;
+}
+
+.entry-content blockquote {
+	padding: 18px 22px;
+	background: var(--surface);
+	border-left: 2px solid var(--accent);
+	border-radius: 0 12px 12px 0;
+	color: var(--ink-soft);
+}
+
+.entry-content pre {
+	border-color: var(--line);
+	border-radius: 16px;
+}
+
+.entry-aside .widget,
+.toc {
+	border-color: var(--line);
+	border-radius: 18px;
+	box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+ * 8. Footer
+ * ----------------------------------------------------------------------- */
+
+.site-footer {
+	margin-top: 64px;
+	padding-top: 48px;
+	background: transparent;
+	border-top: 1px solid var(--line);
+	border-radius: 0;
+	color: var(--muted);
+}
+
+html[data-theme="dark"] .site-footer,
+html[data-theme="light"] .site-footer {
+	background: transparent;
+}
+
+.site-footer::before {
+	display: none;
+}
+
+.footer-brand__mark {
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	box-shadow: 0 0 0 1px var(--line);
+}
+
+.footer-brand__link span {
+	font-size: 0.98rem;
+	font-weight: 600;
+	letter-spacing: 0;
+}
+
+.footer-brand__text,
+.footer-brand__meta {
+	color: var(--muted);
+	font-size: 0.78rem;
+}
+
+.footer-heading {
+	color: var(--muted);
+	font-size: 0.6rem;
+	font-weight: 600;
+	letter-spacing: 0.15em;
+}
+
+.footer-menu a,
+.footer-column a {
+	color: var(--ink-soft);
+	font-size: 0.82rem;
+}
+
+.footer-menu a:hover,
+.footer-column a:hover {
+	color: var(--ink);
+}
+
+.footer-bottom {
+	margin-top: 34px;
+	padding-top: 18px;
+	border-top: 1px solid var(--line);
+	color: var(--muted);
+	font-size: 0.68rem;
+}
+
+/* --------------------------------------------------------------------------
+ * 9. Rose-header navigation — quiet the active pill
+ * ----------------------------------------------------------------------- */
+
+.site-header--rose .primary-menu > li > a:hover,
+.site-header--rose .primary-menu > li.current-menu-item > a,
+.site-header--rose .primary-menu > li.current-menu-ancestor > a {
+	background: transparent;
+	color: #fff3e4;
+}
+
+.site-header--rose .ai-trigger {
+	border-color: rgba(255, 232, 208, 0.2);
+	background: transparent;
+}
+
+.site-header--rose .ai-trigger:hover {
+	border-color: rgba(255, 232, 208, 0.42);
+	background: rgba(255, 238, 218, 0.06);
+}
+
+/* --------------------------------------------------------------------------
+ * 10. Pagination
+ * ----------------------------------------------------------------------- */
+
+.navigation.pagination {
+	display: flex;
+	justify-content: center;
+	margin-top: 44px;
+}
+
+.navigation.pagination .nav-links {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.navigation.pagination .page-numbers {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 38px;
+	height: 38px;
+	padding: 0 15px;
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	background: transparent;
+	color: var(--ink-soft);
+	font-size: 0.78rem;
+	font-weight: 500;
+	transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+
+.navigation.pagination .page-numbers:hover {
+	border-color: var(--line-strong);
+	background: var(--surface);
+	color: var(--ink);
+}
+
+.navigation.pagination .page-numbers.current {
+	border-color: #e9e5dc;
+	background: #e9e5dc;
+	color: #17140f;
+}
+
+.navigation.pagination .page-numbers.dots {
+	border-color: transparent;
+	background: transparent;
+}
+
+/* --------------------------------------------------------------------------
+ * 11. Index rows — a little breathing room on hover
+ * ----------------------------------------------------------------------- */
+
+.index-entry__link {
+	margin-inline: -14px;
+	padding-inline: 14px;
+	border-radius: 14px;
+	transition: background 0.2s var(--ease);
+}
+
+.index-entry__link:hover {
+	background: var(--surface);
+}
+
+.index-entry__title {
+	font-weight: 600;
+}
+
+.home-index__wrap {
+	padding-top: clamp(40px, 5vw, 64px);
+}
+
+/* --------------------------------------------------------------------------
+ * 12. Footer rhythm
+ * ----------------------------------------------------------------------- */
+
+.site-footer {
+	margin-top: 48px;
+	padding-top: 44px;
+}
+
+.footer-main {
+	row-gap: 28px;
+}
+
+.footer-bottom {
+	margin-top: 28px;
+}
+
+/* --------------------------------------------------------------------------
+ * 13. Article hero — drop the drafting grid
+ * ----------------------------------------------------------------------- */
+
+.entry-hero::before {
+	display: none;
+}
+
+html[data-theme="dark"] .entry-hero {
+	background: linear-gradient(180deg, var(--paper) 0%, var(--paper-tint) 100%);
+}
+
+html[data-theme="light"] .entry-hero {
+	background: linear-gradient(180deg, var(--paper) 0%, var(--paper-tint) 100%);
+}
+
+/* --------------------------------------------------------------------------
+ * 14. Hero depth
+ * ----------------------------------------------------------------------- */
+
+.rose-hero__girl {
+	filter: saturate(0.92) contrast(1.04) brightness(0.9);
+}
+
+.rose-card {
+	background: linear-gradient(160deg, rgba(38, 22, 28, 0.88), rgba(18, 11, 16, 0.84));
+	-webkit-backdrop-filter: blur(14px) saturate(1.05);
+	backdrop-filter: blur(14px) saturate(1.05);
+}
