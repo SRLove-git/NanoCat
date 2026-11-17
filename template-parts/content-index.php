@@ -36,7 +36,15 @@ $nanocat_comments     = (int) get_comments_number();
 				<span><?php echo esc_html( $nanocat_category->name ); ?></span>
 			<?php endif; ?>
 			<span aria-hidden="true">·</span>
-			<span><?php echo esc_html( $nanocat_reading_time ); ?></span>
+			<span>
+				<?php
+				printf(
+					/* translators: %s: character count. */
+					esc_html__( '%s 字', 'nanocat' ),
+					esc_html( number_format_i18n( nanocat_get_character_count() ) )
+				);
+				?>
+			</span>
 			<?php if ( $nanocat_comments > 0 ) : ?>
 				<span aria-hidden="true">·</span>
 				<span>

@@ -1579,3 +1579,70 @@ html[data-theme="dark"] .ai-page-view {
 	-webkit-backdrop-filter: blur(24px) saturate(1.1);
 	backdrop-filter: blur(24px) saturate(1.1);
 }
+
+/* --------------------------------------------------------------------------
+ * 22. Closer to the reference
+ * ----------------------------------------------------------------------- */
+
+/* Reference profile card: avatar, name, dash, subtitle, icons only. */
+.flec-side .profile-card__stats {
+	display: none;
+}
+
+.flec-side .profile-card__body {
+	padding-bottom: 22px;
+}
+
+/* The reference links page is just the Links panel. */
+.links-shell .friend-invite,
+.links-shell .hub-crosslinks {
+	display: none;
+}
+
+.flec-card__title {
+	font-size: 1.55rem;
+}
+
+/* Soft entrance, like the reference theme. */
+@keyframes vivia-fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.site-header.flec-header,
+.flec-side,
+.flec-card,
+.vivia-page-main > *,
+.friend-list,
+.archive-library__main {
+	animation: vivia-fade-up 0.5s var(--ease) both;
+}
+
+.flec-card:nth-child(2) {
+	animation-delay: 0.04s;
+}
+
+.flec-card:nth-child(3) {
+	animation-delay: 0.08s;
+}
+
+.flec-card:nth-child(4) {
+	animation-delay: 0.12s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.site-header.flec-header,
+	.flec-side,
+	.flec-card,
+	.vivia-page-main > *,
+	.friend-list,
+	.archive-library__main {
+		animation: none;
+	}
+}
