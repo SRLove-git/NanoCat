@@ -275,13 +275,20 @@ function nanocat_vivia_loader_head() {
 			font-family: "Roboto", "PingFang SC", "Microsoft YaHei", sans-serif;
 		}
 		.vivia-loader__avatar {
-			width: 64px;
-			height: 64px;
-			margin-bottom: 12px;
+			display: block;
+			width: 76px;
+			height: 76px;
+			margin: 0 auto 14px;
+			border: 1px solid rgba(255, 255, 255, 0.18);
 			border-radius: 50%;
+			box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.04), 0 12px 30px rgba(0, 0, 0, 0.35);
 			object-fit: cover;
 		}
-		.vivia-loader__name { font-size: 18px; font-weight: 700; }
+		.vivia-loader__name {
+			font-size: 20px;
+			font-weight: 700;
+			letter-spacing: 0.01em;
+		}
 		.vivia-loader__hint {
 			margin-top: 4px;
 			color: #a0a5ab;
