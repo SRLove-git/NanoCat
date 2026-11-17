@@ -160,29 +160,65 @@ function nanocat_vivia_assets() {
 add_action( 'wp_enqueue_scripts', 'nanocat_vivia_assets', 50 );
 
 /**
- * Floating mascot + dock, mirroring the reference layout.
+ * Sakana widget and the random wallpaper used by the reference theme.
  */
-function nanocat_vivia_float_dock() {
+function nanocat_vivia_sakana() {
+	if ( is_admin() || is_feed() ) {
+		return;
+	}
+
+	$path = get_template_directory() . '/assets/js/vendor/sakana-widget.min.js';
+	if ( ! file_exists( $path ) ) {
+		return;
+	}
+
+	wp_enqueue_script(
+		'nanocat-sakana',
+		get_template_directory_uri() . '/assets/js/vendor/sakana-widget.min.js',
+		array(),
+		(string) filemtime( $path ),
+		true
+	);
+
+	wp_add_inline_script(
+		'nanocat-sakana',
+		"window.addEventListener('load',function(){if(typeof SakanaWidget!=='undefined'){new SakanaWidget({size:200,autoFit:true,controls:true,rod:true,draggable:true,character:'chisato'}).mount('#sakana-widget');}});"
+	);
+}
+add_action( 'wp_enqueue_scripts', 'nanocat_vivia_sakana', 60 );
+
+/**
+ * Mount point for the Sakana widget.
+ */
+function nanocat_vivia_sakana_mount() {
+	if ( is_admin() || is_feed() ) {
+		return;
+	}
+	echo '<div id="sakana-widget"></div>';
+}
+add_action( 'wp_footer', 'nanocat_vivia_sakana_mount', 30 );
+
+/**
+ * Pull a random wallpaper from the same API the reference uses.
+ */
+function nanocat_vivia_wallpaper_script() {
 	if ( is_admin() || is_feed() ) {
 		return;
 	}
 	?>
-	<div class="vivia-float">
-		<span class="vivia-chibi" aria-hidden="true">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mascot.svg' ); ?>" alt="" width="96" height="96">
-		</span>
-		<div class="vivia-dock">
-			<button class="vivia-dock__btn" type="button" data-search-open aria-label="<?php esc_attr_e( '搜索', 'nanocat' ); ?>">
-				<?php nanocat_icon( 'search', 17 ); ?>
-			</button>
-			<button class="vivia-dock__btn" type="button" data-back-to-top aria-label="<?php esc_attr_e( '回到顶部', 'nanocat' ); ?>">
-				<?php nanocat_icon( 'arrow-up', 17 ); ?>
-			</button>
-		</div>
-	</div>
+	<script>
+	(function () {
+		var url = 'https://api.elaina.cat/random/?' + Date.now();
+		var img = new Image();
+		img.onload = function () {
+			document.documentElement.style.setProperty('--vivia-wallpaper', 'url("' + url + '")');
+		};
+		img.src = url;
+	}());
+	</script>
 	<?php
 }
-add_action( 'wp_footer', 'nanocat_vivia_float_dock', 30 );
+add_action( 'wp_footer', 'nanocat_vivia_wallpaper_script', 31 );
 
 
 /**
