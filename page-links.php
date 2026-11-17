@@ -12,6 +12,16 @@ while ( have_posts() ) :
 
 	$nanocat_friends      = nanocat_get_friend_links();
 	$nanocat_friend_posts = nanocat_get_friend_posts( 6 );
+
+	usort(
+		$nanocat_friends,
+		function ( $a, $b ) {
+			$time_a = ! empty( $a['feed'][0]['timestamp'] ) ? (int) $a['feed'][0]['timestamp'] : 0;
+			$time_b = ! empty( $b['feed'][0]['timestamp'] ) ? (int) $b['feed'][0]['timestamp'] : 0;
+
+			return $time_b <=> $time_a;
+		}
+	);
 	$nanocat_intro        = trim( get_the_content() );
 	$nanocat_last_refresh = (int) get_option( 'nanocat_links_refreshed', 0 );
 	$nanocat_topics       = get_page_by_path( 'topics' );
@@ -132,21 +142,23 @@ while ( have_posts() ) :
 										<span><?php echo esc_html( $nanocat_friend['initial'] ); ?></span>
 									<?php endif; ?>
 								</a>
-								<h3 class="friend-row__name">
-									<a href="<?php echo esc_url( $nanocat_friend['url'] ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $nanocat_friend['name'] ); ?></a>
-								</h3>
-								<?php if ( $nanocat_friend['rss'] && nanocat_link_feed_ok( $nanocat_friend['rss'] ) ) : ?>
-									<a
-										class="friend-row__rss"
-										href="<?php echo esc_url( $nanocat_friend['rss'] ); ?>"
-										target="_blank"
-										rel="noopener noreferrer"
-										title="<?php echo esc_attr( sprintf( /* translators: %s: friend name. */ __( '订阅 %s 的 RSS', 'nanocat' ), $nanocat_friend['name'] ) ); ?>"
-										aria-label="<?php echo esc_attr( sprintf( /* translators: %s: friend name. */ __( '订阅 %s 的 RSS', 'nanocat' ), $nanocat_friend['name'] ) ); ?>"
-									>
-										<?php nanocat_icon( 'rss', 14 ); ?>
-									</a>
-								<?php endif; ?>
+								<div class="friend-row__title">
+									<h3 class="friend-row__name">
+										<a href="<?php echo esc_url( $nanocat_friend['url'] ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $nanocat_friend['name'] ); ?></a>
+									</h3>
+									<?php if ( $nanocat_friend['rss'] && nanocat_link_feed_ok( $nanocat_friend['rss'] ) ) : ?>
+										<a
+											class="friend-row__rss"
+											href="<?php echo esc_url( $nanocat_friend['rss'] ); ?>"
+											target="_blank"
+											rel="noopener noreferrer"
+											title="<?php echo esc_attr( sprintf( /* translators: %s: friend name. */ __( '订阅 %s 的 RSS', 'nanocat' ), $nanocat_friend['name'] ) ); ?>"
+											aria-label="<?php echo esc_attr( sprintf( /* translators: %s: friend name. */ __( '订阅 %s 的 RSS', 'nanocat' ), $nanocat_friend['name'] ) ); ?>"
+										>
+											<?php nanocat_icon( 'rss', 14 ); ?>
+										</a>
+									<?php endif; ?>
+								</div>
 								<p class="friend-row__host"><?php echo esc_html( $nanocat_host ); ?></p>
 								<ul class="friend-row__tags">
 									<li class="is-<?php echo esc_attr( $nanocat_state ); ?>">
