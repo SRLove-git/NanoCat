@@ -31,9 +31,9 @@ html[data-theme="dark"] {
 	--v-title: #edf2f8;
 	--v-text: #c9ced4;
 	--v-meta: #a0a5ab;
-	--v-panel: rgba(18, 18, 24, 0.26);
-	--v-panel-hover: rgba(32, 32, 40, 0.36);
-	--v-border: rgba(255, 255, 255, 0.09);
+	--v-panel: rgba(26, 27, 34, 0.50);
+	--v-panel-hover: rgba(40, 42, 52, 0.62);
+	--v-border: rgba(255, 255, 255, 0.13);
 	--v-radius: 16px;
 	--v-gap: 16px;
 	--v-input: rgba(255, 255, 255, 0.08);
@@ -72,15 +72,15 @@ html[data-theme="dark"] ::selection {
 	margin: 0 auto var(--v-gap);
 	border: 1px solid var(--v-border);
 	border-radius: 0 0 var(--v-radius) var(--v-radius);
-	background: rgba(28, 28, 34, 0.35);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	background: rgba(28, 29, 36, 0.52);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 	box-shadow: none;
 }
 
 .site-header.flec-header.is-scrolled {
 	border-bottom: 1px solid var(--v-border);
-	background: rgba(18, 18, 24, 0.38);
+	background: rgba(26, 27, 34, 0.54);
 	box-shadow: none;
 }
 
@@ -225,8 +225,8 @@ html[data-theme="dark"] ::selection {
 	background: var(--v-panel);
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 	box-shadow: none;
 	transition: background 0.15s ease-out;
 }
@@ -319,8 +319,8 @@ html[data-theme="dark"] ::selection {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 	box-shadow: none;
 }
 
@@ -476,8 +476,8 @@ html[data-theme="dark"] ::selection {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .site-footer .footer-main {
@@ -514,8 +514,8 @@ html[data-theme="dark"] ::selection {
 	border-bottom: 0;
 	border-radius: var(--v-radius) var(--v-radius) 0 0;
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 html[data-theme="dark"] .single .entry-hero {
@@ -592,8 +592,8 @@ html[data-theme="dark"] .single .entry-hero {
 	border-top: 0;
 	border-radius: 0 0 var(--v-radius) var(--v-radius);
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .single .entry-aside,
@@ -694,8 +694,8 @@ html[data-theme="dark"] .single .entry-hero {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .archive-library__main::before {
@@ -713,8 +713,8 @@ html[data-theme="dark"] .single .entry-hero {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .archive-year__title {
@@ -761,8 +761,8 @@ html[data-theme="dark"] .single .entry-hero {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 	box-shadow: none;
 }
 
@@ -847,8 +847,8 @@ html[data-theme="dark"] .single .entry-hero {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .ai-page-shell {
@@ -860,8 +860,8 @@ html[data-theme="dark"] .single .entry-hero {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 /* --------------------------------------------------------------------------
@@ -969,7 +969,7 @@ html[data-theme="dark"] .single .entry-hero {
 
 .back-to-top {
 	border: 1px solid var(--v-border);
-	background: rgba(18, 18, 24, 0.4);
+	background: rgba(26, 27, 34, 0.54);
 	color: var(--v-text);
 	-webkit-backdrop-filter: blur(12px);
 	backdrop-filter: blur(12px);
@@ -1099,8 +1099,8 @@ html[data-theme="dark"] .single .entry-hero {
 	border-bottom: 0;
 	border-radius: var(--v-radius) var(--v-radius) 0 0;
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .vivia-page-main .page-shell {
@@ -1117,8 +1117,8 @@ html[data-theme="dark"] .single .entry-hero {
 .flec-content .navigation.pagination .page-numbers {
 	border: 1px solid var(--v-border);
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px);
-	backdrop-filter: blur(24px);
+	-webkit-backdrop-filter: blur(30px);
+	backdrop-filter: blur(30px);
 	color: var(--v-text);
 	border-radius: 8px;
 }
@@ -1171,8 +1171,8 @@ html[data-theme="dark"] .single .entry-hero {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .links-shell .friend-invite {
@@ -1252,8 +1252,8 @@ html[data-theme="dark"] .single .entry-hero {
 	border-bottom: 0;
 	border-radius: var(--v-radius) var(--v-radius) 0 0;
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .search-view .search-hero__title {
@@ -1283,8 +1283,8 @@ html[data-theme="dark"] .single .entry-hero {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .search-view .post-card__media {
@@ -1332,8 +1332,8 @@ html[data-theme="dark"] .single .entry-hero {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 	box-shadow: none;
 }
 
@@ -1370,9 +1370,9 @@ html[data-theme="dark"] .single .entry-hero {
 	padding: 6px;
 	border: 1px solid var(--v-border);
 	border-radius: 999px;
-	background: rgba(18, 18, 24, 0.55);
-	-webkit-backdrop-filter: blur(20px);
-	backdrop-filter: blur(20px);
+	background: rgba(26, 27, 34, 0.62);
+	-webkit-backdrop-filter: blur(26px);
+	backdrop-filter: blur(26px);
 	pointer-events: auto;
 }
 
@@ -1538,9 +1538,9 @@ html[data-theme="dark"] .ai-page-view {
 	padding: 26px 30px;
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
-	background: rgba(14, 14, 20, 0.55);
-	-webkit-backdrop-filter: blur(24px) saturate(1.1);
-	backdrop-filter: blur(24px) saturate(1.1);
+	background: rgba(24, 25, 32, 0.62);
+	-webkit-backdrop-filter: blur(30px) saturate(1.1);
+	backdrop-filter: blur(30px) saturate(1.1);
 }
 
 .ai-page-hero__title {
@@ -1590,9 +1590,9 @@ html[data-theme="dark"] .ai-page-view {
 	padding: 20px;
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
-	background: rgba(12, 12, 18, 0.42);
-	-webkit-backdrop-filter: blur(24px) saturate(1.1);
-	backdrop-filter: blur(24px) saturate(1.1);
+	background: rgba(22, 23, 30, 0.56);
+	-webkit-backdrop-filter: blur(30px) saturate(1.1);
+	backdrop-filter: blur(30px) saturate(1.1);
 }
 
 /* --------------------------------------------------------------------------
@@ -1801,8 +1801,8 @@ html.is-changing #swup {
 	border: 1px solid var(--v-border);
 	border-radius: 12px;
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 	color: var(--v-text);
 	font-size: 0.78rem;
 }
@@ -1852,8 +1852,8 @@ html.is-changing #swup {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .status-card__head {
@@ -2006,9 +2006,9 @@ html.is-changing #swup {
 	padding: 0;
 	border: 1px solid var(--v-border);
 	border-radius: 8px;
-	background: rgba(28, 28, 34, 0.35);
-	-webkit-backdrop-filter: blur(20px) saturate(1.15);
-	backdrop-filter: blur(20px) saturate(1.15);
+	background: rgba(28, 29, 36, 0.52);
+	-webkit-backdrop-filter: blur(26px) saturate(1.15);
+	backdrop-filter: blur(26px) saturate(1.15);
 	color: var(--v-text);
 	font-size: 0.86rem;
 	font-weight: 700;
@@ -2056,8 +2056,8 @@ html[data-theme="light"] .site-footer {
 	border: 1px solid var(--v-border);
 	border-radius: 999px;
 	background: rgba(18, 18, 24, 0.32);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .site-footer .footer-bottom {
@@ -2122,8 +2122,8 @@ html[data-theme="light"] .site-footer {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
 	background: var(--v-panel);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .links-shell .friend-row:hover {
@@ -2244,7 +2244,7 @@ html[data-theme="light"] .site-footer {
 }
 
 .links-shell .friend-row {
-	background: rgba(12, 12, 18, 0.46);
+	background: rgba(22, 23, 30, 0.58);
 }
 
 .links-shell .friend-row__title {
@@ -2277,9 +2277,9 @@ html[data-theme="light"] .site-footer {
 	overflow: hidden;
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
-	background: rgba(18, 18, 24, 0.38);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	background: rgba(26, 27, 34, 0.54);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .wiki-view .hub-hero::after,
@@ -2327,10 +2327,10 @@ html[data-theme="light"] .site-footer {
 .wiki-view .wiki-card {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
-	background: rgba(18, 18, 24, 0.34);
+	background: rgba(26, 27, 34, 0.52);
 	box-shadow: none;
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .wiki-view .wiki-card:hover {
@@ -2427,10 +2427,10 @@ html[data-theme="light"] .site-footer {
 	padding: 20px 22px;
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
-	background: rgba(18, 18, 24, 0.34);
+	background: rgba(26, 27, 34, 0.52);
 	box-shadow: none;
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .topics-view .topic-card::after {
@@ -2519,9 +2519,9 @@ html[data-theme="light"] .site-footer {
 .topics-view .hub-crosslink {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
-	background: rgba(18, 18, 24, 0.34);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	background: rgba(26, 27, 34, 0.52);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 @media (max-width: 900px) {
@@ -2555,9 +2555,9 @@ html[data-theme="light"] .site-footer {
 	padding: 26px 30px;
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
-	background: rgba(18, 18, 24, 0.42);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	background: rgba(26, 27, 34, 0.56);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .wiki-single-view .wiki-head {
@@ -2592,9 +2592,9 @@ html[data-theme="light"] .site-footer {
 	padding: 24px 28px;
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
-	background: rgba(12, 12, 18, 0.5);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	background: rgba(22, 23, 30, 0.60);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .wiki-single-view .wiki-index__card,
@@ -2603,16 +2603,16 @@ html[data-theme="light"] .site-footer {
 .wiki-single-view .wiki-sidebar__other {
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
-	background: rgba(18, 18, 24, 0.38);
+	background: rgba(26, 27, 34, 0.54);
 	box-shadow: none;
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .wiki-single-view .wiki-index__card:hover,
 .wiki-single-view .wiki-pager__link:hover {
 	border-color: rgba(99, 179, 255, 0.35);
-	background: rgba(18, 18, 24, 0.46);
+	background: rgba(26, 27, 34, 0.58);
 	box-shadow: none;
 }
 
@@ -2637,9 +2637,9 @@ html[data-theme="light"] .site-footer {
 	padding: 4px 22px;
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
-	background: rgba(18, 18, 24, 0.42);
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	background: rgba(26, 27, 34, 0.56);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .topic-view .topic-entry {
@@ -2696,10 +2696,10 @@ html[data-theme="light"] .site-footer {
 	padding: 20px 24px 20px 30px;
 	border: 1px solid var(--v-border);
 	border-radius: var(--v-radius);
-	background: rgba(18, 18, 24, 0.34);
+	background: rgba(26, 27, 34, 0.52);
 	box-shadow: none;
-	-webkit-backdrop-filter: blur(24px) saturate(1.15);
-	backdrop-filter: blur(24px) saturate(1.15);
+	-webkit-backdrop-filter: blur(30px) saturate(1.3);
+	backdrop-filter: blur(30px) saturate(1.3);
 }
 
 .wiki-view .wiki-card::before {
@@ -2915,5 +2915,36 @@ html[data-theme="light"] .site-footer {
 
 .wiki-view .wiki-card,
 .topics-view .topic-card {
-	background: rgba(18, 18, 24, 0.4);
+	background: rgba(26, 27, 34, 0.54);
+}
+
+
+/* --------------------------------------------------------------------------
+ * 29. Frosted finish: less see-through, more diffusion
+ * ----------------------------------------------------------------------- */
+
+.flec-card,
+.flec-side .profile-card,
+.flec-side .widget,
+.site-header.flec-header,
+.site-footer,
+.status-card,
+.status-summary,
+.links-shell .friend-row,
+.wiki-card,
+.topic-card {
+	background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0) 46%);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+body::after {
+	position: fixed;
+	inset: 0;
+	z-index: 9996;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+	background-size: 160px 160px;
+	opacity: 0.045;
+	mix-blend-mode: soft-light;
+	pointer-events: none;
+	content: "";
 }
