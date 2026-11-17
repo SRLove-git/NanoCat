@@ -93,6 +93,8 @@ $nanocat_footer_text        = get_theme_mod( 'nanocat_footer_text', nanocat_get_
 	<?php nanocat_icon( 'arrow-up', 18 ); ?>
 </button>
 
+</div><!-- #swup -->
+
 <dialog id="nanocat-ai-dialog" class="ai-dialog" aria-labelledby="nanocat-ai-dialog-title">
 	<div class="ai-dialog__shell">
 		<header class="ai-dialog__head">

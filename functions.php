@@ -160,6 +160,45 @@ function nanocat_vivia_assets() {
 add_action( 'wp_enqueue_scripts', 'nanocat_vivia_assets', 50 );
 
 /**
+ * Swup: client-side navigation for the front end.
+ */
+function nanocat_swup_assets() {
+	if ( is_admin() || is_feed() ) {
+		return;
+	}
+
+	$dir  = get_template_directory() . '/assets/js/vendor/swup/';
+	$base = get_template_directory_uri() . '/assets/js/vendor/swup/';
+
+	$files = array(
+		'nanocat-swup'         => array( 'swup.umd.js', array() ),
+		'nanocat-swup-head'    => array( 'head-plugin.umd.js', array( 'nanocat-swup' ) ),
+		'nanocat-swup-body'    => array( 'body-class-plugin.umd.js', array( 'nanocat-swup' ) ),
+		'nanocat-swup-preload' => array( 'preload-plugin.umd.js', array( 'nanocat-swup' ) ),
+	);
+
+	foreach ( $files as $handle => $spec ) {
+		$path = $dir . $spec[0];
+		if ( ! file_exists( $path ) ) {
+			return;
+		}
+		wp_enqueue_script( $handle, $base . $spec[0], $spec[1], (string) filemtime( $path ), true );
+	}
+
+	$init = get_template_directory() . '/assets/js/swup-init.js';
+	if ( file_exists( $init ) ) {
+		wp_enqueue_script(
+			'nanocat-swup-init',
+			get_template_directory_uri() . '/assets/js/swup-init.js',
+			array( 'nanocat-swup', 'nanocat-swup-head', 'nanocat-swup-body', 'nanocat-swup-preload' ),
+			(string) filemtime( $init ),
+			true
+		);
+	}
+}
+add_action( 'wp_enqueue_scripts', 'nanocat_swup_assets', 70 );
+
+/**
  * Sakana widget and the random wallpaper used by the reference theme.
  */
 function nanocat_vivia_sakana() {

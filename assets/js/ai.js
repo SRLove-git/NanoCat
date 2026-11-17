@@ -962,6 +962,13 @@
 		window.addEventListener('resize', hide);
 	}
 
+	window.NanoCatAIRefresh = function () {
+		initConsoles();
+		initHero();
+		initSummary();
+		renderHistory();
+	};
+
 	function init() {
 		initConsoles();
 		initDialog();

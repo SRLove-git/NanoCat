@@ -1666,3 +1666,20 @@ html[data-theme="dark"] .ai-page-view {
 		height: 120px;
 	}
 }
+
+/* --------------------------------------------------------------------------
+ * 23. Swup page transition
+ * ----------------------------------------------------------------------- */
+
+#swup {
+	transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+html.is-animating #swup {
+	opacity: 0;
+	transform: translateY(8px);
+}
+
+html.is-changing #swup {
+	will-change: opacity, transform;
+}

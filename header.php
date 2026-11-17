@@ -100,3 +100,5 @@ if ( is_home() && ! is_paged() ) {
 		</div>
 	</div>
 </header>
+
+<div id="swup" class="transition-main">

@@ -266,11 +266,14 @@
 	var readingContent = $('[data-entry-content]');
 	var backToTop = $('[data-back-to-top]');
 
-	if (backToTop) {
-		backToTop.addEventListener('click', function () {
-			window.scrollTo({ top: 0, behavior: scrollBehaviour() });
-		});
-	}
+	doc.addEventListener('click', function (event) {
+		var trigger = event.target.closest('[data-back-to-top]');
+		if (!trigger) {
+			return;
+		}
+		event.preventDefault();
+		window.scrollTo({ top: 0, behavior: scrollBehaviour() });
+	});
 
 	function updateReadingProgress() {
 		if (!readingBar || !readingContent) {
@@ -677,7 +680,29 @@
 	 * Boot
 	 * ------------------------------------------------------------------ */
 
+	function refreshDomRefs() {
+		readingBar = $('[data-reading-progress]');
+		readingContent = $('[data-entry-content]');
+		backToTop = $('[data-back-to-top]');
+		tocDesktop = $('[data-toc]');
+		tocDesktopNav = $('[data-toc-nav]');
+		tocMobile = $('[data-toc-mobile]');
+		tocMobileNav = $('[data-toc-nav-mobile]');
+		tocCount = $('[data-toc-count]');
+		tocHeadings = [];
+		activeTocId = null;
+	}
+
+	window.NanoCatRefresh = function () {
+		refreshDomRefs();
+		initToc();
+		initCodeCopy();
+		initShare();
+		updateScroll();
+	};
+
 	function init() {
+		refreshDomRefs();
 		initToc();
 		initCodeCopy();
 		initShare();
