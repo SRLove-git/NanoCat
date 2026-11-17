@@ -46,7 +46,7 @@ html[data-theme="dark"] {
 html[data-theme="dark"] body {
 	background-color: #0a0a0e;
 	background-image: linear-gradient(rgba(8, 8, 12, 0.42), rgba(8, 8, 12, 0.50)),
-		var(--vivia-wallpaper, url("../images/vivia-bg.jpg"));
+		var(--vivia-wallpaper, url("../images/flec-bg.jpg"));
 	background-position: center, center top;
 	background-size: auto, cover;
 	background-attachment: scroll, fixed;

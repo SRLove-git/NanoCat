@@ -199,26 +199,141 @@ function nanocat_vivia_sakana_mount() {
 add_action( 'wp_footer', 'nanocat_vivia_sakana_mount', 30 );
 
 /**
- * Pull a random wallpaper from the same API the reference uses.
+ * Critical loading screen: hides the page until the random wallpaper is ready,
+ * so the local fallback never flashes first.
  */
-function nanocat_vivia_wallpaper_script() {
+function nanocat_vivia_loader_head() {
 	if ( is_admin() || is_feed() ) {
 		return;
 	}
+	$avatar = get_site_icon_url( 96 );
+	$name   = get_bloginfo( 'name' );
 	?>
+	<script>document.documentElement.classList.add('vivia-loading');</script>
+	<link rel="preconnect" href="https://api.elaina.cat" crossorigin>
+	<style id="vivia-loader-style">
+		html.vivia-loading { overflow: hidden; }
+		html.vivia-loading body { background-image: none !important; background-color: #0a0a0e !important; }
+		#vivia-loader {
+			position: fixed;
+			inset: 0;
+			z-index: 9999;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #0a0a0e;
+			transition: opacity 0.5s ease, visibility 0.5s ease;
+		}
+		#vivia-loader.is-hidden { opacity: 0; visibility: hidden; }
+		.vivia-loader__card {
+			width: min(320px, 78vw);
+			padding: 26px 26px 22px;
+			border: 1px solid rgba(255, 255, 255, 0.08);
+			border-radius: 16px;
+			background: rgba(28, 28, 34, 0.6);
+			text-align: center;
+			color: #edf2f8;
+			font-family: "Roboto", "PingFang SC", "Microsoft YaHei", sans-serif;
+		}
+		.vivia-loader__avatar {
+			width: 64px;
+			height: 64px;
+			margin-bottom: 12px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+		.vivia-loader__name { font-size: 18px; font-weight: 700; }
+		.vivia-loader__hint {
+			margin-top: 4px;
+			color: #a0a5ab;
+			font-size: 12px;
+			letter-spacing: 0.08em;
+		}
+		.vivia-loader__track {
+			position: relative;
+			overflow: hidden;
+			height: 2px;
+			margin-top: 18px;
+			border-radius: 2px;
+			background: rgba(255, 255, 255, 0.1);
+		}
+		.vivia-loader__track span {
+			position: absolute;
+			top: 0;
+			left: -40%;
+			width: 40%;
+			height: 100%;
+			border-radius: 2px;
+			background: #63b3ff;
+			animation: vivia-loading-slide 1.1s ease-in-out infinite;
+		}
+		@keyframes vivia-loading-slide {
+			0% { left: -40%; }
+			100% { left: 100%; }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			.vivia-loader__track span { animation: none; left: 30%; width: 40%; }
+		}
+	</style>
+	<?php
+}
+add_action( 'wp_head', 'nanocat_vivia_loader_head', 1 );
+
+/**
+ * Loading markup plus the wallpaper preload that dismisses it.
+ */
+function nanocat_vivia_loader_body() {
+	if ( is_admin() || is_feed() ) {
+		return;
+	}
+	$avatar = get_site_icon_url( 96 );
+	$name   = get_bloginfo( 'name' );
+	?>
+	<div id="vivia-loader" aria-hidden="true">
+		<div class="vivia-loader__card">
+			<?php if ( $avatar ) : ?>
+				<img class="vivia-loader__avatar" src="<?php echo esc_url( $avatar ); ?>" alt="" width="64" height="64">
+			<?php endif; ?>
+			<div class="vivia-loader__name"><?php echo esc_html( $name ); ?></div>
+			<div class="vivia-loader__hint"><?php esc_html_e( '少女祈祷中~', 'nanocat' ); ?></div>
+			<div class="vivia-loader__track"><span></span></div>
+		</div>
+	</div>
 	<script>
 	(function () {
 		var url = 'https://api.elaina.cat/random/?' + Date.now();
 		var img = new Image();
-		img.onload = function () {
+		var applied = false;
+		var revealed = false;
+
+		function applyWallpaper() {
+			if (applied) { return; }
+			applied = true;
 			document.documentElement.style.setProperty('--vivia-wallpaper', 'url("' + url + '")');
-		};
+		}
+
+		function reveal() {
+			if (revealed) { return; }
+			revealed = true;
+			document.documentElement.classList.remove('vivia-loading');
+			var loader = document.getElementById('vivia-loader');
+			if (loader) {
+				loader.classList.add('is-hidden');
+				setTimeout(function () {
+					if (loader.parentNode) { loader.parentNode.removeChild(loader); }
+				}, 600);
+			}
+		}
+
+		img.onload = function () { applyWallpaper(); reveal(); };
+		img.onerror = function () { reveal(); };
 		img.src = url;
+		setTimeout(reveal, 5000);
 	}());
 	</script>
 	<?php
 }
-add_action( 'wp_footer', 'nanocat_vivia_wallpaper_script', 31 );
+add_action( 'wp_body_open', 'nanocat_vivia_loader_body', 1 );
 
 
 /**
