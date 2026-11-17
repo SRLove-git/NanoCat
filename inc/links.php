@@ -71,6 +71,20 @@ function nanocat_get_link_health( $url ) {
 }
 
 /**
+ * Whether a feed URL is reachable. Cache only; refresh writes the transient.
+ *
+ * @param string $url Feed URL.
+ * @return bool
+ */
+function nanocat_link_feed_ok( $url ) {
+	if ( ! $url ) {
+		return false;
+	}
+
+	return 'no' !== get_transient( 'nanocat_feed_ok_' . md5( $url ) );
+}
+
+/**
  * Cached RSS items for a feed URL. Never performs a network request.
  *
  * @param string $url Feed URL.
@@ -187,6 +201,7 @@ function nanocat_refresh_link( $bookmark ) {
 	if ( ! empty( $bookmark->link_rss ) ) {
 		$items = nanocat_fetch_feed_items( $bookmark->link_rss, 3 );
 		set_transient( nanocat_link_feed_key( $bookmark->link_rss ), $items, HOUR_IN_SECONDS );
+		set_transient( 'nanocat_feed_ok_' . md5( $bookmark->link_rss ), $items ? 'yes' : 'no', 7 * DAY_IN_SECONDS );
 	}
 
 	return true;

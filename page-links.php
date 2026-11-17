@@ -85,8 +85,12 @@ while ( have_posts() ) :
 		</header>
 
 		<div class="container links-shell">
-			<header class="v-panel-heading">
+			<header class="v-panel-heading links-heading">
 				<h1><?php esc_html_e( 'Links', 'nanocat' ); ?></h1>
+				<a class="links-rss" href="<?php echo esc_url( get_feed_link() ); ?>" target="_blank" rel="noopener noreferrer">
+					<?php nanocat_icon( 'rss', 15 ); ?>
+					<span><?php esc_html_e( '订阅本站 RSS', 'nanocat' ); ?></span>
+				</a>
 			</header>
 
 			<?php if ( $nanocat_intro ) : ?>
@@ -131,6 +135,18 @@ while ( have_posts() ) :
 								<h3 class="friend-row__name">
 									<a href="<?php echo esc_url( $nanocat_friend['url'] ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $nanocat_friend['name'] ); ?></a>
 								</h3>
+								<?php if ( $nanocat_friend['rss'] && nanocat_link_feed_ok( $nanocat_friend['rss'] ) ) : ?>
+									<a
+										class="friend-row__rss"
+										href="<?php echo esc_url( $nanocat_friend['rss'] ); ?>"
+										target="_blank"
+										rel="noopener noreferrer"
+										title="<?php echo esc_attr( sprintf( /* translators: %s: friend name. */ __( '订阅 %s 的 RSS', 'nanocat' ), $nanocat_friend['name'] ) ); ?>"
+										aria-label="<?php echo esc_attr( sprintf( /* translators: %s: friend name. */ __( '订阅 %s 的 RSS', 'nanocat' ), $nanocat_friend['name'] ) ); ?>"
+									>
+										<?php nanocat_icon( 'rss', 14 ); ?>
+									</a>
+								<?php endif; ?>
 								<p class="friend-row__host"><?php echo esc_html( $nanocat_host ); ?></p>
 								<ul class="friend-row__tags">
 									<li class="is-<?php echo esc_attr( $nanocat_state ); ?>">

@@ -1683,3 +1683,66 @@ html.is-animating #swup {
 html.is-changing #swup {
 	will-change: opacity, transform;
 }
+
+/* RSS subscription for the links page and each friend. */
+.links-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.links-rss {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 12px;
+	border: 1px solid var(--v-border);
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.04);
+	color: var(--v-text);
+	font-size: 0.76rem;
+	text-decoration: none;
+}
+
+.links-rss:hover {
+	border-color: rgba(99, 179, 255, 0.45);
+	background: rgba(99, 179, 255, 0.1);
+	color: var(--v-primary);
+}
+
+.friend-row__name {
+	flex: 1;
+	min-width: 0;
+}
+
+.friend-row__rss {
+	display: inline-flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	color: var(--v-meta);
+}
+
+.friend-row__rss:hover {
+	background: rgba(99, 179, 255, 0.12);
+	color: var(--v-primary);
+}
+
+/* Keep the friend RSS icon next to the name instead of the cell edge. */
+.friend-row__name {
+	flex: 0 1 auto;
+	max-width: calc(100% - 116px);
+}
+
+.friend-row__rss {
+	color: var(--v-text);
+	opacity: 0.62;
+}
+
+.friend-row__rss:hover {
+	opacity: 1;
+}
