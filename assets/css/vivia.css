@@ -3122,3 +3122,99 @@ html[data-theme="dark"] .flec-header .icon-button.search-toggle:hover {
 		text-align: center;
 	}
 }
+
+/* Two-column footer with filing badge */
+html[data-theme="dark"] .site-footer,
+html[data-theme="light"] .site-footer {
+	width: min(720px, calc(100% - 24px));
+	max-width: none;
+	padding: 14px 22px;
+	border-radius: 16px;
+}
+
+.site-footer .footer-bottom {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	width: 100%;
+	height: auto;
+	white-space: normal;
+}
+
+.footer-meta {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 0;
+	text-align: left;
+}
+
+.footer-meta .footer-copyright {
+	margin: 0;
+	color: var(--v-text);
+	font-size: 0.78rem;
+	white-space: normal;
+}
+
+.footer-meta .footer-powered {
+	margin: 0;
+	color: var(--v-meta);
+	font-size: 0.68rem;
+	white-space: normal;
+}
+
+.site-footer .footer-icp {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	flex: none;
+	color: var(--v-meta);
+	font-size: 0.72rem;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.site-footer .footer-icp__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 26px;
+	height: 26px;
+	border: 1px solid rgba(99, 179, 255, 0.28);
+	border-radius: 8px;
+	background: rgba(99, 179, 255, 0.1);
+	color: var(--v-primary);
+}
+
+.site-footer .footer-icp:hover {
+	color: var(--v-primary);
+}
+
+.site-footer .footer-icp:hover .footer-icp__icon {
+	border-color: rgba(99, 179, 255, 0.5);
+	background: rgba(99, 179, 255, 0.18);
+}
+
+@media (max-width: 640px) {
+	html[data-theme="dark"] .site-footer,
+	html[data-theme="light"] .site-footer {
+		width: calc(100% - 16px);
+		padding: 14px 18px;
+	}
+
+	.site-footer .footer-bottom {
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.footer-meta {
+		align-items: center;
+		text-align: center;
+	}
+
+	.site-footer .footer-icp {
+		font-size: 0.7rem;
+	}
+}

@@ -69,32 +69,41 @@ $nanocat_footer_text        = get_theme_mod( 'nanocat_footer_text', nanocat_get_
 	</div>
 
 	<div class="container footer-bottom">
-		<p class="footer-copyright">
-			<?php
-			printf(
-				/* translators: 1: current year, 2: site name. */
-				esc_html__( '© %1$s %2$s', 'nanocat' ),
-				esc_html( wp_date( 'Y' ) ),
-				esc_html( get_bloginfo( 'name' ) )
-			);
-			?>
-			<span class="footer-dot" aria-hidden="true">·</span>
-			<span><?php esc_html_e( '由 WordPress 驱动', 'nanocat' ); ?></span>
-			<?php
-			$nanocat_footer_icp = get_theme_mod( 'nanocat_footer_icp', '' );
-			if ( $nanocat_footer_icp ) :
+		<div class="footer-meta">
+			<p class="footer-copyright">
+				<?php
+				printf(
+					/* translators: 1: current year, 2: site name. */
+					esc_html__( '© %1$s %2$s', 'nanocat' ),
+					esc_html( wp_date( 'Y' ) ),
+					esc_html( get_bloginfo( 'name' ) )
+				);
 				?>
-				<span class="footer-dot" aria-hidden="true">·</span>
-				<a class="footer-icp" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer nofollow">
-					<?php echo esc_html( $nanocat_footer_icp ); ?>
-				</a>
-			<?php endif; ?>
-		</p>
+			</p>
+			<p class="footer-powered"><?php esc_html_e( '由 WordPress 驱动', 'nanocat' ); ?></p>
+		</div>
+
+		<?php
+		$nanocat_footer_icp = get_theme_mod( 'nanocat_footer_icp', '' );
+		if ( $nanocat_footer_icp ) :
+			?>
+			<a class="footer-icp" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer nofollow">
+				<span class="footer-icp__icon" aria-hidden="true">
+					<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M12 3.2 19 6v5.1c0 4.3-2.8 7.6-7 9.7-4.2-2.1-7-5.4-7-9.7V6l7-2.8Z"></path>
+						<path d="m9.2 11.8 1.9 1.9 3.8-3.8"></path>
+					</svg>
+				</span>
+				<span><?php echo esc_html( $nanocat_footer_icp ); ?></span>
+			</a>
+		<?php endif; ?>
+
 		<p class="footer-signature">
 			<span class="footer-prompt" aria-hidden="true">$ echo</span>
 			<?php esc_html_e( '“谢谢你看到这里。”', 'nanocat' ); ?>
 			<span class="footer-heart" aria-hidden="true">♥</span>
 		</p>
+	</div>
 	</div>
 </footer>
 
