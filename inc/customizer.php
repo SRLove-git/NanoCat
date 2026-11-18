@@ -270,7 +270,7 @@ function nanocat_customize_register( $wp_customize ) {
 		'nanocat_netease_playlist',
 		array(
 			'label'       => __( '网易云歌单链接', 'nanocat' ),
-			'description' => __( '例如 https://music.163.com/#/playlist?id=4982340006；桌面端打开站内浮层，手机端新窗口打开。', 'nanocat' ),
+			'description' => __( '例如 https://music.163.com/#/playlist?id=4982340006；桌面和手机都打开站内浮层。', 'nanocat' ),
 			'section'     => 'nanocat_footer_section',
 			'type'        => 'url',
 		)
