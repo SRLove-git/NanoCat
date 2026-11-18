@@ -3360,3 +3360,14 @@ html[data-theme="light"] .site-footer {
 		text-align: center;
 	}
 }
+
+.footer-theme {
+	color: var(--v-text);
+	text-decoration: none;
+}
+
+.footer-theme:hover {
+	color: var(--v-primary);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}

@@ -108,7 +108,12 @@ $nanocat_footer_text        = get_theme_mod( 'nanocat_footer_text', nanocat_get_
 				);
 				?>
 			</p>
-			<p class="footer-powered"><?php esc_html_e( '由 WordPress 驱动', 'nanocat' ); ?></p>
+			<p class="footer-powered">
+				<?php esc_html_e( '由 WordPress 驱动', 'nanocat' ); ?>
+				<span class="footer-dot" aria-hidden="true">·</span>
+				<?php esc_html_e( '主题', 'nanocat' ); ?>
+				<a class="footer-theme" href="https://github.com/SRLove-git/NanoCat" target="_blank" rel="noopener noreferrer">NanoCat</a>
+			</p>
 		</div>
 
 		<?php if ( $nanocat_footer_icp ) : ?>
