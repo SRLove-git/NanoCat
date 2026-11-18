@@ -3264,3 +3264,38 @@ html[data-theme="light"] .site-footer {
 		height: 1px;
 	}
 }
+
+/* Two stacked footer rows */
+html[data-theme="dark"] .site-footer,
+html[data-theme="light"] .site-footer {
+	width: min(560px, calc(100% - 24px));
+}
+
+.site-footer .footer-bottom.has-icp {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 7px;
+}
+
+.footer-bottom.has-icp .footer-meta {
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+	text-align: center;
+}
+
+.footer-bottom.has-icp .footer-powered::before {
+	margin-right: 7px;
+	color: var(--v-meta);
+	content: "·";
+}
+
+.footer-bottom.has-icp .footer-icp {
+	font-size: 0.7rem;
+}
+
+.footer-divider {
+	display: none;
+}
