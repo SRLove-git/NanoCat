@@ -259,24 +259,6 @@ function nanocat_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting(
-		'nanocat_qq_playlist',
-		array(
-			'default'           => '',
-			'sanitize_callback' => 'esc_url_raw',
-		)
-	);
-
-	$wp_customize->add_control(
-		'nanocat_qq_playlist',
-		array(
-			'label'       => __( 'QQ 音乐歌单', 'nanocat' ),
-			'description' => __( '粘贴 QQ 音乐歌单分享链接；桌面端在播放器里打开内嵌面板，手机端新窗口打开。', 'nanocat' ),
-			'section'     => 'nanocat_footer_section',
-			'type'        => 'url',
-		)
-	);
-
-	$wp_customize->add_setting(
 		'nanocat_launch_date',
 		array(
 			'default'           => nanocat_get_default( 'launch_date' ),

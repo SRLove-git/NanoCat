@@ -1,6 +1,6 @@
 <?php
 /**
- * Global bottom-left music player.
+ * Global bottom-left music player, backed by a NetEase Cloud Music playlist.
  *
  * @package NanoCat
  */
@@ -12,28 +12,76 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Playlist. Filter `nanocat_music_tracks` to replace it.
  *
+ * Free tracks stream through NetEase's outer URL; VIP tracks link out.
+ *
  * @return array
  */
 function nanocat_music_tracks() {
-	$base = get_template_directory_uri() . '/assets/audio/';
-
-	$tracks = array(
+	$songs = array(
 		array(
-			'title'  => __( '夜航', 'nanocat' ),
-			'artist' => __( 'NanoCat Ambient', 'nanocat' ),
-			'src'    => $base . 'night-flight.mp3',
+			'title'  => '10%',
+			'artist' => 'SynBlazer',
+			'id'     => 425100824,
+			'vip'    => true,
 		),
 		array(
-			'title'  => __( '窗边的猫', 'nanocat' ),
-			'artist' => __( 'NanoCat Ambient', 'nanocat' ),
-			'src'    => $base . 'window-cat.mp3',
+			'title'  => '盛夏',
+			'artist' => 'Alisa',
+			'id'     => 2043637342,
+			'vip'    => false,
 		),
 		array(
-			'title'  => __( '雨后的服务器', 'nanocat' ),
-			'artist' => __( 'NanoCat Ambient', 'nanocat' ),
-			'src'    => $base . 'after-rain.mp3',
+			'title'  => 'The Way I Still Love You',
+			'artist' => 'Reynard Silva',
+			'id'     => 28718313,
+			'vip'    => true,
+		),
+		array(
+			'title'  => 'May I See U Again (治愈版)',
+			'artist' => 'ALisa',
+			'id'     => 1843672390,
+			'vip'    => false,
+		),
+		// 愿世界温柔以待 — 网易云未收录，跳过。
+		array(
+			'title'  => 'Glow Me',
+			'artist' => 'Magdy Haddad',
+			'id'     => 1447797075,
+			'vip'    => true,
+		),
+		array(
+			'title'  => '青空',
+			'artist' => 'Candy_Wind',
+			'id'     => 32717172,
+			'vip'    => false,
+		),
+		array(
+			'title'  => 'Una Mattina',
+			'artist' => 'Ludovico Einaudi',
+			'id'     => 20952171,
+			'vip'    => true,
+		),
+		array(
+			'title'  => 'Subwoofer Lullaby',
+			'artist' => 'C418',
+			'id'     => 4010187,
+			'vip'    => true,
+		),
+		array(
+			'title'  => 'Minecraft',
+			'artist' => 'C418',
+			'id'     => 4010201,
+			'vip'    => true,
 		),
 	);
+
+	$tracks = array();
+
+	foreach ( $songs as $song ) {
+		$song['external'] = 'https://music.163.com/#/song?id=' . $song['id'];
+		$song['src']      = $song['vip'] ? '' : 'https://music.163.com/song/media/outer/url?id=' . $song['id'] . '.mp3';
+		$tracks[]         = $song;
+	}
 
 	return apply_filters( 'nanocat_music_tracks', $tracks );
 }
@@ -74,8 +122,25 @@ function nanocat_music_player() {
 		return;
 	}
 
-	$first  = reset( $tracks );
-	$qq_url = get_theme_mod( 'nanocat_qq_playlist', '' );
+	$start = 0;
+	foreach ( $tracks as $index => $track ) {
+		if ( ! empty( $track['src'] ) ) {
+			$start = $index;
+			break;
+		}
+	}
+
+	$playable = 0;
+	$vip      = 0;
+	foreach ( $tracks as $track ) {
+		if ( empty( $track['src'] ) ) {
+			$vip++;
+		} else {
+			$playable++;
+		}
+	}
+
+	$first  = $tracks[ $start ];
 	$labels = array(
 		'prev'  => __( '上一首', 'nanocat' ),
 		'play'  => __( '播放', 'nanocat' ),
@@ -84,11 +149,14 @@ function nanocat_music_player() {
 		'list'  => __( '播放列表', 'nanocat' ),
 	);
 	?>
-	<div id="nanocat-player" class="music-player" aria-label="<?php esc_attr_e( '站内歌单', 'nanocat' ); ?>">
+	<div id="nanocat-player" class="music-player" data-start="<?php echo esc_attr( (string) $start ); ?>" aria-label="<?php esc_attr_e( '站内歌单', 'nanocat' ); ?>">
 		<div class="music-player__body">
 			<span class="music-player__disc" aria-hidden="true"></span>
 			<div class="music-player__meta">
-				<span class="music-player__title"><?php echo esc_html( $first['title'] ); ?></span>
+				<span class="music-player__title-row">
+					<span class="music-player__title"><?php echo esc_html( $first['title'] ); ?></span>
+					<span class="music-player__vip" hidden>VIP</span>
+				</span>
 				<span class="music-player__artist"><?php echo esc_html( $first['artist'] ); ?></span>
 			</div>
 			<div class="music-player__controls">
@@ -102,11 +170,6 @@ function nanocat_music_player() {
 				<button class="music-player__btn" type="button" data-player-next aria-label="<?php echo esc_attr( $labels['next'] ); ?>">
 					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h2v14h-2zM5 5v14l10-7z"></path></svg>
 				</button>
-				<?php if ( $qq_url ) : ?>
-					<button class="music-player__btn" type="button" data-player-qq data-qq-url="<?php echo esc_url( $qq_url ); ?>" aria-label="<?php esc_attr_e( 'QQ 音乐歌单', 'nanocat' ); ?>">
-						<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l10-2v12a3 3 0 1 1-2-2.83V8.5L11 10v8a3 3 0 1 1-2-2.83z"></path></svg>
-					</button>
-				<?php endif; ?>
 				<button class="music-player__btn" type="button" data-player-list aria-label="<?php echo esc_attr( $labels['list'] ); ?>" aria-expanded="false">
 					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v2H4zM4 11h10v2H4zM4 16h16v2H4z"></path></svg>
 				</button>
@@ -118,41 +181,41 @@ function nanocat_music_player() {
 		</div>
 
 		<div class="music-player__playlist" hidden>
+			<div class="music-player__playlist-head">
+				<span><?php esc_html_e( '网易云 · 慢品人间烟火色', 'nanocat' ); ?></span>
+				<span>
+					<?php
+					printf(
+						/* translators: 1: playable count, 2: VIP count. */
+						esc_html__( '%1$s 首可播 / %2$s 首 VIP', 'nanocat' ),
+						esc_html( number_format_i18n( $playable ) ),
+						esc_html( number_format_i18n( $vip ) )
+					);
+					?>
+				</span>
+			</div>
 			<?php foreach ( $tracks as $nanocat_index => $nanocat_track ) : ?>
 				<button
-					class="music-player__track<?php echo 0 === $nanocat_index ? ' is-active' : ''; ?>"
+					class="music-player__track<?php echo (int) $nanocat_index === (int) $start ? ' is-active' : ''; ?><?php echo $nanocat_track['vip'] ? ' is-vip' : ''; ?>"
 					type="button"
 					data-src="<?php echo esc_url( $nanocat_track['src'] ); ?>"
+					data-external="<?php echo esc_url( $nanocat_track['external'] ); ?>"
 					data-title="<?php echo esc_attr( $nanocat_track['title'] ); ?>"
 					data-artist="<?php echo esc_attr( $nanocat_track['artist'] ); ?>"
+					data-vip="<?php echo $nanocat_track['vip'] ? '1' : '0'; ?>"
 				>
 					<span class="music-player__track-index"><?php echo esc_html( str_pad( (string) ( $nanocat_index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
 					<span class="music-player__track-title"><?php echo esc_html( $nanocat_track['title'] ); ?></span>
 					<span class="music-player__track-artist"><?php echo esc_html( $nanocat_track['artist'] ); ?></span>
+					<?php if ( $nanocat_track['vip'] ) : ?>
+						<span class="music-player__track-vip">VIP</span>
+					<?php endif; ?>
 				</button>
 			<?php endforeach; ?>
 		</div>
 
 		<audio preload="metadata"></audio>
 	</div>
-
-	<?php if ( $qq_url ) : ?>
-		<div id="nanocat-qq" class="music-qq" aria-hidden="true">
-			<div class="music-qq__backdrop" data-qq-close></div>
-			<div class="music-qq__panel" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'QQ 音乐歌单', 'nanocat' ); ?>">
-				<header class="music-qq__head">
-					<span><?php esc_html_e( 'QQ 音乐歌单', 'nanocat' ); ?></span>
-					<button class="music-qq__close" type="button" data-qq-close aria-label="<?php esc_attr_e( '关闭', 'nanocat' ); ?>">×</button>
-				</header>
-				<div class="music-qq__frame">
-					<iframe data-qq-frame data-src="<?php echo esc_url( $qq_url ); ?>" title="<?php esc_attr_e( 'QQ 音乐歌单', 'nanocat' ); ?>" loading="lazy" allow="autoplay; encrypted-media"></iframe>
-				</div>
-				<footer class="music-qq__foot">
-					<a href="<?php echo esc_url( $qq_url ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( '在 QQ 音乐打开 ↗', 'nanocat' ); ?></a>
-				</footer>
-			</div>
-		</div>
-	<?php endif; ?>
 	<?php
 }
 add_action( 'wp_footer', 'nanocat_music_player', 5 );

@@ -10,13 +10,12 @@
 	var trackEls = Array.prototype.slice.call(root.querySelectorAll('.music-player__track'));
 	var titleEl = root.querySelector('.music-player__title');
 	var artistEl = root.querySelector('.music-player__artist');
+	var vipEl = root.querySelector('.music-player__vip');
 	var playBtn = root.querySelector('[data-player-play]');
 	var prevBtn = root.querySelector('[data-player-prev]');
 	var nextBtn = root.querySelector('[data-player-next]');
 	var listBtn = root.querySelector('[data-player-list]');
 	var panel = root.querySelector('.music-player__playlist');
-	var qqBtn = root.querySelector('[data-player-qq]');
-	var qq = document.getElementById('nanocat-qq');
 	var progress = root.querySelector('[data-player-progress]');
 	var bar = progress ? progress.querySelector('span') : null;
 
@@ -24,7 +23,7 @@
 		return;
 	}
 
-	var index = 0;
+	var index = parseInt(root.getAttribute('data-start') || '0', 10) || 0;
 	var loaded = false;
 
 	audio.volume = 0.65;
@@ -32,44 +31,79 @@
 	function track(i) {
 		var el = trackEls[i];
 		return {
-			src: el.getAttribute('data-src'),
-			title: el.getAttribute('data-title'),
-			artist: el.getAttribute('data-artist')
+			src: el.getAttribute('data-src') || '',
+			external: el.getAttribute('data-external') || '',
+			title: el.getAttribute('data-title') || '',
+			artist: el.getAttribute('data-artist') || '',
+			vip: el.getAttribute('data-vip') === '1'
 		};
 	}
 
-	function setTrack(i, autoplay) {
-		index = (i + trackEls.length) % trackEls.length;
-		var data = track(index);
-
-		audio.src = data.src;
-		loaded = true;
+	function setMeta(data) {
 		titleEl.textContent = data.title;
 		artistEl.textContent = data.artist;
+		if (vipEl) {
+			vipEl.hidden = !data.vip;
+		}
+		root.classList.toggle('is-vip', data.vip);
+	}
 
+	function setActive(i) {
 		trackEls.forEach(function (el, k) {
-			el.classList.toggle('is-active', k === index);
+			el.classList.toggle('is-active', k === i);
 		});
+	}
 
+	function resetProgress() {
 		if (bar) {
 			bar.style.width = '0%';
 		}
 		if (progress) {
 			progress.setAttribute('aria-valuenow', '0');
 		}
+	}
+
+	function openExternal(data) {
+		if (data.external) {
+			window.open(data.external, '_blank', 'noopener');
+		}
+	}
+
+	function setTrack(i, autoplay) {
+		index = (i + trackEls.length) % trackEls.length;
+		var data = track(index);
+
+		audio.pause();
+		resetProgress();
+
+		if (data.src) {
+			audio.src = data.src;
+			loaded = true;
+		} else {
+			audio.removeAttribute('src');
+			audio.load();
+			loaded = false;
+		}
+
+		setMeta(data);
+		setActive(index);
 
 		if ('mediaSession' in navigator && 'MediaMetadata' in window) {
 			navigator.mediaSession.metadata = new window.MediaMetadata({
 				title: data.title,
 				artist: data.artist,
-				album: 'NanoCat Ambient'
+				album: '网易云音乐 · 慢品人间烟火色'
 			});
 		}
 
 		if (autoplay) {
-			audio.play().catch(function () {
-				root.classList.remove('is-playing');
-			});
+			if (data.src) {
+				audio.play().catch(function () {
+					setPlaying(false);
+				});
+			} else {
+				openExternal(data);
+			}
 		}
 	}
 
@@ -79,10 +113,18 @@
 	}
 
 	function toggle() {
+		var data = track(index);
+
+		if (data.vip) {
+			openExternal(data);
+			return;
+		}
+
 		if (!loaded) {
 			setTrack(index, true);
 			return;
 		}
+
 		if (audio.paused) {
 			audio.play().catch(function () {
 				setPlaying(false);
@@ -92,12 +134,22 @@
 		}
 	}
 
+	function nextPlayable(step) {
+		for (var offset = 1; offset <= trackEls.length; offset++) {
+			var candidate = (index + step * offset + trackEls.length * offset) % trackEls.length;
+			if (track(candidate).src) {
+				setTrack(candidate, !audio.paused || step !== 0);
+				return;
+			}
+		}
+	}
+
 	playBtn.addEventListener('click', toggle);
 	prevBtn.addEventListener('click', function () {
-		setTrack(index - 1, !audio.paused);
+		nextPlayable(-1);
 	});
 	nextBtn.addEventListener('click', function () {
-		setTrack(index + 1, !audio.paused);
+		nextPlayable(1);
 	});
 
 	listBtn.addEventListener('click', function () {
@@ -112,6 +164,10 @@
 
 	trackEls.forEach(function (el, i) {
 		el.addEventListener('click', function () {
+			if (el.getAttribute('data-vip') === '1') {
+				openExternal(track(i));
+				return;
+			}
 			setTrack(i, true);
 			panel.setAttribute('hidden', '');
 			listBtn.setAttribute('aria-expanded', 'false');
@@ -125,7 +181,7 @@
 		setPlaying(false);
 	});
 	audio.addEventListener('ended', function () {
-		setTrack(index + 1, true);
+		nextPlayable(1);
 	});
 	audio.addEventListener('timeupdate', function () {
 		if (!progress || !bar || !audio.duration) {
@@ -134,6 +190,9 @@
 		var percent = Math.min(100, Math.max(0, (audio.currentTime / audio.duration) * 100));
 		bar.style.width = percent.toFixed(2) + '%';
 		progress.setAttribute('aria-valuenow', String(Math.round(percent)));
+	});
+	audio.addEventListener('error', function () {
+		setPlaying(false);
 	});
 
 	function seek(event) {
@@ -157,43 +216,8 @@
 		}
 	});
 
-	if (qqBtn && qq) {
-		var qqFrame = qq.querySelector('[data-qq-frame]');
-		var qqUrl = qqBtn.getAttribute('data-qq-url');
-
-		var closeQQ = function () {
-			qq.classList.remove('is-open');
-			qq.setAttribute('aria-hidden', 'true');
-			document.body.classList.remove('music-qq-open');
-		};
-
-		qqBtn.addEventListener('click', function () {
-			if (window.matchMedia('(max-width: 720px)').matches) {
-				window.open(qqUrl, '_blank', 'noopener');
-				return;
-			}
-			if (qqFrame && !qqFrame.getAttribute('src')) {
-				qqFrame.src = qqFrame.getAttribute('data-src');
-			}
-			qq.classList.add('is-open');
-			qq.setAttribute('aria-hidden', 'false');
-			document.body.classList.add('music-qq-open');
-			audio.pause();
-		});
-
-		qq.querySelectorAll('[data-qq-close]').forEach(function (el) {
-			el.addEventListener('click', closeQQ);
-		});
-
-		document.addEventListener('keydown', function (event) {
-			if (event.key === 'Escape') {
-				closeQQ();
-			}
-		});
-	}
-
-	// Set the first title without fetching the audio file yet.
-	var first = track(0);
-	titleEl.textContent = first.title;
-	artistEl.textContent = first.artist;
+	// Initial metadata without fetching audio until the user presses play.
+	var first = track(index);
+	setMeta(first);
+	setActive(index);
 }());
