@@ -75,6 +75,7 @@ function nanocat_music_player() {
 	}
 
 	$first  = reset( $tracks );
+	$qq_url = get_theme_mod( 'nanocat_qq_playlist', '' );
 	$labels = array(
 		'prev'  => __( '上一首', 'nanocat' ),
 		'play'  => __( '播放', 'nanocat' ),
@@ -101,6 +102,11 @@ function nanocat_music_player() {
 				<button class="music-player__btn" type="button" data-player-next aria-label="<?php echo esc_attr( $labels['next'] ); ?>">
 					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h2v14h-2zM5 5v14l10-7z"></path></svg>
 				</button>
+				<?php if ( $qq_url ) : ?>
+					<button class="music-player__btn" type="button" data-player-qq data-qq-url="<?php echo esc_url( $qq_url ); ?>" aria-label="<?php esc_attr_e( 'QQ 音乐歌单', 'nanocat' ); ?>">
+						<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l10-2v12a3 3 0 1 1-2-2.83V8.5L11 10v8a3 3 0 1 1-2-2.83z"></path></svg>
+					</button>
+				<?php endif; ?>
 				<button class="music-player__btn" type="button" data-player-list aria-label="<?php echo esc_attr( $labels['list'] ); ?>" aria-expanded="false">
 					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v2H4zM4 11h10v2H4zM4 16h16v2H4z"></path></svg>
 				</button>
@@ -129,6 +135,24 @@ function nanocat_music_player() {
 
 		<audio preload="metadata"></audio>
 	</div>
+
+	<?php if ( $qq_url ) : ?>
+		<div id="nanocat-qq" class="music-qq" aria-hidden="true">
+			<div class="music-qq__backdrop" data-qq-close></div>
+			<div class="music-qq__panel" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'QQ 音乐歌单', 'nanocat' ); ?>">
+				<header class="music-qq__head">
+					<span><?php esc_html_e( 'QQ 音乐歌单', 'nanocat' ); ?></span>
+					<button class="music-qq__close" type="button" data-qq-close aria-label="<?php esc_attr_e( '关闭', 'nanocat' ); ?>">×</button>
+				</header>
+				<div class="music-qq__frame">
+					<iframe data-qq-frame data-src="<?php echo esc_url( $qq_url ); ?>" title="<?php esc_attr_e( 'QQ 音乐歌单', 'nanocat' ); ?>" loading="lazy" allow="autoplay; encrypted-media"></iframe>
+				</div>
+				<footer class="music-qq__foot">
+					<a href="<?php echo esc_url( $qq_url ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( '在 QQ 音乐打开 ↗', 'nanocat' ); ?></a>
+				</footer>
+			</div>
+		</div>
+	<?php endif; ?>
 	<?php
 }
 add_action( 'wp_footer', 'nanocat_music_player', 5 );

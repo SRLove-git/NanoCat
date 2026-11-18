@@ -15,6 +15,8 @@
 	var nextBtn = root.querySelector('[data-player-next]');
 	var listBtn = root.querySelector('[data-player-list]');
 	var panel = root.querySelector('.music-player__playlist');
+	var qqBtn = root.querySelector('[data-player-qq]');
+	var qq = document.getElementById('nanocat-qq');
 	var progress = root.querySelector('[data-player-progress]');
 	var bar = progress ? progress.querySelector('span') : null;
 
@@ -154,6 +156,41 @@
 			audio.currentTime = Math.max(0, audio.currentTime - 5);
 		}
 	});
+
+	if (qqBtn && qq) {
+		var qqFrame = qq.querySelector('[data-qq-frame]');
+		var qqUrl = qqBtn.getAttribute('data-qq-url');
+
+		var closeQQ = function () {
+			qq.classList.remove('is-open');
+			qq.setAttribute('aria-hidden', 'true');
+			document.body.classList.remove('music-qq-open');
+		};
+
+		qqBtn.addEventListener('click', function () {
+			if (window.matchMedia('(max-width: 720px)').matches) {
+				window.open(qqUrl, '_blank', 'noopener');
+				return;
+			}
+			if (qqFrame && !qqFrame.getAttribute('src')) {
+				qqFrame.src = qqFrame.getAttribute('data-src');
+			}
+			qq.classList.add('is-open');
+			qq.setAttribute('aria-hidden', 'false');
+			document.body.classList.add('music-qq-open');
+			audio.pause();
+		});
+
+		qq.querySelectorAll('[data-qq-close]').forEach(function (el) {
+			el.addEventListener('click', closeQQ);
+		});
+
+		document.addEventListener('keydown', function (event) {
+			if (event.key === 'Escape') {
+				closeQQ();
+			}
+		});
+	}
 
 	// Set the first title without fetching the audio file yet.
 	var first = track(0);
