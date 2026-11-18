@@ -90,12 +90,11 @@ add_filter( 'nanocat_music_tracks', function ( $tracks ) {
 - `nanocat_social_email`
 - RSS 始终显示
 
+默认值写在 `inc/template-tags.php` 的 `nanocat_get_defaults()`，也可以在「外观 → 自定义 → NanoCat 主题选项」里改。
+
 页脚备案号在「外观 → 自定义 → 页脚 → 备案号」里填写，显示在版权行，点击跳到工信部备案系统。
 
 建站日期在「外观 → 自定义 → 页脚 → 建站日期」里设置，页脚会自动算出一行「小站已经平平安安运行 N 天啦，猫猫一直在 ♥」的小徽章。
-
-
-默认值写在 `inc/template-tags.php` 的 `nanocat_get_defaults()`，也可以在「外观 → 自定义 → NanoCat 主题选项」里改。
 
 ### 状态页
 
