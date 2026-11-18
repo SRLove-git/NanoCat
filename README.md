@@ -60,11 +60,24 @@
 
 ### 全局歌单（网易云）
 
-- 左下角固定玻璃播放器，当前接入网易云歌单「2026爆火全网的歌曲 持续更新」（ID `4982340006`）。
-- 点击播放键或列表键，桌面和手机都打开站内玻璃浮层，内嵌网易云官方外链播放器。
-- 未登录 / 非 VIP 只能试听，登录网易云或 VIP 可以站内听完整版；播放控制由网易云官方播放器负责。
-- 播放器放在 `#swup` 之外，浮层关掉后 iframe 不会重建，音乐可以继续。
-- 歌单链接和标题在「外观 → 自定义 → 页脚 → 网易云歌单链接 / 网易云歌单名称」里改。
+- 左下角是**直接播放**的玻璃播放器，不弹浮层、不跳网易云。
+- 曲库来自网易云歌单「2026爆火全网的歌曲 持续更新」（ID `4982340006`）中**能直链的 67 首免费曲**。
+- 歌单共 200 首，其中 133 首是 VIP / 付费曲，无法直接取音频，因此没有导入。
+- 支持播放暂停、上一首、下一首、进度点击、播放列表；唱片旋转。
+- 放在 `#swup` 之外，Swup 切页时音乐不断。
+- 不自动播放，首次点击播放后才加载音频。
+- 歌单数据在 `inc/player.php`，也可以用 `nanocat_music_tracks` filter 替换：
+
+```php
+add_filter( 'nanocat_music_tracks', function ( $tracks ) {
+    $tracks[] = array(
+        'title'  => '我的歌',
+        'artist' => '我',
+        'src'    => 'https://example.com/song.mp3',
+    );
+    return $tracks;
+} );
+```
 
 ### 社交
 
@@ -131,8 +144,8 @@ assets/css/vivia.css      Vivia 玻璃皮肤与所有页面样式
 assets/js/main.js         交互、目录、代码复制、分享
 assets/js/ai.js           AI 对话 / 伴读
 assets/js/swup-init.js    Swup 导航与页面级重初始化
-assets/js/player.js       网易云歌单浮层与左下角入口
-inc/player.php            网易云歌单入口与浮层
+assets/js/player.js       左下角直接播放器
+inc/player.php            歌单数据与播放器标记
 assets/js/vendor/swup/    Swup 4 + head / body-class / preload 插件
 inc/status.php            状态探测、历史与报告
 inc/links.php             友链健康与 RSS 聚合
@@ -169,6 +182,6 @@ single-nanocat_wiki.php   Wiki 文档页
 - 友链改为宽卡片并显示最近 3 篇 RSS，按更新时间排序。
 - Wiki / 专栏改为文章式行列表；详情页统一玻璃面板。
 - 新增随机壁纸、Sakana、加载屏、页脚胶囊与四社交图标。
-- 左下角新增网易云歌单入口与官方播放器浮层。
+- 左下角新增 67 首网易云免费曲的直接播放器。
 - 页脚支持可配置的 ICP 备案号与可爱的「安全运行 N 天」徽章。
 - 壁纸全部改到本地，Sakana 提前挂载并盖过加载屏，减少等待。

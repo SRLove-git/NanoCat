@@ -259,42 +259,6 @@ function nanocat_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting(
-		'nanocat_netease_playlist',
-		array(
-			'default'           => '',
-			'sanitize_callback' => 'esc_url_raw',
-		)
-	);
-
-	$wp_customize->add_control(
-		'nanocat_netease_playlist',
-		array(
-			'label'       => __( '网易云歌单链接', 'nanocat' ),
-			'description' => __( '例如 https://music.163.com/#/playlist?id=4982340006；桌面和手机都打开站内浮层。', 'nanocat' ),
-			'section'     => 'nanocat_footer_section',
-			'type'        => 'url',
-		)
-	);
-
-	$wp_customize->add_setting(
-		'nanocat_netease_playlist_title',
-		array(
-			'default'           => __( '网易云音乐歌单', 'nanocat' ),
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
-
-	$wp_customize->add_control(
-		'nanocat_netease_playlist_title',
-		array(
-			'label'       => __( '网易云歌单名称', 'nanocat' ),
-			'description' => __( '显示在左下角播放器和浮层标题。', 'nanocat' ),
-			'section'     => 'nanocat_footer_section',
-			'type'        => 'text',
-		)
-	);
-
-	$wp_customize->add_setting(
 		'nanocat_launch_date',
 		array(
 			'default'           => nanocat_get_default( 'launch_date' ),
