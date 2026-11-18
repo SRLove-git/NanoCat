@@ -3218,3 +3218,49 @@ html[data-theme="light"] .site-footer {
 		font-size: 0.7rem;
 	}
 }
+
+/* ICP on the left, copyright on the right */
+.site-footer .footer-bottom.has-icp {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	align-items: center;
+	gap: 20px;
+}
+
+.site-footer .footer-bottom.has-icp .footer-icp {
+	justify-self: start;
+}
+
+.site-footer .footer-bottom.has-icp .footer-meta {
+	align-items: flex-end;
+	justify-self: end;
+	text-align: right;
+}
+
+.footer-divider {
+	display: block;
+	justify-self: center;
+	width: 1px;
+	height: 30px;
+	background: rgba(255, 255, 255, 0.14);
+}
+
+@media (max-width: 640px) {
+	.site-footer .footer-bottom.has-icp {
+		grid-template-columns: minmax(0, 1fr);
+		justify-items: center;
+		gap: 10px;
+	}
+
+	.site-footer .footer-bottom.has-icp .footer-icp,
+	.site-footer .footer-bottom.has-icp .footer-meta {
+		justify-self: center;
+		text-align: center;
+		align-items: center;
+	}
+
+	.footer-divider {
+		width: 56px;
+		height: 1px;
+	}
+}
