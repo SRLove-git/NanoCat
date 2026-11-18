@@ -58,6 +58,25 @@
 - 每个友链有 RSS 图标，页面右上角有「订阅本站 RSS」。
 - 不可达的 feed 会自动隐藏图标，避免点开 404。
 
+### 全局歌单
+
+- 左下角固定玻璃播放器，3 首本地氛围音：夜航 / 窗边的猫 / 雨后的服务器。
+- 支持上一首、播放暂停、下一首、进度点击、播放列表；唱片旋转，进度条实时走。
+- 放在 `#swup` 之外，Swup 切页时音乐不断、播放器不重建。
+- 不自动播放；首次点击播放后才加载音频文件。
+- 用 `nanocat_music_tracks` filter 可以替换歌单：
+
+```php
+add_filter( 'nanocat_music_tracks', function ( $tracks ) {
+    $tracks[] = array(
+        'title'  => '我的歌',
+        'artist' => '我',
+        'src'    => 'https://example.com/song.mp3',
+    );
+    return $tracks;
+} );
+```
+
 ### 社交
 
 侧栏资料卡读取 Customizer 设置：
@@ -124,6 +143,9 @@ assets/css/vivia.css      Vivia 玻璃皮肤与所有页面样式
 assets/js/main.js         交互、目录、代码复制、分享
 assets/js/ai.js           AI 对话 / 伴读
 assets/js/swup-init.js    Swup 导航与页面级重初始化
+assets/js/player.js       左下角歌单播放器
+assets/audio/             本地氛围音（3 首 MP3）
+inc/player.php            歌单数据、脚本与播放器标记
 assets/js/vendor/swup/    Swup 4 + head / body-class / preload 插件
 inc/status.php            状态探测、历史与报告
 inc/links.php             友链健康与 RSS 聚合
@@ -147,6 +169,7 @@ single-nanocat_wiki.php   Wiki 文档页
 
 - 主题代码：GPLv2 or later。
 - 本地壁纸收集自随机图源，版权归原作者；公开发布或商用前请替换为自己的授权图片。
+- `assets/audio/` 的三首氛围音由本项目生成，可随主题一起分发。
 - Sakana Widget 与角色图已自托管（角色图内嵌在本地 JS 中），不请求外部 CDN；角色版权归原画师。
 - `assets/images/rose-girl.jpg` 与 `vivia-bg.jpg` 为站点自用素材；分发主题时请替换。
 
@@ -160,5 +183,6 @@ single-nanocat_wiki.php   Wiki 文档页
 - 友链改为宽卡片并显示最近 3 篇 RSS，按更新时间排序。
 - Wiki / 专栏改为文章式行列表；详情页统一玻璃面板。
 - 新增随机壁纸、Sakana、加载屏、页脚胶囊与四社交图标。
+- 左下角新增全局歌单播放器（3 首本地氛围音，切页不断播）。
 - 页脚支持可配置的 ICP 备案号与可爱的「安全运行 N 天」徽章。
 - 壁纸全部改到本地，Sakana 提前挂载并盖过加载屏，减少等待。
