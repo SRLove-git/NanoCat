@@ -259,6 +259,24 @@ function nanocat_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting(
+		'nanocat_launch_date',
+		array(
+			'default'           => nanocat_get_default( 'launch_date' ),
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_control(
+		'nanocat_launch_date',
+		array(
+			'label'       => __( '建站日期', 'nanocat' ),
+			'description' => __( '格式 YYYY-MM-DD，用于页脚「小站已经平安运行多少天」。', 'nanocat' ),
+			'section'     => 'nanocat_footer_section',
+			'type'        => 'text',
+		)
+	);
+
+	$wp_customize->add_setting(
 		'nanocat_footer_icp',
 		array(
 			'default'           => '',

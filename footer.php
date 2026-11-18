@@ -68,8 +68,35 @@ $nanocat_footer_text        = get_theme_mod( 'nanocat_footer_text', nanocat_get_
 		</div>
 	</div>
 
-	<?php $nanocat_footer_icp = get_theme_mod( 'nanocat_footer_icp', '' ); ?>
+	<?php
+	$nanocat_footer_icp = get_theme_mod( 'nanocat_footer_icp', '' );
+
+	$nanocat_launch_raw = get_theme_mod( 'nanocat_launch_date', nanocat_get_default( 'launch_date' ) );
+	$nanocat_timezone   = wp_timezone();
+	$nanocat_launch     = DateTimeImmutable::createFromFormat( '!Y-m-d', $nanocat_launch_raw, $nanocat_timezone );
+	if ( ! $nanocat_launch ) {
+		$nanocat_launch = new DateTimeImmutable( '2020-05-20', $nanocat_timezone );
+	}
+	$nanocat_days = (int) $nanocat_launch->diff( new DateTimeImmutable( 'today', $nanocat_timezone ) )->days + 1;
+	if ( $nanocat_days < 1 ) {
+		$nanocat_days = 1;
+	}
+	?>
 	<div class="container footer-bottom<?php echo $nanocat_footer_icp ? ' has-icp' : ''; ?>">
+		<p class="footer-uptime">
+			<span class="footer-uptime__dot" aria-hidden="true"></span>
+			<span>
+				<?php
+				printf(
+					/* translators: %s: number of days. */
+					esc_html__( '小站已经平平安安运行 %s 天啦，猫猫一直在', 'nanocat' ),
+					esc_html( number_format_i18n( $nanocat_days ) )
+				);
+				?>
+			</span>
+			<span class="footer-heart" aria-hidden="true">♥</span>
+		</p>
+
 		<div class="footer-meta">
 			<p class="footer-copyright">
 				<?php

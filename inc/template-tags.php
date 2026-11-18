@@ -30,6 +30,7 @@ function nanocat_get_defaults() {
 		'social_bilibili'     => 'https://space.bilibili.com/484402469',
 		'social_email'        => 'srlovecode@outlook.com',
 		'footer_text'         => '保持好奇，持续构建。',
+		'launch_date'          => '2020-05-20',
 	);
 
 	return apply_filters( 'nanocat_defaults', $defaults );
