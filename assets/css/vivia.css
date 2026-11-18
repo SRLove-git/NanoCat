@@ -3101,3 +3101,24 @@ html[data-theme="dark"] .flec-header .icon-button.search-toggle:hover {
 	width: 100%;
 	padding: 0;
 }
+
+/* Footer ICP filing */
+.site-footer .footer-icp {
+	color: var(--v-meta);
+	text-decoration: none;
+}
+
+.site-footer .footer-icp:hover {
+	color: var(--v-primary);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+	.site-footer .footer-bottom,
+	.site-footer .footer-copyright {
+		white-space: normal;
+		line-height: 1.85;
+		text-align: center;
+	}
+}

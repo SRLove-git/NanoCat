@@ -67,6 +67,9 @@
 - `nanocat_social_email`
 - RSS 始终显示
 
+页脚备案号在「外观 → 自定义 → 页脚 → 备案号」里填写，显示在版权行，点击跳到工信部备案系统。
+
+
 默认值写在 `inc/template-tags.php` 的 `nanocat_get_defaults()`，也可以在「外观 → 自定义 → NanoCat 主题选项」里改。
 
 ### 状态页
@@ -155,4 +158,5 @@ single-nanocat_wiki.php   Wiki 文档页
 - 友链改为宽卡片并显示最近 3 篇 RSS，按更新时间排序。
 - Wiki / 专栏改为文章式行列表；详情页统一玻璃面板。
 - 新增随机壁纸、Sakana、加载屏、页脚胶囊与四社交图标。
+- 页脚支持可配置的 ICP 备案号。
 - 壁纸全部改到本地，Sakana 提前挂载并盖过加载屏，减少等待。

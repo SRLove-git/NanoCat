@@ -257,5 +257,23 @@ function nanocat_customize_register( $wp_customize ) {
 			'type'        => 'text',
 		)
 	);
+
+	$wp_customize->add_setting(
+		'nanocat_footer_icp',
+		array(
+			'default'           => '',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_control(
+		'nanocat_footer_icp',
+		array(
+			'label'       => __( '备案号', 'nanocat' ),
+			'description' => __( '显示在页脚版权行，点击跳转工信部备案系统。例如：鲁ICP备2025180086号-1。', 'nanocat' ),
+			'section'     => 'nanocat_footer_section',
+			'type'        => 'text',
+		)
+	);
 }
 add_action( 'customize_register', 'nanocat_customize_register' );

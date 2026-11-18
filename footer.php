@@ -80,6 +80,15 @@ $nanocat_footer_text        = get_theme_mod( 'nanocat_footer_text', nanocat_get_
 			?>
 			<span class="footer-dot" aria-hidden="true">·</span>
 			<span><?php esc_html_e( '由 WordPress 驱动', 'nanocat' ); ?></span>
+			<?php
+			$nanocat_footer_icp = get_theme_mod( 'nanocat_footer_icp', '' );
+			if ( $nanocat_footer_icp ) :
+				?>
+				<span class="footer-dot" aria-hidden="true">·</span>
+				<a class="footer-icp" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer nofollow">
+					<?php echo esc_html( $nanocat_footer_icp ); ?>
+				</a>
+			<?php endif; ?>
 		</p>
 		<p class="footer-signature">
 			<span class="footer-prompt" aria-hidden="true">$ echo</span>
