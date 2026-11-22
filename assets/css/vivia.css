@@ -892,6 +892,7 @@ html[data-theme="dark"] .single .entry-hero {
 	.site-header.flec-header {
 		top: 8px;
 		width: calc(100% - 16px);
+		border-radius: var(--v-radius);
 	}
 }
 
