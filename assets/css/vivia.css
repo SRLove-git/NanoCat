@@ -3655,3 +3655,70 @@ html[data-theme="light"] .site-footer {
 		animation: none;
 	}
 }
+
+/* --------------------------------------------------------------------------
+ * Mobile TOC - a light disclosure row, not a heavy floating card
+ * ----------------------------------------------------------------------- */
+@media (max-width: 900px) {
+	.toc-mobile {
+		margin: 2px 0 20px;
+		background: transparent;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.toc-mobile summary {
+		justify-content: flex-start;
+		gap: 8px;
+		padding: 11px 2px;
+		border-top: 1px solid var(--v-border);
+		border-bottom: 1px solid var(--v-border);
+		color: var(--v-text);
+	}
+
+	.toc-mobile summary:focus-visible {
+		outline: 2px solid var(--v-primary);
+		outline-offset: 3px;
+	}
+
+	.toc-mobile__title {
+		gap: 7px;
+		font-size: 0.8rem;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+	}
+
+	.toc-mobile__title .icon {
+		color: var(--v-primary);
+	}
+
+	.toc-mobile__hint {
+		margin-left: auto;
+		color: var(--v-meta);
+		font-size: 0.6rem;
+		letter-spacing: 0.04em;
+	}
+
+	.toc-mobile summary::after {
+		width: 6px;
+		height: 6px;
+		margin: 0 2px 3px 4px;
+		border-right: 1.5px solid currentColor;
+		border-bottom: 1.5px solid currentColor;
+		transform: rotate(45deg);
+		transition: transform 180ms ease;
+		content: "";
+	}
+
+	.toc-mobile[open] summary::after {
+		margin-bottom: -2px;
+		transform: rotate(225deg);
+	}
+
+	.toc-mobile .toc-nav {
+		margin-top: 0;
+		padding: 9px 2px 14px;
+		border-bottom: 1px solid var(--v-border);
+	}
+}
