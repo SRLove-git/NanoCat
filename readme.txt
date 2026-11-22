@@ -3,7 +3,7 @@ Contributors: nanocat
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.5.0
+Stable tag: 3.5.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, right-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -55,6 +55,10 @@ NanoCat 把博客做成一个玻璃阅读室：固定随机壁纸、半透明磨
 主题每小时探测一次站内服务，历史保存在 option 中；打开页面或点刷新也会触发检测。
 
 == Changelog ==
+
+= 3.5.1 =
+* 移动端文章页先显示正文，侧栏的资料卡、分类和社交链接不再占据首屏。
+* 首页与内页在 ≤900px 隐藏右侧栏，阅读顺序更直接。
 
 = 3.5.0 =
 * 全站 Vivia 玻璃拟态与磨砂质感。

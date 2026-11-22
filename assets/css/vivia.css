@@ -1137,6 +1137,18 @@ html[data-theme="dark"] .single .entry-hero {
 	.vivia-page-grid > .flec-side {
 		position: static;
 	}
+
+	/*
+	 * Mobile reading order: the article/page comes first. The profile card,
+	 * categories and social links are secondary and should not push the
+	 * content below the fold.
+	 */
+	.vivia-page-grid > .flec-side,
+	.flec-layout > .flec-side,
+	.home-side,
+	.archive-library .home-side {
+		display: none;
+	}
 }
 
 /* Keep the sidebar in the first grid column on inner pages. */

@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'NANOCAT_VERSION' ) ) {
-	define( 'NANOCAT_VERSION', '3.5.0' );
+	define( 'NANOCAT_VERSION', '3.5.1' );
 }
 
 /**
@@ -578,5 +578,3 @@ require get_template_directory() . '/inc/status.php';
 require get_template_directory() . '/inc/player.php';
 require get_template_directory() . '/inc/content-admin.php';
 require get_template_directory() . '/inc/customizer.php';
-
-

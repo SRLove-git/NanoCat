@@ -2,7 +2,7 @@
 Theme Name: NanoCat
 Author: NanoCat
 Description: 一款玻璃拟态、二次元风的 WordPress 博客主题。1200px 栅格与 280px 侧栏、随机壁纸与磨砂玻璃、Sakana 角色、Swup 无刷新导航，并内置 AI 对话工作台、文章 AI 伴读、状态页、友链 RSS 聚合、专栏与 Wiki。
-Version: 3.5.0
+Version: 3.5.1
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -16,4 +16,3 @@ Tags: blog, one-column, two-columns, three-columns, right-sidebar, left-sidebar,
  * The compiled front-end styles live in assets/css/main.css.
  * This file exists for the WordPress theme header and is intentionally light.
  */
-
