@@ -206,11 +206,11 @@ function nanocat_refresh_link( $bookmark ) {
 	}
 
 	$health = nanocat_check_link_health( $bookmark->link_url );
-	set_transient( nanocat_link_health_key( $bookmark->link_url ), $health, 6 * HOUR_IN_SECONDS );
+	set_transient( nanocat_link_health_key( $bookmark->link_url ), $health, 12 * HOUR_IN_SECONDS );
 
 	if ( ! empty( $bookmark->link_rss ) ) {
 		$items = nanocat_fetch_feed_items( $bookmark->link_rss, 3 );
-		set_transient( nanocat_link_feed_key( $bookmark->link_rss ), $items, HOUR_IN_SECONDS );
+		set_transient( nanocat_link_feed_key( $bookmark->link_rss ), $items, 12 * HOUR_IN_SECONDS );
 		set_transient( 'nanocat_feed_ok_' . md5( $bookmark->link_rss ), $items ? 'yes' : 'no', 7 * DAY_IN_SECONDS );
 	}
 
