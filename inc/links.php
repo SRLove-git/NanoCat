@@ -169,9 +169,19 @@ function nanocat_fetch_feed_items( $url, $limit = 3 ) {
 		}
 
 		$timestamp = (int) $item->get_date( 'U' );
+		$permalink = esc_url_raw( (string) $item->get_permalink() );
+		$feed_host = wp_parse_url( $url, PHP_URL_HOST );
+		$item_host = wp_parse_url( $permalink, PHP_URL_HOST );
+
+		// A friend may still publish item links with their old IP after moving to a domain.
+		if ( $feed_host && $item_host && filter_var( $item_host, FILTER_VALIDATE_IP ) && ! filter_var( $feed_host, FILTER_VALIDATE_IP ) ) {
+			$scheme    = wp_parse_url( $url, PHP_URL_SCHEME ) ?: 'http';
+			$permalink = preg_replace( '#^https?://' . preg_quote( $item_host, '#' ) . '#i', $scheme . '://' . $feed_host, $permalink );
+		}
+
 		$items[]   = array(
 			'title'     => wp_strip_all_tags( (string) $item->get_title() ),
-			'permalink' => esc_url_raw( (string) $item->get_permalink() ),
+			'permalink' => $permalink,
 			'date'      => $timestamp ? wp_date( get_option( 'date_format' ), $timestamp ) : '',
 			'timestamp' => $timestamp,
 		);
